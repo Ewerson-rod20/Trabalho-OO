@@ -6,7 +6,7 @@ package ufjf.dcc025.trabalho.semnome;
  */
 
 public class Master {
-    public void main(String[] args){
+    public static void main(String[] args){
         
     }
 }
