@@ -18,7 +18,7 @@
                 <configuration>
                     <archive>
                         <manifest>
-                            <mainClass>ufjf.dcc025.trabalho.semnome.Master</mainClass>
+                            <mainClass>ufjf.dcc025.trabalho.semnome.Main</mainClass>
                         </manifest>
                     </archive>
                     <descriptorRefs>
