@@ -1,7 +1,7 @@
 
 package ufjf.dcc025.trabalho.semnome;
 
-public class Character {
+public class Personagem {
     
     private String nome;         // Nome do personagem;
     private int classe;          // Classe do personagem;
@@ -15,7 +15,7 @@ public class Character {
 //-----------------------------------------------------------------------------------------------------------------
 // Constructor;
     
-    public Character(int classe){
+    public Personagem(int classe){
         this.classe = classe;
     }
     
