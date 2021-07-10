@@ -14,21 +14,22 @@ Repositório criado para o trabalho da disciplina DCC025 - Orientação a Objeto
 4: Pontos de atributos para vida, atk, defesa, agilidade...
 
 5: Sistema de economia
- -----------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 CLASSES:
-1 - Jogador
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+1 - Jogador:
     - Nome(Nick) - Login
     - Senha
     - Personagem
     - Criar Personagem () {}
     - Excluir Personagem () {}
 
-2 - Login
+2 - Login:
     - Lista de Jogadores
     - Criar Jogador () {}
     - Excluir Jogador () {}
 
-3 - Personagem
+3 - Personagem:
     - Classe // (MAGO - CAVALEIRO - ASSASSINO) - Interfere nos atributos
     - Nome personagem
     - Vida
@@ -38,14 +39,14 @@ CLASSES:
     - Conhecimento
     - PntAtributos (pnt pra aumentar os outros atributos) - 5 iniciais e ganha nas lutas
 
-4 - Combate (em turnos)
+4 - Combate (em turnos):
     - QuemInicia () {}
     - Ataque () {}
     - Defesa () {}
     - Modificador atk // qnt de acordo com a classe
     - Modificador dfs // qnt de acordo com a classe
 
-5 - Master(menu)
+5 - Master(menu):
     - Login j1 () {}
     - Login j2 () {}
     - Cadastro () {}
