@@ -1,14 +1,6 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package ufjf.dcc025.trabalho.semnome;
 
-/**
- *
- * @author Bonorino
- */
 public class Combate {
     
     protected int modificadorAtaque; // Quantidade de modificadores de ataque restantes 
