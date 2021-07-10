@@ -3,17 +3,35 @@ package ufjf.dcc025.trabalho.semnome;
 
 public class Character {
     
-    private int classe; // Classe do guerreiro;
-    private int atkR;   // Ataque rápido;
-    private int atkL;   // Ataque lento;
-    private int def;    // Defesa;
+    private String nome;         // Nome do personagem;
+    private int classe;          // Classe do personagem;
+    private int vida;            // Vida do personagem;
+    private int atkR;            // Ataque rápido/fraco;
+    private int atkL;            // Ataque lento/forte;
+    private int def;             // Defesa;
+    private int conhecimento;    // Pontos de conhecimento;
+    private int pontosAtributos; // Pontos para aumentar os atributos (vida, atk, def e conhecimento) do personagem;
     
-    public Character(){
-        
+//-----------------------------------------------------------------------------------------------------------------
+// Constructor;
+    
+    public Character(int classe){
+        this.classe = classe;
+    }
+    
+//-----------------------------------------------------------------------------------------------------------------
+// Métodos geteres;
+    
+    protected String getNome(){
+        return this.nome;
     }
     
     protected int getClasse(){
         return this.classe;
+    }
+    
+    protected int getVida(){
+        return this.vida;
     }
     
     protected int getAtkR(){
@@ -28,19 +46,11 @@ public class Character {
         return this.def;
     }
     
-    protected void setClasse(int classe){
-        this.classe = classe;
+    protected int getConhecimento(){
+        return this.conhecimento;
     }
     
-    protected void setAtkR(int atkR){
-        this.atkR = atkR;
-    }
-    
-    protected void setAtkL(int atkL){
-        this.atkL = atkL;
-    }
-    
-    protected void setDef(int def){
-        this.def = def;
+     protected int getPntsAtributos(){
+        return this.pontosAtributos;
     }
 }
