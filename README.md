@@ -1,5 +1,10 @@
 # Trabalho-OO
 Repositório criado para o trabalho da disciplina DCC025 - Orientação a Objetos.
+Grupo:
+
+** A1** - 20...
+** A2 ** - 2020...
+ ** Ewerson ** - 2019....
 
 
 1: Jogo de luta
