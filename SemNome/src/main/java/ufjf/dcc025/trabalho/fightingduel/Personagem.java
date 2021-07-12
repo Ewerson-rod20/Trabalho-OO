@@ -1,6 +1,8 @@
 
-package ufjf.dcc025.trabalho.semnome;
-
+package ufjf.dcc025.trabalho.fightingduel;
+/**
+ * @author Daniel Muller Rezende (202065020A)
+ */
 public class Personagem {
     
     private String nome;         // Nome do personagem;

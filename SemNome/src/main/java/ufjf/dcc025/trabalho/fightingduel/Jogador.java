@@ -1,4 +1,4 @@
-package ufjf.dcc025.trabalho.semnome;
+package ufjf.dcc025.trabalho.fightingduel;
 
 import java.util.Scanner;
 /**

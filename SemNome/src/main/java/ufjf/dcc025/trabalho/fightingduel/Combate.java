@@ -1,5 +1,5 @@
 
-package ufjf.dcc025.trabalho.semnome;
+package ufjf.dcc025.trabalho.fightingduel;
 
 public class Combate {
     
