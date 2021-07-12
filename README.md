@@ -1,7 +1,7 @@
 # Trabalho-OO
 Repositório criado para o trabalho da disciplina DCC025 - Orientação a Objetos.
 
-O arquivo de README serve para os alunos responsáveis pelo projeto se organizem.
+O arquivo de README serve para os alunos responsáveis pelo projeto se organizarem.
 
 1: Jogo de luta
 	1.1: Batalha em perspectiva (tipo pokemon) ou 2D (a ser decidido)
