@@ -1,6 +1,8 @@
 
 package ufjf.dcc025.trabalho.fightingduel;
-
+/**
+ * @author Pedro Luiz Bonorino Braga (202065177A)
+ */
 public class Combate {
     
     protected int modificadorAtaque; // Quantidade de modificadores de ataque restantes 
