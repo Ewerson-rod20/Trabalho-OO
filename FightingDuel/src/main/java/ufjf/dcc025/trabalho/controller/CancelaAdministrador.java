@@ -5,10 +5,17 @@
  */
 package ufjf.dcc025.trabalho.controller;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author danie
  */
-public class CancelaAdministrador {
-    
+public class CancelaAdministrador implements ActionListener{
+    @Override
+    public void actionPerformed(ActionEvent ae) {
+        JOptionPane.showMessageDialog(null, "Cadastro cancelado!");
+    }
 }
