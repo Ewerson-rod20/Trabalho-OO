@@ -103,6 +103,7 @@ public class AdministradorGUI {
 
     }
 
+    // Getteres ----------------------------------------------------------------
     public JTextField getTfNome() {
         return tfNome;
     }
