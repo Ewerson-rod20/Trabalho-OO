@@ -5,10 +5,22 @@
  */
 package ufjf.dcc025.trabalho.model;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  *
  * @author danie
  */
 public class Dados {
     
+    public static List<Administrador> administradores;
+    public static List<Jogador> jogadores;
+    public static List<Organizador> organizadores;
+    
+    static{
+        administradores = new ArrayList<>();
+        jogadores = new ArrayList<>();
+        organizadores = new ArrayList<>();
+    }
 }

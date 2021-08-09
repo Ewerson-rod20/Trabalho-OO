@@ -6,61 +6,69 @@ import java.util.Scanner;
  */
 public class Jogador {
     
-    private Scanner teclado = new Scanner(System.in);
+    String nome;
+    String dataNascimento;
+    String email;
+    String senha;
+    Personagem personagem;
     
-    private String nomeJogador,  // variável que armazena o nome do jogador
-                   senhaJogador; // variável que armazena a senha do jogador
-    
-    private static int numPersonagens;  // variável que armazena o número de personagens que o jogador já possui
-        
-    
-    public Jogador(){ // Construtor da classe Jogador:
-        
-        numPersonagens = 0;
-                
-        System.out.println("Informe o nome do jogador: ");
-        this.nomeJogador = teclado.nextLine();
-        
-        System.out.println("Informe a senha: ");
-        this.senhaJogador = teclado.nextLine();
-        
-        
+    // Construtores ------------------------------------------------------------
+    public Jogador(){
+        this.nome = null;
+        this.dataNascimento = null;
+        this.email = null;
+        this.senha = null;
+        this.personagem = null;
     }
     
-    public void criarPersonagem(){ // Método para criar um personagem
-                
-        if (numPersonagens == 3) {
-            System.out.println("Você possui o número máximo de personagens.");
-            return;
-        }
-        else if (numPersonagens == 0) {
-            Personagem p1;
-            numPersonagens++;
-        }
-        else if (numPersonagens == 1) {
-            Personagem p2;
-            numPersonagens++;
-        }
-        else if (numPersonagens == 2) {
-            Personagem p3;
-            numPersonagens++;
-        }
+    public Jogador(String nome, String nascimento, String email, String senha, Personagem personagem){
+        this.nome = nome;
+        this.dataNascimento = nascimento;
+        this.email = email;
+        this.senha = senha;
+        this.personagem = personagem;
     }
     
-    public void excluirPersonagem() { // Método para excluir um personagem
-        
-        if (numPersonagens == 0) {
-            System.out.println("Você não possui nenhum personagem.");
-        }
-        else if (numPersonagens == 3) {
-            numPersonagens--;
-        }
-        else if (numPersonagens == 2) {
-            numPersonagens--;
-        }
-        else if (numPersonagens == 1) {
-            numPersonagens--;
-        }
-            
+    // Getteres ----------------------------------------------------------------
+    public String getNome() {
+        return nome;
     }
+
+    public String getDataNascimento() {
+        return dataNascimento;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public String getSenha() {
+        return senha;
+    }
+    
+    public Personagem getPersonagem(){
+        return personagem;
+    }
+    
+    // Setteres ----------------------------------------------------------------
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public void setDataNascimento(String dataNascimento) {
+        this.dataNascimento = dataNascimento;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public void setSenha(String senha) {
+        this.senha = senha;
+    }
+    
+    public void setPersonagem(Personagem personagem){
+        this.personagem = personagem;
+    }
+    
 }
