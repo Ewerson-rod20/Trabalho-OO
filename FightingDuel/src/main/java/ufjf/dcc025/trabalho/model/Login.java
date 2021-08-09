@@ -1,5 +1,5 @@
 
-package ufjf.dcc025.trabalho.fightingduel;
+package ufjf.dcc025.trabalho.model;
 /**
  * @author Ewerson dos Santos Rodrigues (201965029AB)
  */

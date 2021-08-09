@@ -1,5 +1,5 @@
 
-package ufjf.dcc025.trabalho.fightingduel;
+package ufjf.dcc025.trabalho.model;
 /**
  * @author Daniel Muller Rezende (202065020A)
  */

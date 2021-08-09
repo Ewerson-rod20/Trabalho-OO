@@ -1,5 +1,5 @@
 
-package ufjf.dcc025.trabalho.fightingduel;
+package ufjf.dcc025.trabalho.model;
 /**
  * @author Pedro Luiz Bonorino Braga (202065177A)
  */

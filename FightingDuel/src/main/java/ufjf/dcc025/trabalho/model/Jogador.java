@@ -1,4 +1,4 @@
-package ufjf.dcc025.trabalho.fightingduel;
+package ufjf.dcc025.trabalho.model;
 
 import java.util.Scanner;
 /**
