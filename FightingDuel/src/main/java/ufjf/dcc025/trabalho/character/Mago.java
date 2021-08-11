@@ -11,4 +11,8 @@ package ufjf.dcc025.trabalho.character;
  */
 public class Mago extends ClassePersonagem{
     
+    // Construtor --------------------------------------------------------------
+    public Mago(int ataque1, int ataque2, int ataque3) {
+        super(ataque1, ataque2, ataque3);
+    }   
 }
