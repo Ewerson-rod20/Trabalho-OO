@@ -5,6 +5,9 @@
  */
 package ufjf.dcc025.trabalho.model;
 
+import ufjf.dcc025.trabalho.users.Organizador;
+import ufjf.dcc025.trabalho.users.Jogador;
+import ufjf.dcc025.trabalho.users.Administrador;
 import java.util.ArrayList;
 import java.util.List;
 

@@ -1,8 +1,5 @@
 
-package ufjf.dcc025.trabalho.model;
-
-import java.util.ArrayList;
-import java.util.List;
+package ufjf.dcc025.trabalho.character;
 
 /**
  * @author Daniel Muller Rezende (202065020A)
@@ -19,8 +16,6 @@ public class Personagem {
     
     public Personagem(int classe){
         this.classe = classe;
-        
-        // Define o conjunto de ataques de acordo com sua classe;
         
     }
     

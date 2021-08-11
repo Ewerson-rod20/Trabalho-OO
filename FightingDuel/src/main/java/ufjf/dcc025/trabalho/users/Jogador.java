@@ -1,6 +1,7 @@
-package ufjf.dcc025.trabalho.model;
+package ufjf.dcc025.trabalho.users;
 
 import java.util.Scanner;
+import ufjf.dcc025.trabalho.character.Personagem;
 /**
  * @author Vitor Fernandes Reis (202065096A)
  */

@@ -3,13 +3,13 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package ufjf.dcc025.trabalho.model;
+package ufjf.dcc025.trabalho.users;
 
 /**
  *
  * @author danie
  */
-public class Administrador {
+public class Organizador {
     
     String nome;
     String cpf;
@@ -18,7 +18,7 @@ public class Administrador {
     String senha;
     
     // Construtores ------------------------------------------------------------
-    public Administrador(){
+    public Organizador(){
         this.nome = null;
         this.cpf = null;
         this.dataNascimento = null;
@@ -26,7 +26,7 @@ public class Administrador {
         this.senha = null;
     }
     
-    public Administrador(String nome, String cpf, String nascimento, String email, String senha){
+    public Organizador(String nome, String cpf, String nascimento, String email, String senha){
         this.nome = nome;
         this.cpf = cpf;
         this.dataNascimento = nascimento;

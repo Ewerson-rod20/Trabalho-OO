@@ -6,7 +6,7 @@
 package ufjf.dcc025.trabalho.controller;
 
 import ufjf.dcc025.trabalho.view.JogadorGUI;
-import ufjf.dcc025.trabalho.model.Jogador;
+import ufjf.dcc025.trabalho.users.Jogador;
 import ufjf.dcc025.trabalho.model.Dados;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;

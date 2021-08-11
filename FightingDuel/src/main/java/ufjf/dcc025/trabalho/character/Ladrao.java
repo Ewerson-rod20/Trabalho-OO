@@ -3,12 +3,14 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package ufjf.dcc025.trabalho.model;
+package ufjf.dcc025.trabalho.character;
+
+import ufjf.dcc025.trabalho.character.Personagem;
 
 /**
  *
  * @author danie
  */
-public class Mago extends Personagem{
+public class Ladrao {
     
 }

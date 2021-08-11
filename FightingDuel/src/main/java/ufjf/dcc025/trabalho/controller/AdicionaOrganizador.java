@@ -6,7 +6,7 @@
 package ufjf.dcc025.trabalho.controller;
 
 import ufjf.dcc025.trabalho.view.OrganizadorGUI;
-import ufjf.dcc025.trabalho.model.Organizador;
+import ufjf.dcc025.trabalho.users.Organizador;
 import ufjf.dcc025.trabalho.model.Dados;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
