@@ -3,12 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package ufjf.dcc025.trabalho.view;
+package ufjf.dcc025.trabalho.screens;
 
 /**
  *
  * @author danie
  */
-public class CombateGUI {
+public class TelaCombate {
     
 }
