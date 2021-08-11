@@ -6,15 +6,15 @@ package ufjf.dcc025.trabalho.character;
  */
 public class Personagem {
     
-    private String nome;            // Nome do personagem;
-    private int classe;             // Classe do personagem;
-    private int vida;               // Vida do personagem;
-    private int nivel;              // Nível do personagem;
+    private String nome;             // Nome do personagem;
+    private ClassePersonagem classe; // Classe do personagem;
+    private int vida;                // Vida do personagem;
+    private int nivel;               // Nível do personagem;
     
     
 // Construtor ------------------------------------------------------------------
     
-    public Personagem(int classe){
+    public Personagem(ClassePersonagem classe){
         this.classe = classe;
         
     }
