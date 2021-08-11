@@ -5,12 +5,15 @@
  */
 package ufjf.dcc025.trabalho.character;
 
-import ufjf.dcc025.trabalho.character.Personagem;
-
 /**
  *
  * @author danie
  */
-public class Mago{
+public class Mago extends ClassePersonagem{
+
+    public Mago(int ataque1, int ataque2, int ataque3) {
+        super(ataque1, ataque2, ataque3);
+    }
+    
     
 }

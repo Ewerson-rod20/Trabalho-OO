@@ -5,12 +5,14 @@
  */
 package ufjf.dcc025.trabalho.character;
 
-import ufjf.dcc025.trabalho.character.Personagem;
-
 /**
  *
  * @author danie
  */
-public class Ladrao {
-    
+public class Ladrao extends ClassePersonagem{
+
+    // Construtor --------------------------------------------------------------
+    public Ladrao(int ataque1, int ataque2, int ataque3) {
+        super(ataque1, ataque2, ataque3);
+    }
 }
