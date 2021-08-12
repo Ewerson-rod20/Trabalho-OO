@@ -12,6 +12,8 @@ package ufjf.dcc025.trabalho.character;
 public class ClassePersonagem {
     
     // Atributos ---------------------------------------------------------------
+     private int vida;
+     
     // Atributos do ataque 1:
     private String nome1;
     private int ataque1;

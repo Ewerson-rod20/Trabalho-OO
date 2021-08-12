@@ -12,12 +12,45 @@ public class Personagem {
     private int nivel;               // Nível do personagem;
     
     
-// Construtor ------------------------------------------------------------------
-    
-    public Personagem(ClassePersonagem classe){
+    // Construtor --------------------------------------------------------------
+    public Personagem(String nome, ClassePersonagem classe, int nivel){
+        this.nome = nome;
         this.classe = classe;
-        
+        this.nivel = nivel;
     }
     
-// Métodos geteres -------------------------------------------------------------
+    // Métodos geteres ---------------------------------------------------------
+    public String getNome() {
+        return nome;
+    }
+
+    public ClassePersonagem getClasse() {
+        return classe;
+    }
+
+    public int getVida() {
+        return vida;
+    }
+
+    public int getNivel() {
+        return nivel;
+    }
+    
+    // Setteres ----------------------------------------------------------------
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public void setClasse(ClassePersonagem classe) {
+        this.classe = classe;
+    }
+
+    public void setVida(int vida) {
+        this.vida = vida;
+    }
+
+    public void setNivel(int nivel) {
+        this.nivel = nivel;
+    }
+    
 }
