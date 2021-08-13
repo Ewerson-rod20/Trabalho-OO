@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package ufjf.dcc025.trabalho.controller;
+package ufjf.dcc025.trabalho.userController;
 
 import ufjf.dcc025.trabalho.view.JogadorGUI;
 import ufjf.dcc025.trabalho.users.Jogador;

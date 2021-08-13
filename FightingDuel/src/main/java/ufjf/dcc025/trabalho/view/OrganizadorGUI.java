@@ -7,8 +7,8 @@ package ufjf.dcc025.trabalho.view;
 
 import javax.swing.JTextField;
 
-import ufjf.dcc025.trabalho.controller.AdicionaOrganizador;
-import ufjf.dcc025.trabalho.controller.CancelaOrganizador;
+import ufjf.dcc025.trabalho.userController.AdicionaOrganizador;
+import ufjf.dcc025.trabalho.userController.CancelaOrganizador;
 import java.awt.BorderLayout;
 import java.awt.GridLayout;
 import javax.swing.JButton;
@@ -87,7 +87,7 @@ public class OrganizadorGUI {
     }
     
     // Main --------------------------------------------------------------------
-    public static void main(String[] args) {
+    public void chama() {
 
         JFrame tela = new JFrame("Cadastra Organizador");
         AdministradorGUI administradorGUI = new AdministradorGUI();

@@ -5,8 +5,8 @@
  */
 package ufjf.dcc025.trabalho.view;
 
-import ufjf.dcc025.trabalho.controller.AdicionaJogador;
-import ufjf.dcc025.trabalho.controller.CancelaJogador;
+import ufjf.dcc025.trabalho.userController.AdicionaJogador;
+import ufjf.dcc025.trabalho.userController.CancelaJogador;
 import java.awt.BorderLayout;
 import java.awt.GridLayout;
 import javax.swing.JButton;
@@ -80,7 +80,7 @@ public class JogadorGUI {
     }
     
     // Main --------------------------------------------------------------------
-    public static void main(String[] args) {
+    public static void chama() {
 
         JFrame tela = new JFrame("Cadastra Jogador");
         AdministradorGUI administradorGUI = new AdministradorGUI();

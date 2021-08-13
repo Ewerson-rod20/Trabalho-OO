@@ -5,8 +5,8 @@
  */
 package ufjf.dcc025.trabalho.view;
 
-import ufjf.dcc025.trabalho.controller.AdicionaAdministrador;
-import ufjf.dcc025.trabalho.controller.CancelaAdministrador;
+import ufjf.dcc025.trabalho.userController.AdicionaAdministrador;
+import ufjf.dcc025.trabalho.userController.CancelaAdministrador;
 import java.awt.BorderLayout;
 import java.awt.GridLayout;
 import javax.swing.JButton;
@@ -85,8 +85,8 @@ public class AdministradorGUI {
     }
     
     // Main --------------------------------------------------------------------
-    public static void main(String[] args) {
-
+    public void chama() {
+        
         JFrame tela = new JFrame("Cadastra Administrador");
         AdministradorGUI administradorGUI = new AdministradorGUI();
         

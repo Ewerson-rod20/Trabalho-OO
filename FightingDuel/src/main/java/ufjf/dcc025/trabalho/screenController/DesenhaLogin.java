@@ -3,12 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package ufjf.dcc025.trabalho.controller;
+package ufjf.dcc025.trabalho.screenController;
 
 /**
  *
  * @author danie
  */
-public class AdicionaPersonagem {
+public class DesenhaLogin {
     
 }

@@ -14,6 +14,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.plaf.basic.BasicOptionPaneUI;
+import ufjf.dcc025.trabalho.screenController.DesenhaCadastro;
 
 /**
  *
@@ -45,6 +46,8 @@ public class TelaPrincipal {
         JPanel painel = new JPanel();
         
         JButton botaoCadastrar = new JButton("Cadastrar");
+        botaoCadastrar.addActionListener(new DesenhaCadastro());
+        
         JButton botaoLogar = new JButton("Login");
         
         painel.add(botaoLogar);

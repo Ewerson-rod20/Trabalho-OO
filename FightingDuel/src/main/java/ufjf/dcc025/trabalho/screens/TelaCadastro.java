@@ -11,6 +11,9 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import ufjf.dcc025.trabalho.screenController.DesenhaAdministrador;
+import ufjf.dcc025.trabalho.screenController.DesenhaJogador;
+import ufjf.dcc025.trabalho.screenController.DesenhaOrganizador;
 
 /**
  *
@@ -41,8 +44,13 @@ public class TelaCadastro {
         JPanel painel = new JPanel();
         
         JButton botaoJogador = new JButton("Jogador");
+        botaoJogador.addActionListener(new DesenhaJogador());
+        
         JButton botaoAdministrador = new JButton("Administrador");
+        botaoAdministrador.addActionListener(new DesenhaAdministrador());
+        
         JButton botaoOrganizador = new JButton("Organizador");
+        botaoOrganizador.addActionListener(new DesenhaOrganizador());
         
         painel.add(botaoJogador);
         painel.add(botaoAdministrador);
@@ -52,7 +60,7 @@ public class TelaCadastro {
     }
     
     // Main --------------------------------------------------------------------
-    public static void main(String[] args){
+    public void chama(){
         
         JFrame tela = new JFrame("Seleção de Cadastro");
         TelaCadastro telaCadastro = new TelaCadastro();
