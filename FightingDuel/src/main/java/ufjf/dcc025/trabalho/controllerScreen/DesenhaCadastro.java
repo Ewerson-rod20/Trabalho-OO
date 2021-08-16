@@ -6,6 +6,7 @@
 package ufjf.dcc025.trabalho.controllerScreen;
 
 import ufjf.dcc025.trabalho.viewScreens.TelaCadastro;
+import ufjf.dcc025.trabalho.viewScreens.TelaPrincipal;
 import java.awt.BorderLayout;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
@@ -30,6 +31,7 @@ public class DesenhaCadastro implements ActionListener{
     
     @Override
     public void actionPerformed(ActionEvent ae){
+ 
         tela.chama();
     }
 }

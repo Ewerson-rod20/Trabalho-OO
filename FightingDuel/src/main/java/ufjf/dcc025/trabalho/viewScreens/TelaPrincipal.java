@@ -17,7 +17,9 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.plaf.basic.BasicOptionPaneUI;
 import javax.swing.plaf.basic.BasicSplitPaneUI;
+import ufjf.dcc025.trabalho.controllerScreen.DesenhaAdministrador;
 import ufjf.dcc025.trabalho.controllerScreen.DesenhaCadastro;
+import ufjf.dcc025.trabalho.controllerScreen.DesenhaLogin;
 
 /**
  *
@@ -44,6 +46,7 @@ public class TelaPrincipal {
         botaoCadastrar.addActionListener(new DesenhaCadastro());
         
         JButton botaoLogar = new JButton("Login");
+        botaoLogar.addActionListener(new DesenhaLogin());
         
         painel.setLayout(new BorderLayout());
         
