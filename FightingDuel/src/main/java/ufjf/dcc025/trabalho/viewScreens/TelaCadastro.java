@@ -59,8 +59,8 @@ public class TelaCadastro {
         return painel;
     }
     
-    // Main --------------------------------------------------------------------
-    public void chama(){
+    // Chama --------------------------------------------------------------------
+    public static JFrame chama(){
         
         JFrame tela = new JFrame("Seleção de Cadastro");
         TelaCadastro telaCadastro = new TelaCadastro();
@@ -74,5 +74,12 @@ public class TelaCadastro {
         
         tela.setVisible(true);
         tela.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
+        
+        return tela;
+    }
+    
+    // Fecha -------------------------------------------------------------------
+    public void fecha(JFrame tela){
+        tela.setVisible(false);
     }
 }

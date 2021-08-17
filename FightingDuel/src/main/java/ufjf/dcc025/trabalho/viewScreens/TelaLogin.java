@@ -81,8 +81,12 @@ public class TelaLogin {
         tela.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
     }
     
+    // Fecha -------------------------------------------------------------------
+    public static void fecha(JFrame tela){
+        tela.setVisible(false);
+    }
+    
     // Getteres ----------------------------------------------------------------
-
     public JTextField getTfNome() {
         return tfNome;
     }
