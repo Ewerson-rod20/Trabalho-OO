@@ -83,15 +83,15 @@ public class JogadorGUI {
     public static void chama() {
 
         JFrame tela = new JFrame("Cadastra Jogador");
-        AdministradorGUI administradorGUI = new AdministradorGUI();
+        JogadorGUI jogadorGUI = new JogadorGUI();
         
         tela.setSize(600, 300);
 
         tela.setLayout(new BorderLayout());
 
-        tela.add(administradorGUI.desenha(), BorderLayout.CENTER);
+        tela.add(jogadorGUI.desenha(), BorderLayout.CENTER);
 
-        tela.add(administradorGUI.desenhaBotoes(), BorderLayout.SOUTH);
+        tela.add(jogadorGUI.desenhaBotoes(), BorderLayout.SOUTH);
 
         tela.setVisible(true);
         tela.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);

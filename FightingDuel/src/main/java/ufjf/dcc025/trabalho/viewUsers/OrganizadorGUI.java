@@ -90,15 +90,15 @@ public class OrganizadorGUI {
     public void chama() {
 
         JFrame tela = new JFrame("Cadastra Organizador");
-        AdministradorGUI administradorGUI = new AdministradorGUI();
+        OrganizadorGUI organizadorGUI = new OrganizadorGUI();
         
         tela.setSize(600, 300);
 
         tela.setLayout(new BorderLayout());
 
-        tela.add(administradorGUI.desenha(), BorderLayout.CENTER);
+        tela.add(organizadorGUI.desenha(), BorderLayout.CENTER);
 
-        tela.add(administradorGUI.desenhaBotoes(), BorderLayout.SOUTH);
+        tela.add(organizadorGUI.desenhaBotoes(), BorderLayout.SOUTH);
 
         tela.setVisible(true);
         tela.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
