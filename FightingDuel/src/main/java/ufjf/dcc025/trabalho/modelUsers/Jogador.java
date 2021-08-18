@@ -11,9 +11,9 @@ public class Jogador {
     String dataNascimento;
     String email;
     String senha;
-    Personagem personagem1;
-    Personagem personagem2;
-    Personagem personagem3;
+    Personagem personagem1;  // Personagens do Jogador
+    Personagem personagem2;  //
+    Personagem personagem3;  //
     int contPersonagem;      // Contador de personagens do Jogador
     
     
@@ -40,23 +40,9 @@ public class Jogador {
         this.nome = nome;
         this.dataNascimento = nascimento;
         this.email = email;
-        this.senha = senha;
-        
-        if (contPersonagem == 0){
-            this.personagem1 = personagem;
-            contPersonagem++;
-        }
-        else if (contPersonagem == 1){
-            this.personagem2 = personagem;
-            contPersonagem++;            
-        }
-        else if (contPersonagem == 2){
-            this.personagem3 = personagem;
-            contPersonagem++;    
-        }
-        else
-            JOptionPane.showMessageDialog (null, "Número máximo de personagens alcançado."
-            , "Aviso", JOptionPane.INFORMATION_MESSAGE);        
+        this.senha = senha;       
+        this.personagem1 = personagem;
+        contPersonagem++;     
     }
     
     // Getteres ----------------------------------------------------------------
@@ -121,5 +107,24 @@ public class Jogador {
         else
             JOptionPane.showMessageDialog (null, "Número máximo de personagens alcançado."
             , "Aviso", JOptionPane.INFORMATION_MESSAGE); 
-    }   
+    }  
+    
+    // Métodos -----------------------------------------------------------------
+    public void removePersonagem(Personagem personagem){
+        if (personagem1 == personagem){
+            personagem1 = null;
+            contPersonagem--;
+        }
+        else if (personagem2 == personagem){
+            personagem2 = null;
+            contPersonagem--;
+        }
+        else if (personagem3 == personagem){
+            personagem3 = null;
+            contPersonagem--;
+        }
+        else
+            JOptionPane.showMessageDialog (null, "Personagem não encontrado."
+            , "Aviso", JOptionPane.INFORMATION_MESSAGE);
+    }
 }
