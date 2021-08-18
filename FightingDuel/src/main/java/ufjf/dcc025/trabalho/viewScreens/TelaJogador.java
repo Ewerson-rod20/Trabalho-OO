@@ -9,6 +9,6 @@ package ufjf.dcc025.trabalho.viewScreens;
  *
  * @author danie
  */
-public class TelaPersonagens {
+public class TelaJogador {
     
 }
