@@ -1,13 +1,10 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package ufjf.dcc025.trabalho.modelUsers;
 
+import javax.swing.JOptionPane;
+import ufjf.dcc025.trabalho.modelCharacter.Personagem;
+
 /**
- *
- * @author danie
+ * @authors Daniel and Vitor
  */
 public class Organizador {
     
@@ -16,6 +13,7 @@ public class Organizador {
     String dataNascimento;
     String email;
     String senha;
+    Personagem personagem;
     
     // Construtores ------------------------------------------------------------
     public Organizador(){
@@ -24,6 +22,7 @@ public class Organizador {
         this.dataNascimento = null;
         this.email = null;
         this.senha = null;
+         this.personagem = null;
     }
     
     public Organizador(String nome, String cpf, String nascimento, String email, String senha){
@@ -54,6 +53,10 @@ public class Organizador {
     public String getSenha() {
         return senha;
     }
+ 
+    public Personagem getPersonagem(){
+        return personagem;
+    }    
     
     // Setteres ----------------------------------------------------------------
     public void setNome(String nome) {
@@ -74,5 +77,9 @@ public class Organizador {
 
     public void setSenha(String senha) {
         this.senha = senha;
+    }
+    
+    public void setPersonagem(Personagem personagem){
+        this.personagem = personagem;
     }
 }

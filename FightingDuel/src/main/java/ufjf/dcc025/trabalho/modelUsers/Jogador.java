@@ -1,6 +1,6 @@
 package ufjf.dcc025.trabalho.modelUsers;
 
-import java.util.Scanner;
+import javax.swing.JOptionPane;
 import ufjf.dcc025.trabalho.modelCharacter.Personagem;
 /**
  * @author Vitor Fernandes Reis (202065096A)
@@ -11,7 +11,11 @@ public class Jogador {
     String dataNascimento;
     String email;
     String senha;
-    Personagem personagem;
+    Personagem personagem1;
+    Personagem personagem2;
+    Personagem personagem3;
+    int contPersonagem;      // Contador de personagens do Jogador
+    
     
     // Construtores ------------------------------------------------------------
     public Jogador(){
@@ -19,15 +23,40 @@ public class Jogador {
         this.dataNascimento = null;
         this.email = null;
         this.senha = null;
-        this.personagem = null;
+        this.personagem1 = null;
+        this.personagem2 = null;
+        this.personagem3 = null;
+        contPersonagem = 0;
     }
+    
+    public Jogador(String nome, String nascimento, String email, String senha){
+        this.nome = nome;
+        this.dataNascimento = nascimento;
+        this.email = email;
+        this.senha = senha;    
+    }    
     
     public Jogador(String nome, String nascimento, String email, String senha, Personagem personagem){
         this.nome = nome;
         this.dataNascimento = nascimento;
         this.email = email;
         this.senha = senha;
-        this.personagem = personagem;
+        
+        if (contPersonagem == 0){
+            this.personagem1 = personagem;
+            contPersonagem++;
+        }
+        else if (contPersonagem == 1){
+            this.personagem2 = personagem;
+            contPersonagem++;            
+        }
+        else if (contPersonagem == 2){
+            this.personagem3 = personagem;
+            contPersonagem++;    
+        }
+        else
+            JOptionPane.showMessageDialog (null, "Número máximo de personagens alcançado."
+            , "Aviso", JOptionPane.INFORMATION_MESSAGE);        
     }
     
     // Getteres ----------------------------------------------------------------
@@ -47,9 +76,17 @@ public class Jogador {
         return senha;
     }
     
-    public Personagem getPersonagem(){
-        return personagem;
+    public Personagem getPersonagem1(){
+        return personagem1;
     }
+    
+    public Personagem getPersonagem2(){
+        return personagem2;
+    }
+
+    public Personagem getPersonagem3(){
+        return personagem3;
+    }    
     
     // Setteres ----------------------------------------------------------------
     public void setNome(String nome) {
@@ -69,7 +106,20 @@ public class Jogador {
     }
     
     public void setPersonagem(Personagem personagem){
-        this.personagem = personagem;
-    }
-    
+        if (contPersonagem == 0){
+            this.personagem1 = personagem;
+            contPersonagem++;
+        }
+        else if (contPersonagem == 1){
+            this.personagem2 = personagem;
+            contPersonagem++;            
+        }
+        else if (contPersonagem == 2){
+            this.personagem3 = personagem;
+            contPersonagem++;    
+        }
+        else
+            JOptionPane.showMessageDialog (null, "Número máximo de personagens alcançado."
+            , "Aviso", JOptionPane.INFORMATION_MESSAGE); 
+    }   
 }
