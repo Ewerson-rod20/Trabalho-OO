@@ -12,7 +12,10 @@ import ufjf.dcc025.trabalho.modelGame.Dados;
 import ufjf.dcc025.trabalho.modelUsers.Administrador;
 import ufjf.dcc025.trabalho.modelUsers.Jogador;
 import ufjf.dcc025.trabalho.modelUsers.Organizador;
+import ufjf.dcc025.trabalho.viewScreens.TelaAdministrador;
+import ufjf.dcc025.trabalho.viewScreens.TelaJogador;
 import ufjf.dcc025.trabalho.viewScreens.TelaLogin;
+import ufjf.dcc025.trabalho.viewScreens.TelaOrganizador;
 
 /**
  *
@@ -50,15 +53,18 @@ public class ValidaLogin implements ActionListener{
         
         switch(cont){
             case 1:
-                JOptionPane.showMessageDialog(null, "Você logou como Jogador");
+                TelaJogador tela1 = new TelaJogador();
+                tela1.chama();
                 break;
             
             case 2:
-                JOptionPane.showMessageDialog(null, "Você logou como Administrador");
+                TelaAdministrador tela2 = new TelaAdministrador();
+                tela2.chama();
                 break;
                 
             case 3:
-                JOptionPane.showMessageDialog(null, "Você logou como Organizador");
+                TelaOrganizador tela3 = new TelaOrganizador();
+                tela3.chama();
                 break;
                 
             case 0:
