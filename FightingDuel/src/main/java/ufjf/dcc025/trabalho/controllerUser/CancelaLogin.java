@@ -25,6 +25,5 @@ public class CancelaLogin implements ActionListener{
     @Override
     public void actionPerformed(ActionEvent ae){
         JOptionPane.showMessageDialog(null, "Login cancelado!");
-        telaLogin.chama().setVisible(false);
     }
 }
