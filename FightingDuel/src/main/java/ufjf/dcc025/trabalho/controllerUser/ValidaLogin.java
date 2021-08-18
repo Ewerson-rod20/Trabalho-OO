@@ -50,15 +50,15 @@ public class ValidaLogin implements ActionListener{
         
         switch(cont){
             case 1:
-                JOptionPane.showMessageDialog(null, "CONT: " + cont);
+                JOptionPane.showMessageDialog(null, "Você logou como Jogador");
                 break;
             
             case 2:
-                JOptionPane.showMessageDialog(null, "CONT: " + cont);
+                JOptionPane.showMessageDialog(null, "Você logou como Administrador");
                 break;
                 
             case 3:
-                JOptionPane.showMessageDialog(null, "CONT: " + cont);
+                JOptionPane.showMessageDialog(null, "Você logou como Organizador");
                 break;
                 
             case 0:
