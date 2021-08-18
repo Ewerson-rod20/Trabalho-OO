@@ -12,6 +12,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
+import ufjf.dcc025.trabalho.controllerUser.CancelaLogin;
 import ufjf.dcc025.trabalho.controllerUser.ValidaLogin;
 
 /**
@@ -57,6 +58,7 @@ public class TelaLogin {
         botaoLogar.addActionListener(new ValidaLogin(this));
         
         JButton botaoCancelar = new JButton("Cancelar");
+        botaoCancelar.addActionListener(new CancelaLogin(this));
         
         painel.add(botaoLogar);
         painel.add(botaoCancelar);
