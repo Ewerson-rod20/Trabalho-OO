@@ -15,6 +15,7 @@ import ufjf.dcc025.trabalho.modelCharacter.Ladrao;
 import ufjf.dcc025.trabalho.modelCharacter.Mago;
 import ufjf.dcc025.trabalho.modelCharacter.Personagem;
 import ufjf.dcc025.trabalho.modelGame.Dados;
+import ufjf.dcc025.trabalho.modelUsers.Jogador;
 import ufjf.dcc025.trabalho.viewUsers.PersonagemGUI;
 
 /**
@@ -23,9 +24,11 @@ import ufjf.dcc025.trabalho.viewUsers.PersonagemGUI;
  */
 public class AdicionaPersonagem implements ActionListener{
     PersonagemGUI personagemGUI;
+    Jogador jogador = null;
 
-    public AdicionaPersonagem(PersonagemGUI personagemGUI) {
+    public AdicionaPersonagem(PersonagemGUI personagemGUI, Jogador jogador) {
         this.personagemGUI = personagemGUI;
+        this.jogador = jogador;
     }
 
     @Override
@@ -54,7 +57,7 @@ public class AdicionaPersonagem implements ActionListener{
         }
         
                 
-        for (String personagem : Dados.jogadores.get(0).getPersonagens().keySet()) { //AJEITAR PRO JOGADOR CERTO
+        for (String personagem : this.jogador.getPersonagens().keySet()) { //AJEITAR PRO JOGADOR CERTO
             if(personagem.equals(personagemGUI.getTfNome().toString())){
                 JOptionPane.showMessageDialog(null, "ERRO! Já existe um personagem com esse nome!");
                 control = 1;
@@ -64,11 +67,8 @@ public class AdicionaPersonagem implements ActionListener{
 
         if (control == 0) {
             Personagem personagem = new Personagem(personagemGUI.getTfNome().toString(), classeSelecionada, 5);
-            Dados.jogadores.get(0).addPersonagem(personagem);
-
-            Dados.jogadores.forEach(jogador1 -> {
-                System.out.println(jogador1.getPersonagens());
-            });
+            this.jogador.addPersonagem(personagem);
+            JOptionPane.showMessageDialog(null, "Personagem criado com sucesso!");
         }
     }
 }

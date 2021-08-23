@@ -6,7 +6,6 @@
 package ufjf.dcc025.trabalho.viewUsers;
 
 import ufjf.dcc025.trabalho.controllerUser.AdicionaJogador;
-import ufjf.dcc025.trabalho.controllerUser.CancelaJogador;
 import java.awt.BorderLayout;
 import java.awt.GridLayout;
 import javax.swing.JButton;

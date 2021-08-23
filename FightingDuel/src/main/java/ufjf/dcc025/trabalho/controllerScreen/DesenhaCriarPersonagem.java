@@ -7,6 +7,7 @@ package ufjf.dcc025.trabalho.controllerScreen;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import ufjf.dcc025.trabalho.modelUsers.Jogador;
 import ufjf.dcc025.trabalho.viewUsers.PersonagemGUI;
 
 /**
@@ -15,13 +16,15 @@ import ufjf.dcc025.trabalho.viewUsers.PersonagemGUI;
  */
 public class DesenhaCriarPersonagem implements ActionListener{
     PersonagemGUI personagemGUI;
+    Jogador jogador = null;
     
-    public DesenhaCriarPersonagem(){
-        this.personagemGUI = new PersonagemGUI();
+    public DesenhaCriarPersonagem(Jogador jogador){
+        this.jogador = jogador;
+        this.personagemGUI = new PersonagemGUI(jogador);
     }
     
     @Override
     public void actionPerformed(ActionEvent ae){
-        PersonagemGUI.chama();
+        PersonagemGUI.chama(jogador);
     }
 }

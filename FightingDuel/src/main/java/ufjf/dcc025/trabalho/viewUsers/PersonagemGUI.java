@@ -16,6 +16,7 @@ import javax.swing.JTextField;
 import javax.swing.ListSelectionModel;
 import ufjf.dcc025.trabalho.controllerUser.AdicionaPersonagem;
 import ufjf.dcc025.trabalho.controllerUser.CancelaPersonagem;
+import ufjf.dcc025.trabalho.modelUsers.Jogador;
 
 /**
  *
@@ -25,12 +26,14 @@ public class PersonagemGUI{
     private final JTextField tfNome;
     private final JList tfClasse;
     private final String classesDisponiveis[] = {"Cavaleiro", "Ladrao", "Mago"};
+    private Jogador jogador = null;
     
     // Construtor --------------------------------------------------------------
-    public PersonagemGUI(){
+    public PersonagemGUI(Jogador jogador){
         this.tfNome = new JTextField(50);
         this.tfClasse = new JList(classesDisponiveis);
         this.tfClasse.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+        this.jogador = jogador;
     }
     
     // Desenha campos ----------------------------------------------------------
@@ -58,7 +61,7 @@ public class PersonagemGUI{
         JPanel painel = new JPanel();
 
         JButton botaoFinalizar = new JButton("Finalizar");
-        botaoFinalizar.addActionListener(new AdicionaPersonagem(this));
+        botaoFinalizar.addActionListener(new AdicionaPersonagem(this, this.jogador));
         
         JButton botaoCancelar = new JButton("Cancelar");
         botaoCancelar.addActionListener(new CancelaPersonagem());
@@ -72,10 +75,10 @@ public class PersonagemGUI{
     }
     
     // Main --------------------------------------------------------------------
-    public static void chama() {
+    public static void chama(Jogador jogador) {
 
         JFrame tela = new JFrame("Criação de Personagem");
-        PersonagemGUI personagemGUI = new PersonagemGUI();
+        PersonagemGUI personagemGUI = new PersonagemGUI(jogador);
         
         tela.setSize(600, 300);
 
@@ -98,6 +101,10 @@ public class PersonagemGUI{
 
     public JList getTfClasse() {
         return tfClasse;
+    }
+    
+    public Jogador getJogador(){
+        return this.jogador;
     }
     
 }

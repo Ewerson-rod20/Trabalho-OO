@@ -14,14 +14,18 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTable;
 import ufjf.dcc025.trabalho.controllerScreen.DesenhaCriarPersonagem;
+import ufjf.dcc025.trabalho.modelUsers.Jogador;
 
 /**
  *
  * @author Bonorino
  */
 public class TelaPersonagem {
+
+    private Jogador jogador;
     // Construtor --------------------------------------------------------------
-    public TelaPersonagem(){
+    public TelaPersonagem(Jogador jogador){
+        this.jogador = jogador;
     }
     
     // Desenha -----------------------------------------------------------------
@@ -38,7 +42,7 @@ public class TelaPersonagem {
     }
     
     // Desenha Botões ----------------------------------------------------------
-    public JPanel desenhaBotoes(){
+    public JPanel desenhaBotoes(Jogador jogador){
         
         JPanel painel = new JPanel();
         painel.setLayout(new GridLayout(2, 1));
@@ -47,12 +51,12 @@ public class TelaPersonagem {
         JPanel painel2 = new JPanel();
         painel2.setLayout(new FlowLayout());
         
-        JLabel nomeJogador = new JLabel("Olá, " + "NomeJogador");
+        JLabel nomeJogador = new JLabel("Olá, " + jogador.getNome());
         
         JTable boxPersonagens = new JTable(3, 1);
         
         JButton criarPersonagem = new JButton("Criar");
-        criarPersonagem.addActionListener(new DesenhaCriarPersonagem());
+        criarPersonagem.addActionListener(new DesenhaCriarPersonagem(jogador));
         
         JButton editarPersonagem = new JButton("Editar");
 //        editarPersonagem.addActionListener(EditarPersonagem());
@@ -73,16 +77,16 @@ public class TelaPersonagem {
     }
     
     // Chama --------------------------------------------------------------------
-    public static JFrame chama(){
+        public static JFrame chama(Jogador jogador){
         
         JFrame tela = new JFrame("Personagens");
-        TelaPersonagem telaPersonagem = new TelaPersonagem();
+        TelaPersonagem telaPersonagem = new TelaPersonagem(jogador);
         
         tela.setSize(800, 500);
         
         tela.setLayout(new BorderLayout());
         
-        tela.add(telaPersonagem.desenhaBotoes(), BorderLayout.CENTER);
+        tela.add(telaPersonagem.desenhaBotoes(jogador), BorderLayout.CENTER);
         tela.add(telaPersonagem.desenha(), BorderLayout.SOUTH);
         
         tela.setVisible(true);

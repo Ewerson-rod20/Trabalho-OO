@@ -40,7 +40,7 @@ public class ValidaLogin implements ActionListener{
         
         for (Jogador jogador1 : Dados.jogadores){
             if((telaLogin.getTfNome().getText().equals(jogador1.getNome())) && (telaLogin.getTfSenha().getText().equals(jogador1.getSenha()))){
-                TelaJogador tela1 = new TelaJogador();
+                TelaJogador tela1 = new TelaJogador(jogador1);
                 tela1.chama(jogador1);
                 tela.dispose();
                 telaPrincipal.setVisible(false);
