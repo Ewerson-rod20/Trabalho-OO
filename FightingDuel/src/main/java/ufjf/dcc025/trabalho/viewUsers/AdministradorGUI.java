@@ -43,7 +43,7 @@ public class AdministradorGUI {
         JLabel jlCpf = new JLabel("CPF/CNPJ: ");
         JLabel jlDataNascimento = new JLabel("Data de Nascimento (dd/mm/aa): ");
         JLabel jlEmail = new JLabel("Email: ");
-        JLabel jlTelefone = new JLabel("Senha: ");
+        JLabel jlSenha = new JLabel("Senha: ");
         
         painel.setLayout(new GridLayout(0, 2));
         
@@ -59,7 +59,7 @@ public class AdministradorGUI {
         painel.add(jlEmail);
         painel.add(tfEmail);
         
-        painel.add(jlTelefone);
+        painel.add(jlSenha);
         painel.add(tfSenha);
         
         return painel;

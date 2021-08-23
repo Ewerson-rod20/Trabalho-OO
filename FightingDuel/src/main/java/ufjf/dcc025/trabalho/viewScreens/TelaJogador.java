@@ -10,6 +10,7 @@ import java.awt.GridLayout;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import ufjf.dcc025.trabalho.controllerScreen.DesenhaPersonagem;
 
 /**
  *
@@ -30,6 +31,7 @@ public class TelaJogador {
         JButton botaoJogar = new JButton("Jogar");
         
         JButton botaoEventos = new JButton("Personagem");
+        botaoEventos.addActionListener(new DesenhaPersonagem());
         
         JButton botaoConta = new JButton("Conta");
         
