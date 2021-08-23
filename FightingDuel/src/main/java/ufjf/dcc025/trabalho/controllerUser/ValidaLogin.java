@@ -7,6 +7,7 @@ package ufjf.dcc025.trabalho.controllerUser;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import ufjf.dcc025.trabalho.modelGame.Dados;
 import ufjf.dcc025.trabalho.modelUsers.Administrador;
@@ -23,9 +24,13 @@ import ufjf.dcc025.trabalho.viewScreens.TelaOrganizador;
  */
 public class ValidaLogin implements ActionListener{
     TelaLogin telaLogin;
+    JFrame telaPrincipal;
+    JFrame tela;
     
-    public ValidaLogin (TelaLogin telaLogin){
+    public ValidaLogin (TelaLogin telaLogin, JFrame telaPrincipal, JFrame tela){
         this.telaLogin = telaLogin;
+        this.telaPrincipal = telaPrincipal;
+        this.tela = tela;
     }
     
     @Override
@@ -37,6 +42,8 @@ public class ValidaLogin implements ActionListener{
             if((telaLogin.getTfNome().getText().equals(jogador1.getNome())) && (telaLogin.getTfSenha().getText().equals(jogador1.getSenha()))){
                 TelaJogador tela1 = new TelaJogador();
                 tela1.chama(jogador1);
+                tela.setVisible(false);
+                //telaPrincipal.setVisible(false);
                 cont = 1;
             }
         }
@@ -45,6 +52,8 @@ public class ValidaLogin implements ActionListener{
             if(telaLogin.getTfNome().getText().equals(administrador1.getNome()) && telaLogin.getTfSenha().getText().equals(administrador1.getSenha())){
                 TelaAdministrador tela2 = new TelaAdministrador();
                 tela2.chama(administrador1);
+                tela.setVisible(false);
+                //telaPrincipal.setVisible(false);
                 cont = 1;
             }
         }
@@ -53,6 +62,8 @@ public class ValidaLogin implements ActionListener{
             if(telaLogin.getTfNome().getText().equals(organizador1.getNome()) && telaLogin.getTfSenha().getText().equals(organizador1.getSenha())){
                 TelaOrganizador tela3 = new TelaOrganizador();
                 tela3.chama(organizador1);
+                tela.setVisible(false);
+                //telaPrincipal.setVisible(false);
                 cont = 1;
             }
         }

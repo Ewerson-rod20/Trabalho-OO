@@ -14,11 +14,14 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
+import ufjf.dcc025.trabalho.controllerScreen.Retroceder;
 /**
  *
  * @author danie
  */
 public class AdministradorGUI {
+    
+    private static JFrame tela;
     
     private JTextField tfNome;
     private JTextField tfCpf;
@@ -74,7 +77,7 @@ public class AdministradorGUI {
         botaoCadastrar.addActionListener(new AdicionaAdministrador(this));
 
         JButton botaoCancelar = new JButton("Cancelar");
-        botaoCancelar.addActionListener(new CancelaAdministrador());
+        botaoCancelar.addActionListener(new Retroceder(this.tela));
 
         painel.add(botaoCadastrar);
 
@@ -87,7 +90,7 @@ public class AdministradorGUI {
     // Main --------------------------------------------------------------------
     public void chama() {
         
-        JFrame tela = new JFrame("Cadastra Administrador");
+        this.tela = new JFrame("Cadastra Administrador");
         AdministradorGUI administradorGUI = new AdministradorGUI();
         
         tela.setSize(600, 300);

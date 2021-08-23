@@ -12,6 +12,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
+import ufjf.dcc025.trabalho.controllerScreen.Retroceder;
 import ufjf.dcc025.trabalho.controllerUser.CancelaLogin;
 import ufjf.dcc025.trabalho.controllerUser.ValidaLogin;
 
@@ -21,13 +22,16 @@ import ufjf.dcc025.trabalho.controllerUser.ValidaLogin;
  */
 public class TelaLogin {
     
+    private static JFrame tela;
+    private JFrame telaPrincipal;
     private JTextField tfNome;
     private JTextField tfSenha;
         
     // Construtor --------------------------------------------------------------
-    public TelaLogin(){
+    public TelaLogin(JFrame tlePrincipal){
         this.tfNome = new JTextField(50);
         this.tfSenha = new JTextField(50);
+        this.telaPrincipal = telaPrincipal;
     }
     
     // Desenha -----------------------------------------------------------------
@@ -55,10 +59,10 @@ public class TelaLogin {
         JPanel painel = new JPanel();
         
         JButton botaoLogar = new JButton("Entrar");
-        botaoLogar.addActionListener(new ValidaLogin(this));
+        botaoLogar.addActionListener(new ValidaLogin(this, this.telaPrincipal, tela));
         
         JButton botaoCancelar = new JButton("Cancelar");
-        botaoCancelar.addActionListener(new CancelaLogin(this));
+        botaoCancelar.addActionListener(new Retroceder(this.tela)); 
         
         painel.add(botaoLogar);
         painel.add(botaoCancelar);
@@ -69,8 +73,8 @@ public class TelaLogin {
     // Chama -------------------------------------------------------------------
     public void chama(){
         
-        JFrame tela = new JFrame("Tela Login");
-        TelaLogin telaLogin = new TelaLogin();
+        this.tela = new JFrame("Tela Login");
+        TelaLogin telaLogin = new TelaLogin(this.telaPrincipal);
         
         tela.setSize(600, 300);
         

@@ -14,12 +14,15 @@ import javax.swing.JPanel;
 import ufjf.dcc025.trabalho.controllerScreen.DesenhaAdministrador;
 import ufjf.dcc025.trabalho.controllerScreen.DesenhaJogador;
 import ufjf.dcc025.trabalho.controllerScreen.DesenhaOrganizador;
+import ufjf.dcc025.trabalho.controllerScreen.Retroceder;
 
 /**
  *
  * @author danie
  */
 public class TelaCadastro {
+    
+    private static JFrame tela;
     
     // Construtor --------------------------------------------------------------
     public TelaCadastro(){
@@ -52,17 +55,21 @@ public class TelaCadastro {
         JButton botaoOrganizador = new JButton("Organizador");
         botaoOrganizador.addActionListener(new DesenhaOrganizador());
         
+        JButton botaoVoltar = new JButton("Voltar");
+        botaoVoltar.addActionListener(new Retroceder(this.tela)); 
+        
         painel.add(botaoJogador);
         painel.add(botaoAdministrador);
         painel.add(botaoOrganizador);
+        painel.add(botaoVoltar);
         
         return painel;
     }
     
     // Chama --------------------------------------------------------------------
-    public static JFrame chama(){
+    public void chama(){
         
-        JFrame tela = new JFrame("Seleção de Cadastro");
+        this.tela = new JFrame("Seleção de Cadastro");
         TelaCadastro telaCadastro = new TelaCadastro();
         
         tela.setSize(600, 300);
@@ -73,9 +80,7 @@ public class TelaCadastro {
         tela.add(telaCadastro.desenha(), BorderLayout.SOUTH);
         
         tela.setVisible(true);
-        tela.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
-        
-        return tela;
+        tela.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);        
     }
     
     // Fecha -------------------------------------------------------------------

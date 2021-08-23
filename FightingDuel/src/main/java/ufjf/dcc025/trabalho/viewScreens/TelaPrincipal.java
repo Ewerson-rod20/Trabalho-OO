@@ -27,8 +27,11 @@ import ufjf.dcc025.trabalho.controllerScreen.DesenhaLogin;
  */
 public class TelaPrincipal {
 
+    private static JFrame tela;
+    
     // Construtor --------------------------------------------------------------
-    public TelaPrincipal(){ 
+    public TelaPrincipal(){
+        this.tela = new JFrame("Tela Principal");
     }
     
     // Desenha -----------------------------------------------------------------
@@ -46,7 +49,7 @@ public class TelaPrincipal {
         botaoCadastrar.addActionListener(new DesenhaCadastro());
         
         JButton botaoLogar = new JButton("Login");
-        botaoLogar.addActionListener(new DesenhaLogin());
+        botaoLogar.addActionListener(new DesenhaLogin(this.tela));
         
         painel.setLayout(new BorderLayout());
         
@@ -88,10 +91,7 @@ public class TelaPrincipal {
     }
     
     // Main --------------------------------------------------------------------
-    public static void main(String[] args){
-        
-        JFrame tela = new JFrame("Tela Principal");
-        TelaPrincipal telaPrincipal = new TelaPrincipal();
+    public void chama(TelaPrincipal telaPrincipal){
         
         tela.setSize(500, 600);
         
@@ -103,4 +103,9 @@ public class TelaPrincipal {
         tela.setVisible(true);
         tela.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
+    
+    // Getteres ----------------------------------------------------------------
+    public static JFrame getTela() {
+        return tela;
+    }   
 }
