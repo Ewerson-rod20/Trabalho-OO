@@ -10,12 +10,17 @@ import java.awt.GridLayout;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import ufjf.dcc025.trabalho.controllerUser.ExibeContaJogador;
+import ufjf.dcc025.trabalho.modelGame.Dados;
+import ufjf.dcc025.trabalho.modelUsers.Jogador;
 
 /**
  *
  * @author danie
  */
 public class TelaJogador {
+    
+    private static Jogador jogador;
     
     // Construtor --------------------------------------------------------------
     public TelaJogador(){
@@ -32,6 +37,7 @@ public class TelaJogador {
         JButton botaoEventos = new JButton("Personagem");
         
         JButton botaoConta = new JButton("Conta");
+        botaoConta.addActionListener(new ExibeContaJogador(this.jogador));
         
         JButton botaoEditar = new JButton("Editar Dados");
         
@@ -44,7 +50,9 @@ public class TelaJogador {
     }
     
     // Chama -------------------------------------------------------------------
-    public void chama(){
+    public void chama(Jogador jogador){
+        
+        this.jogador = jogador;
         
         JFrame tela = new JFrame("Jogador");
         TelaJogador telaJogador = new TelaJogador();
@@ -58,4 +66,10 @@ public class TelaJogador {
         tela.setVisible(true);
         tela.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
+    
+    // Getteres ----------------------------------------------------------------
+    public Jogador getJogador() {
+        return jogador;
+    }
+    
 }

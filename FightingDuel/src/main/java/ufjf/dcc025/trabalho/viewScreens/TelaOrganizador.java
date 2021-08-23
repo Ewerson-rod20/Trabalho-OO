@@ -10,12 +10,17 @@ import java.awt.GridLayout;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import ufjf.dcc025.trabalho.controllerUser.ExibeContaOrganizador;
+import ufjf.dcc025.trabalho.modelGame.Dados;
+import ufjf.dcc025.trabalho.modelUsers.Organizador;
 
 /**
  *
  * @author danie
  */
 public class TelaOrganizador {
+    
+    private static Organizador organizador;
     
     // Construtor --------------------------------------------------------------
     public TelaOrganizador(){
@@ -30,6 +35,7 @@ public class TelaOrganizador {
         JButton botaoEventos = new JButton("Eventos");
         
         JButton botaoConta = new JButton("Conta");
+        botaoConta.addActionListener(new ExibeContaOrganizador(this.organizador));
         
         JButton botaoEditar = new JButton("Editar Dados");
         
@@ -41,7 +47,9 @@ public class TelaOrganizador {
     }
     
     // Chama -------------------------------------------------------------------
-    public void chama(){
+    public void chama(Organizador organizador){
+        
+        this.organizador = organizador;
         
         JFrame tela = new JFrame("Organizador");
         TelaOrganizador telaOrganizador = new TelaOrganizador();
@@ -55,4 +63,10 @@ public class TelaOrganizador {
         tela.setVisible(true);
         tela.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
+    
+    // Getteres ----------------------------------------------------------------
+    public Organizador getOrganizador() {
+        return organizador;
+    }
+    
 }

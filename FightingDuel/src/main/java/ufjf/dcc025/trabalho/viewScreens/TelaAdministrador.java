@@ -10,12 +10,18 @@ import java.awt.GridLayout;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import ufjf.dcc025.trabalho.controllerUser.ExibeContaAdministrador;
+import ufjf.dcc025.trabalho.modelGame.Dados;
+import ufjf.dcc025.trabalho.modelUsers.Administrador;
 
 /**
  *
  * @author danie
  */
 public class TelaAdministrador {
+    
+    private static Administrador administrador;
+    
     // Construtor --------------------------------------------------------------
     public TelaAdministrador(){
     }
@@ -26,13 +32,17 @@ public class TelaAdministrador {
         
         painel.setLayout(new GridLayout(0, 2));
         
-        JButton botaoEventos = new JButton("Personagem");
+        JButton botaoPersonagem = new JButton("Personagem");
         
         JButton botaoConta = new JButton("Conta");
+        botaoConta.addActionListener(new ExibeContaAdministrador(this.administrador));
         
         JButton botaoEditar = new JButton("Editar Dados");
         
-        painel.add(botaoEventos);
+        JButton botaoAdministrar = new JButton("Administrar Usuários");
+        
+        painel.add(botaoAdministrar);
+        painel.add(botaoPersonagem);
         painel.add(botaoConta);
         painel.add(botaoEditar);
         
@@ -40,7 +50,9 @@ public class TelaAdministrador {
     }
     
     // Chama -------------------------------------------------------------------
-    public void chama(){
+    public void chama(Administrador administrador){
+        
+        this.administrador = administrador;
         
         JFrame tela = new JFrame("Administrador");
         TelaAdministrador telaAdministrador = new TelaAdministrador();
@@ -54,4 +66,10 @@ public class TelaAdministrador {
         tela.setVisible(true);
         tela.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
+    
+    // Getteres ----------------------------------------------------------------
+    public Administrador getAdministrador() {
+        return administrador;
+    }
+    
 }
