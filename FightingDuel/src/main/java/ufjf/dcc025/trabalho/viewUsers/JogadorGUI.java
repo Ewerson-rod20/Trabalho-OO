@@ -6,7 +6,6 @@
 package ufjf.dcc025.trabalho.viewUsers;
 
 import ufjf.dcc025.trabalho.controllerUser.AdicionaJogador;
-import ufjf.dcc025.trabalho.controllerUser.CancelaJogador;
 import java.awt.BorderLayout;
 import java.awt.GridLayout;
 import javax.swing.JButton;
@@ -44,7 +43,7 @@ public class JogadorGUI {
         JLabel jlNome = new JLabel("Nome: ");
         JLabel jlDataNascimento = new JLabel("Data de Nascimento (dd/mm/aa): ");
         JLabel jlEmail = new JLabel("Email: ");
-        JLabel jlTelefone = new JLabel("Senha: ");
+        JLabel jlSenha = new JLabel("Senha: ");
         
         painel.setLayout(new GridLayout(0, 2));
         
@@ -57,7 +56,7 @@ public class JogadorGUI {
         painel.add(jlEmail);
         painel.add(tfEmail);
         
-        painel.add(jlTelefone);
+        painel.add(jlSenha);
         painel.add(tfSenha);
         
         return painel;

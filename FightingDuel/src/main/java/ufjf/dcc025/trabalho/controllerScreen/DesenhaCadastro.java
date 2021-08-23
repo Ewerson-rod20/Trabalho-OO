@@ -6,18 +6,8 @@
 package ufjf.dcc025.trabalho.controllerScreen;
 
 import ufjf.dcc025.trabalho.viewScreens.TelaCadastro;
-import ufjf.dcc025.trabalho.viewScreens.TelaPrincipal;
-import java.awt.BorderLayout;
-import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import javax.swing.JButton;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
-
-
-
 /**
  *
  * @author danie
@@ -31,7 +21,6 @@ public class DesenhaCadastro implements ActionListener{
     
     @Override
     public void actionPerformed(ActionEvent ae){
- 
         tela.chama();
     }
 }

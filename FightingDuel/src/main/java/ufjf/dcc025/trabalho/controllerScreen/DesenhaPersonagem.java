@@ -7,25 +7,24 @@ package ufjf.dcc025.trabalho.controllerScreen;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import ufjf.dcc025.trabalho.viewUsers.AdministradorGUI;
+import ufjf.dcc025.trabalho.modelUsers.Jogador;
+import ufjf.dcc025.trabalho.viewScreens.TelaPersonagem;
 
 /**
  *
  * @author danie
  */
-public class DesenhaAdministrador implements ActionListener{
+public class DesenhaPersonagem implements ActionListener{
+    TelaPersonagem tela;
+    private Jogador jogador = null;
     
-    AdministradorGUI tela;
-    JFrame tela1;
-    
-    public DesenhaAdministrador(JFrame tela1){
-        this.tela = new AdministradorGUI();
-        this.tela1 = tela1;
+    public DesenhaPersonagem(Jogador jogador){
+        this.tela = new TelaPersonagem(jogador);
+        this.jogador = jogador;
     }
     
     @Override
     public void actionPerformed(ActionEvent ae) {
-        tela.chama();
-        tela1.dispose();
+        tela.chama(jogador);
     }
 }

@@ -10,9 +10,9 @@ import java.awt.GridLayout;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import ufjf.dcc025.trabalho.controllerScreen.DesenhaPersonagem;
 import ufjf.dcc025.trabalho.controllerUser.Desconectar;
 import ufjf.dcc025.trabalho.controllerUser.ExibeContaJogador;
-import ufjf.dcc025.trabalho.modelGame.Dados;
 import ufjf.dcc025.trabalho.modelUsers.Jogador;
 
 /**
@@ -20,7 +20,7 @@ import ufjf.dcc025.trabalho.modelUsers.Jogador;
  * @author danie
  */
 public class TelaJogador {
-    
+
     private static Jogador jogador;
     private static JFrame telaPrincipal;
     private static JFrame tela;
@@ -39,6 +39,8 @@ public class TelaJogador {
         JButton botaoJogar = new JButton("Jogar");
         
         JButton botaoEventos = new JButton("Personagem");
+        System.out.println(jogador);
+        botaoEventos.addActionListener(new DesenhaPersonagem(this.jogador));
         
         JButton botaoConta = new JButton("Conta");
         botaoConta.addActionListener(new ExibeContaJogador(this.jogador));
@@ -63,6 +65,7 @@ public class TelaJogador {
         this.jogador = jogador;
         
         this.tela = new JFrame("Jogador");
+
         TelaJogador telaJogador = new TelaJogador(this.telaPrincipal);
         
         tela.setSize(600, 300);
