@@ -42,8 +42,8 @@ public class ValidaLogin implements ActionListener{
             if((telaLogin.getTfNome().getText().equals(jogador1.getNome())) && (telaLogin.getTfSenha().getText().equals(jogador1.getSenha()))){
                 TelaJogador tela1 = new TelaJogador();
                 tela1.chama(jogador1);
-                tela.setVisible(false);
-                //telaPrincipal.setVisible(false);
+                tela.dispose();
+                telaPrincipal.setVisible(false);
                 cont = 1;
             }
         }
@@ -53,7 +53,7 @@ public class ValidaLogin implements ActionListener{
                 TelaAdministrador tela2 = new TelaAdministrador();
                 tela2.chama(administrador1);
                 tela.setVisible(false);
-                //telaPrincipal.setVisible(false);
+                telaPrincipal.setVisible(false);
                 cont = 1;
             }
         }
@@ -63,7 +63,7 @@ public class ValidaLogin implements ActionListener{
                 TelaOrganizador tela3 = new TelaOrganizador();
                 tela3.chama(organizador1);
                 tela.setVisible(false);
-                //telaPrincipal.setVisible(false);
+                telaPrincipal.setVisible(false);
                 cont = 1;
             }
         }

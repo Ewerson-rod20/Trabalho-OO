@@ -28,7 +28,7 @@ public class TelaLogin {
     private JTextField tfSenha;
         
     // Construtor --------------------------------------------------------------
-    public TelaLogin(JFrame tlePrincipal){
+    public TelaLogin(JFrame telaPrincipal){
         this.tfNome = new JTextField(50);
         this.tfSenha = new JTextField(50);
         this.telaPrincipal = telaPrincipal;
