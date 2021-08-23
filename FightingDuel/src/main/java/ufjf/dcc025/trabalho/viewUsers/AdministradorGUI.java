@@ -101,6 +101,8 @@ public class AdministradorGUI {
 
         tela.add(administradorGUI.desenhaBotoes(), BorderLayout.SOUTH);
 
+        tela.setLocationRelativeTo(null);
+        
         tela.setVisible(true);
         tela.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
 

@@ -71,6 +71,8 @@ public class TelaAdministrador {
         
         tela.add(telaAdministrador.desenha(), BorderLayout.CENTER);
         
+        tela.setLocationRelativeTo(null);
+        
         tela.setVisible(true);
         tela.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }

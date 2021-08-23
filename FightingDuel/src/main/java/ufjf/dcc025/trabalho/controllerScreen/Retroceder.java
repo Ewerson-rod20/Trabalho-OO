@@ -23,6 +23,6 @@ public class Retroceder implements ActionListener{
     
     @Override
     public void actionPerformed(ActionEvent ae){
-        this.tela.setVisible(false);
+        this.tela.dispose();
     }
 }

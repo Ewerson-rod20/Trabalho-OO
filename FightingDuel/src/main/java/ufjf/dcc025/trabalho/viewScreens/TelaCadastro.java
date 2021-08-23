@@ -79,6 +79,8 @@ public class TelaCadastro {
         tela.add(telaCadastro.desenhaBotoes(), BorderLayout.CENTER);
         tela.add(telaCadastro.desenha(), BorderLayout.SOUTH);
         
+        tela.setLocationRelativeTo(null);
+        
         tela.setVisible(true);
         tela.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);        
     }

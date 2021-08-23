@@ -100,6 +100,7 @@ public class TelaPrincipal {
         //tela.add(telaPrincipal.desenhaBotoes(), BorderLayout.CENTER);
         tela.add(telaPrincipal.desenha(), BorderLayout.CENTER);
         
+        tela.setLocationRelativeTo(null);
         tela.setVisible(true);
         tela.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }

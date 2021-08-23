@@ -103,6 +103,8 @@ public class OrganizadorGUI {
 
         tela.add(organizadorGUI.desenhaBotoes(), BorderLayout.SOUTH);
 
+        tela.setLocationRelativeTo(null);
+        
         tela.setVisible(true);
         tela.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
 

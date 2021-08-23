@@ -83,6 +83,8 @@ public class TelaLogin {
         tela.add(telaLogin.desenha(), BorderLayout.CENTER);
         tela.add(telaLogin.desenhaBotoes(), BorderLayout.SOUTH);
         
+        tela.setLocationRelativeTo(null);
+        
         tela.setVisible(true);
         tela.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
     }
