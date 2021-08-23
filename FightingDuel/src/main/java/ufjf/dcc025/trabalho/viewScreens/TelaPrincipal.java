@@ -6,6 +6,7 @@
 package ufjf.dcc025.trabalho.viewScreens;
 
 import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.GridBagLayout;
 import java.awt.GridLayout;
@@ -42,7 +43,7 @@ public class TelaPrincipal {
         JPanel painel2 = new JPanel();
         JPanel painel3 = new JPanel();
         
-        JLabel jlName = new JLabel("TÍTULO DO JOGO");
+        JLabel jlName = new JLabel("FIGHTINGDUEL");
         JLabel jlID = new JLabel("Identificação dos desenvolvedores.");
         
         JButton botaoCadastrar = new JButton("Cadastrar");
@@ -99,6 +100,8 @@ public class TelaPrincipal {
         
         //tela.add(telaPrincipal.desenhaBotoes(), BorderLayout.CENTER);
         tela.add(telaPrincipal.desenha(), BorderLayout.CENTER);
+        
+        tela.setBackground(Color.DARK_GRAY);
         
         tela.setLocationRelativeTo(null);
         tela.setVisible(true);
