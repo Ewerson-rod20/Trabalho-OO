@@ -1,6 +1,8 @@
 
-package ufjf.dcc025.trabalho.semnome;
-
+package ufjf.dcc025.trabalho.modelGame;
+/**
+ * @author Pedro Luiz Bonorino Braga (202065177A)
+ */
 public class Combate {
     
     protected int modificadorAtaque; // Quantidade de modificadores de ataque restantes 
