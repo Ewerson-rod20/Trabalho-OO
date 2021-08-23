@@ -22,10 +22,12 @@ import ufjf.dcc025.trabalho.modelUsers.Jogador;
 public class TelaJogador {
     
     private static Jogador jogador;
+    private static JFrame telaPrincipal;
     private static JFrame tela;
     
     // Construtor --------------------------------------------------------------
-    public TelaJogador(){
+    public TelaJogador(JFrame telaPrincipal){
+        this.telaPrincipal = telaPrincipal;
     }
     
     // Desenha -----------------------------------------------------------------
@@ -44,7 +46,7 @@ public class TelaJogador {
         JButton botaoEditar = new JButton("Editar Dados");
         
         JButton botaoSair = new JButton("Sair");
-        botaoSair.addActionListener(new Desconectar(this.tela));
+        botaoSair.addActionListener(new Desconectar(this.tela, this.telaPrincipal));
         
         painel.add(botaoJogar);
         painel.add(botaoEventos);
@@ -61,7 +63,7 @@ public class TelaJogador {
         this.jogador = jogador;
         
         this.tela = new JFrame("Jogador");
-        TelaJogador telaJogador = new TelaJogador();
+        TelaJogador telaJogador = new TelaJogador(this.telaPrincipal);
         
         tela.setSize(600, 300);
         

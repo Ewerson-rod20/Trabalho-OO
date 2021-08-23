@@ -10,6 +10,7 @@ import ufjf.dcc025.trabalho.modelUsers.Organizador;
 import ufjf.dcc025.trabalho.modelGame.Dados;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import ufjf.dcc025.trabalho.modelUsers.Administrador;
 import ufjf.dcc025.trabalho.modelUsers.Jogador;
@@ -21,9 +22,11 @@ import ufjf.dcc025.trabalho.modelUsers.Jogador;
 public class AdicionaOrganizador implements ActionListener {
 
     OrganizadorGUI organizadorGUI;
+    JFrame tela;
 
-    public AdicionaOrganizador(OrganizadorGUI organizadorGUI) {
+    public AdicionaOrganizador(OrganizadorGUI organizadorGUI, JFrame tela) {
         this.organizadorGUI = organizadorGUI;
+        this.tela = tela;
     }
 
     @Override
@@ -63,6 +66,9 @@ public class AdicionaOrganizador implements ActionListener {
 
             Dados.organizadores.add(organizador);
 
+            tela.dispose();
+            JOptionPane.showMessageDialog(null, "Cadastro realizado.");
+            
             for (Organizador organizador1 : Dados.organizadores) {
                 System.out.println(organizador1);
             }

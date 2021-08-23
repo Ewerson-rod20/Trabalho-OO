@@ -22,10 +22,12 @@ import ufjf.dcc025.trabalho.modelUsers.Administrador;
 public class TelaAdministrador {
     
     private static Administrador administrador;
+    private static JFrame telaPrincipal;
     private static JFrame tela;
     
     // Construtor --------------------------------------------------------------
-    public TelaAdministrador(){
+    public TelaAdministrador(JFrame telaPrincipal){
+        this.telaPrincipal = telaPrincipal;
     }
     
     // Desenha -----------------------------------------------------------------
@@ -44,7 +46,7 @@ public class TelaAdministrador {
         JButton botaoAdministrar = new JButton("Administrar Usuários");
         
         JButton botaoSair = new JButton("Sair");
-        botaoSair.addActionListener(new Desconectar(this.tela));
+        botaoSair.addActionListener(new Desconectar(this.tela, this.telaPrincipal));
         
         painel.add(botaoAdministrar);
         painel.add(botaoPersonagem);
@@ -61,7 +63,7 @@ public class TelaAdministrador {
         this.administrador = administrador;
         
         this.tela = new JFrame("Administrador");
-        TelaAdministrador telaAdministrador = new TelaAdministrador();
+        TelaAdministrador telaAdministrador = new TelaAdministrador(this.telaPrincipal);
         
         tela.setSize(600, 300);
         

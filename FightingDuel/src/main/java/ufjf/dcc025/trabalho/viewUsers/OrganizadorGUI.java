@@ -76,7 +76,7 @@ public class OrganizadorGUI {
         JPanel painel = new JPanel();
 
         JButton botaoCadastrar = new JButton("Cadastrar");
-        botaoCadastrar.addActionListener(new AdicionaOrganizador(this));
+        botaoCadastrar.addActionListener(new AdicionaOrganizador(this, this.tela));
 
         JButton botaoCancelar = new JButton("Cancelar");
         botaoCancelar.addActionListener(new Retroceder(this.tela));

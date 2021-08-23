@@ -10,6 +10,7 @@ import ufjf.dcc025.trabalho.modelUsers.Jogador;
 import ufjf.dcc025.trabalho.modelGame.Dados;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import ufjf.dcc025.trabalho.modelUsers.Administrador;
 import ufjf.dcc025.trabalho.modelUsers.Organizador;
@@ -21,9 +22,11 @@ import ufjf.dcc025.trabalho.modelUsers.Organizador;
 public class AdicionaJogador implements ActionListener {
 
     JogadorGUI jogadorGUI;
+    JFrame tela;
 
-    public AdicionaJogador(JogadorGUI jogadorGUI) {
+    public AdicionaJogador(JogadorGUI jogadorGUI, JFrame tela) {
         this.jogadorGUI = jogadorGUI;
+        this.tela = tela;
     }
 
     @Override
@@ -62,6 +65,9 @@ public class AdicionaJogador implements ActionListener {
 
             Dados.jogadores.add(jogador);
 
+            tela.dispose();
+            JOptionPane.showMessageDialog(null, "Cadastro realizado.");
+            
             for (Jogador jogador1 : Dados.jogadores) {
                 System.out.println(jogador1);
             }

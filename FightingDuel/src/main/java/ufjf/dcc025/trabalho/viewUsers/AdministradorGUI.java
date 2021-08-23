@@ -74,7 +74,7 @@ public class AdministradorGUI {
         JPanel painel = new JPanel();
 
         JButton botaoCadastrar = new JButton("Cadastrar");
-        botaoCadastrar.addActionListener(new AdicionaAdministrador(this));
+        botaoCadastrar.addActionListener(new AdicionaAdministrador(this, this.tela));
 
         JButton botaoCancelar = new JButton("Cancelar");
         botaoCancelar.addActionListener(new Retroceder(this.tela));

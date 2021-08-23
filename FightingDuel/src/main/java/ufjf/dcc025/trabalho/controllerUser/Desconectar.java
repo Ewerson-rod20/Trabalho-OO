@@ -16,13 +16,16 @@ import javax.swing.JFrame;
 public class Desconectar implements ActionListener{
     
     private JFrame tela; 
+    private JFrame telaPrincipal;
     
-    public Desconectar(JFrame tela){
+    public Desconectar(JFrame tela, JFrame telaPrincipal){
         this.tela = tela;
+        this.telaPrincipal = telaPrincipal;
     }
     
     @Override
     public void actionPerformed(ActionEvent ae){
         this.tela.setVisible(false);
+        this.telaPrincipal.setVisible(true);
     }
 }

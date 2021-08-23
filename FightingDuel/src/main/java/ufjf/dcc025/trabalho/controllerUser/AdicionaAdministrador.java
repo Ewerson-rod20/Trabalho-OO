@@ -10,6 +10,7 @@ import ufjf.dcc025.trabalho.modelUsers.Administrador;
 import ufjf.dcc025.trabalho.modelGame.Dados;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import ufjf.dcc025.trabalho.modelUsers.Jogador;
 import ufjf.dcc025.trabalho.modelUsers.Organizador;
@@ -21,9 +22,11 @@ import ufjf.dcc025.trabalho.modelUsers.Organizador;
 public class AdicionaAdministrador implements ActionListener {
 
     AdministradorGUI administradorGUI;
+    JFrame tela;
 
-    public AdicionaAdministrador(AdministradorGUI administradorGUI) {
+    public AdicionaAdministrador(AdministradorGUI administradorGUI, JFrame tela) {
         this.administradorGUI = administradorGUI;
+        this.tela = tela;
     }
 
     @Override
@@ -62,6 +65,9 @@ public class AdicionaAdministrador implements ActionListener {
             administrador.setSenha(administradorGUI.getTfSenha().getText());
 
             Dados.administradores.add(administrador);
+            
+            tela.dispose();
+            JOptionPane.showMessageDialog(null, "Cadastro realizado.");
 
             for (Administrador administrador1 : Dados.administradores) {
                 System.out.println(administrador1);

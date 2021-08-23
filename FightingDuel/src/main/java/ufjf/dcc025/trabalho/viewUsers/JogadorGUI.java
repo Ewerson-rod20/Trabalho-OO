@@ -69,7 +69,7 @@ public class JogadorGUI {
         JPanel painel = new JPanel();
 
         JButton botaoCadastrar = new JButton("Cadastrar");
-        botaoCadastrar.addActionListener(new AdicionaJogador(this));
+        botaoCadastrar.addActionListener(new AdicionaJogador(this, this.tela));
 
         JButton botaoCancelar = new JButton("Cancelar");
         botaoCancelar.addActionListener(new Retroceder(this.tela));

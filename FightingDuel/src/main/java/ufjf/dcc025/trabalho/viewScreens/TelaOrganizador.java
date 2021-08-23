@@ -22,10 +22,12 @@ import ufjf.dcc025.trabalho.modelUsers.Organizador;
 public class TelaOrganizador {
     
     private static Organizador organizador;
+    private static JFrame telaPrincipal;
     private static JFrame tela;
             
     // Construtor --------------------------------------------------------------
-    public TelaOrganizador(){
+    public TelaOrganizador(JFrame telaPrincipal){
+        this.telaPrincipal = telaPrincipal;
     }
     
     // Desenha -----------------------------------------------------------------
@@ -42,7 +44,7 @@ public class TelaOrganizador {
         JButton botaoEditar = new JButton("Editar Dados");
         
         JButton botaoSair = new JButton("Sair");
-        botaoSair.addActionListener(new Desconectar(this.tela));
+        botaoSair.addActionListener(new Desconectar(this.tela, this.telaPrincipal));
         
         painel.add(botaoEventos);
         painel.add(botaoConta);
@@ -58,7 +60,7 @@ public class TelaOrganizador {
         this.organizador = organizador;
         
         this.tela = new JFrame("Organizador");
-        TelaOrganizador telaOrganizador = new TelaOrganizador();
+        TelaOrganizador telaOrganizador = new TelaOrganizador(this.telaPrincipal);
         
         tela.setSize(600, 300);
         

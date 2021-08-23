@@ -47,13 +47,13 @@ public class TelaCadastro {
         JPanel painel = new JPanel();
         
         JButton botaoJogador = new JButton("Jogador");
-        botaoJogador.addActionListener(new DesenhaJogador());
+        botaoJogador.addActionListener(new DesenhaJogador(tela));
         
         JButton botaoAdministrador = new JButton("Administrador");
-        botaoAdministrador.addActionListener(new DesenhaAdministrador());
+        botaoAdministrador.addActionListener(new DesenhaAdministrador(tela));
         
         JButton botaoOrganizador = new JButton("Organizador");
-        botaoOrganizador.addActionListener(new DesenhaOrganizador());
+        botaoOrganizador.addActionListener(new DesenhaOrganizador(tela));
         
         JButton botaoVoltar = new JButton("Voltar");
         botaoVoltar.addActionListener(new Retroceder(this.tela)); 

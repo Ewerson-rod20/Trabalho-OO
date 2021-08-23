@@ -18,13 +18,16 @@ import ufjf.dcc025.trabalho.viewUsers.AdministradorGUI;
 public class DesenhaAdministrador implements ActionListener{
     
     AdministradorGUI tela;
+    JFrame tela1;
     
-    public DesenhaAdministrador(){
+    public DesenhaAdministrador(JFrame tela1){
         this.tela = new AdministradorGUI();
+        this.tela1 = tela1;
     }
     
     @Override
     public void actionPerformed(ActionEvent ae) {
         tela.chama();
+        tela1.dispose();
     }
 }
