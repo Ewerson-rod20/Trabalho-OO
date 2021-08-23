@@ -39,9 +39,6 @@ public class ValidaLogin implements ActionListener{
                 tela1.chama(jogador1);
                 cont = 1;
             }
-            else{
-                cont = 0;
-            }
         }
         
         for (Administrador administrador1 : Dados.administradores){
@@ -50,9 +47,6 @@ public class ValidaLogin implements ActionListener{
                 tela2.chama(administrador1);
                 cont = 1;
             }
-            else{
-                cont = 0;
-            }
         }
         
         for (Organizador organizador1 : Dados.organizadores){
@@ -60,9 +54,6 @@ public class ValidaLogin implements ActionListener{
                 TelaOrganizador tela3 = new TelaOrganizador();
                 tela3.chama(organizador1);
                 cont = 1;
-            }
-            else{
-                cont = 0;
             }
         }
         

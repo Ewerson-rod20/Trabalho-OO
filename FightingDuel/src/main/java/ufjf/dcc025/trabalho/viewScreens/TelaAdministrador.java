@@ -10,6 +10,7 @@ import java.awt.GridLayout;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import ufjf.dcc025.trabalho.controllerUser.Desconectar;
 import ufjf.dcc025.trabalho.controllerUser.ExibeContaAdministrador;
 import ufjf.dcc025.trabalho.modelGame.Dados;
 import ufjf.dcc025.trabalho.modelUsers.Administrador;
@@ -21,6 +22,7 @@ import ufjf.dcc025.trabalho.modelUsers.Administrador;
 public class TelaAdministrador {
     
     private static Administrador administrador;
+    private static JFrame tela;
     
     // Construtor --------------------------------------------------------------
     public TelaAdministrador(){
@@ -41,10 +43,14 @@ public class TelaAdministrador {
         
         JButton botaoAdministrar = new JButton("Administrar Usuários");
         
+        JButton botaoSair = new JButton("Sair");
+        botaoSair.addActionListener(new Desconectar(this.tela));
+        
         painel.add(botaoAdministrar);
         painel.add(botaoPersonagem);
         painel.add(botaoConta);
         painel.add(botaoEditar);
+        painel.add(botaoSair);
         
         return painel;
     }
@@ -54,7 +60,7 @@ public class TelaAdministrador {
         
         this.administrador = administrador;
         
-        JFrame tela = new JFrame("Administrador");
+        this.tela = new JFrame("Administrador");
         TelaAdministrador telaAdministrador = new TelaAdministrador();
         
         tela.setSize(600, 300);
