@@ -10,6 +10,10 @@ import java.awt.GridLayout;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import ufjf.dcc025.trabalho.controllerUser.Desconectar;
+import ufjf.dcc025.trabalho.controllerUser.ExibeContaOrganizador;
+import ufjf.dcc025.trabalho.modelGame.Dados;
+import ufjf.dcc025.trabalho.modelUsers.Organizador;
 
 /**
  *
@@ -17,6 +21,9 @@ import javax.swing.JPanel;
  */
 public class TelaOrganizador {
     
+    private static Organizador organizador;
+    private static JFrame tela;
+            
     // Construtor --------------------------------------------------------------
     public TelaOrganizador(){
     }
@@ -30,20 +37,27 @@ public class TelaOrganizador {
         JButton botaoEventos = new JButton("Eventos");
         
         JButton botaoConta = new JButton("Conta");
+        botaoConta.addActionListener(new ExibeContaOrganizador(this.organizador));
         
         JButton botaoEditar = new JButton("Editar Dados");
+        
+        JButton botaoSair = new JButton("Sair");
+        botaoSair.addActionListener(new Desconectar(this.tela));
         
         painel.add(botaoEventos);
         painel.add(botaoConta);
         painel.add(botaoEditar);
+        painel.add(botaoSair);
         
         return painel;
     }
     
     // Chama -------------------------------------------------------------------
-    public void chama(){
+    public void chama(Organizador organizador){
         
-        JFrame tela = new JFrame("Organizador");
+        this.organizador = organizador;
+        
+        this.tela = new JFrame("Organizador");
         TelaOrganizador telaOrganizador = new TelaOrganizador();
         
         tela.setSize(600, 300);
@@ -55,4 +69,10 @@ public class TelaOrganizador {
         tela.setVisible(true);
         tela.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
+    
+    // Getteres ----------------------------------------------------------------
+    public Organizador getOrganizador() {
+        return organizador;
+    }
+    
 }

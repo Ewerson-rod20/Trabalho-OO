@@ -7,6 +7,7 @@ package ufjf.dcc025.trabalho.controllerScreen;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import javax.swing.JFrame;
 import ufjf.dcc025.trabalho.viewScreens.TelaLogin;
 
 /**
@@ -16,8 +17,8 @@ import ufjf.dcc025.trabalho.viewScreens.TelaLogin;
 public class DesenhaLogin implements ActionListener{
     TelaLogin tela;
     
-    public DesenhaLogin(){
-        this.tela = new TelaLogin();
+    public DesenhaLogin(JFrame telaPrincipal){
+        this.tela = new TelaLogin(telaPrincipal);
     }
 
     @Override

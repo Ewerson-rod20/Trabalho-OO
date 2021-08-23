@@ -16,11 +16,14 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
+import ufjf.dcc025.trabalho.controllerScreen.Retroceder;
 /**
  *
  * @author danie
  */
 public class OrganizadorGUI {
+    
+    private static JFrame tela;
     
     private JTextField tfNome;
     private JTextField tfCpf;
@@ -76,7 +79,7 @@ public class OrganizadorGUI {
         botaoCadastrar.addActionListener(new AdicionaOrganizador(this));
 
         JButton botaoCancelar = new JButton("Cancelar");
-        botaoCancelar.addActionListener(new CancelaOrganizador());
+        botaoCancelar.addActionListener(new Retroceder(this.tela));
 
         painel.add(botaoCadastrar);
 
@@ -89,7 +92,7 @@ public class OrganizadorGUI {
     // Main --------------------------------------------------------------------
     public void chama() {
 
-        JFrame tela = new JFrame("Cadastra Organizador");
+        this.tela = new JFrame("Cadastra Organizador");
         OrganizadorGUI organizadorGUI = new OrganizadorGUI();
         
         tela.setSize(600, 300);

@@ -14,12 +14,15 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
+import ufjf.dcc025.trabalho.controllerScreen.Retroceder;
 
 /**
  *
  * @author danie
  */
 public class JogadorGUI {
+    
+    private static JFrame tela;
     
     private JTextField tfNome;
     private JTextField tfDataNascimento;
@@ -69,7 +72,7 @@ public class JogadorGUI {
         botaoCadastrar.addActionListener(new AdicionaJogador(this));
 
         JButton botaoCancelar = new JButton("Cancelar");
-        botaoCancelar.addActionListener(new CancelaJogador());
+        botaoCancelar.addActionListener(new Retroceder(this.tela));
 
         painel.add(botaoCadastrar);
 
@@ -80,9 +83,9 @@ public class JogadorGUI {
     }
     
     // Main --------------------------------------------------------------------
-    public static void chama() {
+    public void chama() {
 
-        JFrame tela = new JFrame("Cadastra Jogador");
+        this.tela = new JFrame("Cadastra Jogador");
         JogadorGUI jogadorGUI = new JogadorGUI();
         
         tela.setSize(600, 300);
