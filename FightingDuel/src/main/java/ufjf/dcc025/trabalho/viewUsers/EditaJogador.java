@@ -7,8 +7,6 @@ package ufjf.dcc025.trabalho.viewUsers;
 
 import java.awt.BorderLayout;
 import java.awt.GridLayout;
-import javax.swing.ComboBoxModel;
-import javax.swing.DefaultComboBoxModel;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
