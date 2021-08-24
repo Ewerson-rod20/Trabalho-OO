@@ -14,7 +14,6 @@ import ufjf.dcc025.trabalho.modelCharacter.ClassePersonagem;
 import ufjf.dcc025.trabalho.modelCharacter.Ladrao;
 import ufjf.dcc025.trabalho.modelCharacter.Mago;
 import ufjf.dcc025.trabalho.modelCharacter.Personagem;
-import ufjf.dcc025.trabalho.modelGame.Dados;
 import ufjf.dcc025.trabalho.modelUsers.Jogador;
 import ufjf.dcc025.trabalho.viewUsers.PersonagemGUI;
 
@@ -36,6 +35,13 @@ public class AdicionaPersonagem implements ActionListener{
 
         int control = 0;
         ClassePersonagem classeSelecionada = null;
+
+        if(jogador.getPersonagens().containsKey(personagemGUI.getTfNome().getText())){
+            JOptionPane.showMessageDialog(null, "ERRO! Já existe um personagem com esse nome!");
+            control = 1;
+        }
+        
+        System.out.println("AAA" + jogador.getPersonagens());
         
         try {
             switch (personagemGUI.getTfClasse().getSelectedIndex()) {
@@ -51,24 +57,15 @@ public class AdicionaPersonagem implements ActionListener{
             default:
                 JOptionPane.showMessageDialog(null, "Algo de errado aconteceu na criação...");
                 control = 1;
+                break;
             }
         } catch (HeadlessException e) {
             control = 1;
         }
-        
-                
-        for (String personagem : this.jogador.getPersonagens().keySet()) { //AJEITAR PRO JOGADOR CERTO
-            if(personagem.equals(personagemGUI.getTfNome().toString())){
-                JOptionPane.showMessageDialog(null, "ERRO! Já existe um personagem com esse nome!");
-                control = 1;
-                break;
-            }
-        }
 
         if (control == 0) {
-            Personagem personagem = new Personagem(personagemGUI.getTfNome().toString(), classeSelecionada, 5);
+            Personagem personagem = new Personagem(personagemGUI.getTfNome().getText(), classeSelecionada, 5);
             this.jogador.addPersonagem(personagem);
-            JOptionPane.showMessageDialog(null, "Personagem criado com sucesso!");
         }
     }
 }
