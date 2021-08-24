@@ -10,6 +10,7 @@ import java.awt.GridLayout;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import ufjf.dcc025.trabalho.controllerScreen.DesenhaEditaJogador;
 import ufjf.dcc025.trabalho.controllerScreen.DesenhaPersonagem;
 import ufjf.dcc025.trabalho.controllerUser.Desconectar;
 import ufjf.dcc025.trabalho.controllerUser.ExibeContaJogador;
@@ -46,6 +47,7 @@ public class TelaJogador {
         botaoConta.addActionListener(new ExibeContaJogador(this.jogador));
         
         JButton botaoEditar = new JButton("Editar Dados");
+        botaoEditar.addActionListener(new DesenhaEditaJogador(this.jogador));
         
         JButton botaoSair = new JButton("Sair");
         botaoSair.addActionListener(new Desconectar(this.tela, this.telaPrincipal));

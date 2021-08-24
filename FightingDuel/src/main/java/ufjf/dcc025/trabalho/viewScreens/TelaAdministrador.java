@@ -10,6 +10,7 @@ import java.awt.GridLayout;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import ufjf.dcc025.trabalho.controllerScreen.DesenhaEditaAdministrador;
 import ufjf.dcc025.trabalho.controllerUser.Desconectar;
 import ufjf.dcc025.trabalho.controllerUser.ExibeContaAdministrador;
 import ufjf.dcc025.trabalho.modelGame.Dados;
@@ -42,6 +43,7 @@ public class TelaAdministrador {
         botaoConta.addActionListener(new ExibeContaAdministrador(this.administrador));
         
         JButton botaoEditar = new JButton("Editar Dados");
+        botaoEditar.addActionListener(new DesenhaEditaAdministrador(this.administrador));
         
         JButton botaoAdministrar = new JButton("Administrar Usuários");
         
