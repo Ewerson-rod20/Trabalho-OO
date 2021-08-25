@@ -8,17 +8,11 @@ package ufjf.dcc025.trabalho.viewScreens;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
-import java.awt.GridBagLayout;
 import java.awt.GridLayout;
-import java.awt.HeadlessException;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.JTextField;
-import javax.swing.plaf.basic.BasicOptionPaneUI;
-import javax.swing.plaf.basic.BasicSplitPaneUI;
-import ufjf.dcc025.trabalho.controllerScreen.DesenhaAdministrador;
 import ufjf.dcc025.trabalho.controllerScreen.DesenhaCadastro;
 import ufjf.dcc025.trabalho.controllerScreen.DesenhaLogin;
 

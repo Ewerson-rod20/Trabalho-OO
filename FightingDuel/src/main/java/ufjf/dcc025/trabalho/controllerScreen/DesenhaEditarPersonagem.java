@@ -8,23 +8,25 @@ package ufjf.dcc025.trabalho.controllerScreen;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import ufjf.dcc025.trabalho.modelUsers.Jogador;
-import ufjf.dcc025.trabalho.viewScreens.TelaPersonagem;
+import ufjf.dcc025.trabalho.viewUsers.EditaPersonagem;
 
 /**
  *
- * @author danie
+ * @author Bonorino
  */
-public class DesenhaPersonagem implements ActionListener{
-    TelaPersonagem tela;
-    private Jogador jogador = null;
+public class DesenhaEditarPersonagem implements ActionListener{
+
+    EditaPersonagem edita;
+    Jogador jogador;
     
-    public DesenhaPersonagem(Jogador jogador){
-        this.tela = new TelaPersonagem(jogador);
+    public DesenhaEditarPersonagem(Jogador jogador){
+        this.edita = new EditaPersonagem();
         this.jogador = jogador;
     }
     
     @Override
-    public void actionPerformed(ActionEvent ae) {
-        tela.chama(jogador);
+    public void actionPerformed(ActionEvent ae){
+        edita.chama(jogador);
     }
+    
 }

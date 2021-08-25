@@ -14,6 +14,8 @@ import javax.swing.JList;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.ListSelectionModel;
+import ufjf.dcc025.trabalho.controllerScreen.DesenhaPersonagem;
+import ufjf.dcc025.trabalho.controllerScreen.Retroceder;
 import ufjf.dcc025.trabalho.controllerUser.AdicionaPersonagem;
 import ufjf.dcc025.trabalho.controllerUser.CancelaPersonagem;
 import ufjf.dcc025.trabalho.modelUsers.Jogador;
@@ -27,6 +29,7 @@ public class PersonagemGUI{
     private final JList tfClasse;
     private final String classesDisponiveis[] = {"Cavaleiro", "Ladrao", "Mago"};
     private Jogador jogador = null;
+    private static JFrame tela;
     
     // Construtor --------------------------------------------------------------
     public PersonagemGUI(Jogador jogador){
@@ -34,6 +37,7 @@ public class PersonagemGUI{
         this.tfClasse = new JList(classesDisponiveis);
         this.tfClasse.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
         this.jogador = jogador;
+        tela = new JFrame("Criação de Personagem");
     }
     
     // Desenha campos ----------------------------------------------------------
@@ -65,6 +69,8 @@ public class PersonagemGUI{
         
         JButton botaoCancelar = new JButton("Cancelar");
         botaoCancelar.addActionListener(new CancelaPersonagem());
+        botaoCancelar.addActionListener(new DesenhaPersonagem(jogador));
+        botaoCancelar.addActionListener(new Retroceder(this.tela)); 
 
         painel.add(botaoFinalizar);
 
@@ -76,8 +82,7 @@ public class PersonagemGUI{
     
     // Main --------------------------------------------------------------------
     public static void chama(Jogador jogador) {
-
-        JFrame tela = new JFrame("Criação de Personagem");
+        
         PersonagemGUI personagemGUI = new PersonagemGUI(jogador);
         
         tela.setSize(600, 300);
@@ -90,7 +95,14 @@ public class PersonagemGUI{
 
         tela.setVisible(true);
         tela.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
+        
+        tela.setLocationRelativeTo(null);
 
+    }
+    
+    // Fecha -------------------------------------------------------------------
+    public void fecha(JFrame tela){
+        tela.setVisible(false);
     }
 
     // Getteres ----------------------------------------------------------------

@@ -15,7 +15,7 @@ import javax.swing.JOptionPane;
  */
 public class CancelaPersonagem implements ActionListener{
     @Override
-    public void actionPerformed(ActionEvent ae) {
+    public void actionPerformed(ActionEvent ae){
         JOptionPane.showMessageDialog(null, "Criação cancelada!");
     }
 }
