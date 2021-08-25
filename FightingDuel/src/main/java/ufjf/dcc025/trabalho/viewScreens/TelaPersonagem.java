@@ -8,12 +8,14 @@ package ufjf.dcc025.trabalho.viewScreens;
 import java.awt.BorderLayout;
 import java.awt.FlowLayout;
 import java.awt.GridLayout;
+import java.util.List;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTable;
 import ufjf.dcc025.trabalho.controllerScreen.DesenhaCriarPersonagem;
+import ufjf.dcc025.trabalho.modelCharacter.Personagem;
 import ufjf.dcc025.trabalho.modelUsers.Jogador;
 
 /**
@@ -98,5 +100,21 @@ public class TelaPersonagem {
     // Fecha -------------------------------------------------------------------
     public void fecha(JFrame tela){
         tela.setVisible(false);
+    }
+    
+    public void completaTabelaPersonagens(List<Personagem> personagens){
+        JPanel painelPersonagem1 = new JPanel();
+        painelPersonagem1.setLayout(new GridLayout(0, 2));
+        JPanel painelPersonagem2 = new JPanel();
+        painelPersonagem2.setLayout(new GridLayout(0, 2));
+        JPanel painelPersonagem3 = new JPanel();
+        painelPersonagem3.setLayout(new GridLayout(0, 2));
+        
+        if(jogador.getcontPersonagem() == 1){
+            JLabel nomePersonagem1 = new JLabel("text");
+            JLabel classePersonagem1 = new JLabel("text");
+            JLabel nivelPersonagem1 = new JLabel("text");
+        }
+        
     }
 }

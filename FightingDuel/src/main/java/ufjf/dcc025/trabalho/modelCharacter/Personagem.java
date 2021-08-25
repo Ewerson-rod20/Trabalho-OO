@@ -9,8 +9,7 @@ public class Personagem {
     private String nome;             // Nome do personagem;
     private ClassePersonagem classe; // Classe do personagem;
     private int vida;                // Vida do personagem;
-    private int nivel;               // Nível do personagem;
-    
+    private int nivel;               // Nível do personagem;    
     
     // Construtor --------------------------------------------------------------
     public Personagem(String nome, ClassePersonagem classe, int nivel){
@@ -52,5 +51,7 @@ public class Personagem {
     public void setNivel(int nivel) {
         this.nivel = nivel;
     }
+    
+    
     
 }

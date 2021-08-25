@@ -1,6 +1,8 @@
 package ufjf.dcc025.trabalho.modelUsers;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import javax.swing.JOptionPane;
 import ufjf.dcc025.trabalho.modelCharacter.Personagem;
 
@@ -10,7 +12,7 @@ public class Jogador {
     String dataNascimento;
     String email;
     String senha;
-    HashMap<String, Personagem> personagens; // Personagens do jogador
+    List<Personagem> personagens; // Personagens do jogador
 //    Personagem personagem1;  // Personagens do Jogador
 //    Personagem personagem2;  //
 //    Personagem personagem3;  //
@@ -23,7 +25,7 @@ public class Jogador {
         this.dataNascimento = null;
         this.email = null;
         this.senha = null;
-        personagens = new HashMap<>();
+        personagens = new ArrayList<>();
 //        this.personagem1 = null;
 //        this.personagem2 = null;
 //        this.personagem3 = null;
@@ -35,7 +37,7 @@ public class Jogador {
         this.dataNascimento = nascimento;
         this.email = email;
         this.senha = senha;
-        personagens = new HashMap<>();
+        personagens = new ArrayList<>();
         contPersonagem = 0;
     }    
     
@@ -44,8 +46,8 @@ public class Jogador {
         this.dataNascimento = nascimento;
         this.email = email;
         this.senha = senha;       
-        personagens = new HashMap<>();
-        personagens.put(personagem.getNome(), personagem);
+        personagens = new ArrayList<>();
+        personagens.add(personagem);
         contPersonagem = personagens.size();
 //        this.personagem1 = personagem;
 //        contPersonagem++;     
@@ -94,12 +96,8 @@ public class Jogador {
 //        return personagem3;
 //    }
     
-    public HashMap<String, Personagem> getPersonagens(){
+    public List<Personagem> getPersonagens(){
         return this.personagens;
-    }
-    
-    public Personagem getPersonagemByName(String nome){
-        return personagens.get(nome);
     }
     
     // Setteres ----------------------------------------------------------------
@@ -141,7 +139,7 @@ public class Jogador {
         if(personagens.size() == 3){
             JOptionPane.showMessageDialog(null, "Número máximo de personagens atingido!", "Aviso", JOptionPane.INFORMATION_MESSAGE);
         } else {
-            personagens.put(personagem.getNome(), personagem);
+            personagens.add(personagem);
             JOptionPane.showMessageDialog(null, "Personagem criado com sucesso!");
         }
         contPersonagem = personagens.size();
@@ -171,10 +169,18 @@ public class Jogador {
 //    }
     
     public void removePersonagem(String nome){
-        if(personagens.containsKey(nome)){
-            personagens.remove(nome);
-            JOptionPane.showMessageDialog(null, "Personagem deletado com sucesso!");
-        } else {
+        int indice = 0;
+        boolean removeu = false;
+        for(Personagem personagem : personagens){
+            if(personagem.getNome().equals(nome)){
+                personagens.remove(indice);
+                removeu = true;
+                JOptionPane.showMessageDialog(null, "Personagem deletado com sucesso!");
+                break;
+            }
+            indice++;
+        }
+        if(!removeu){
             JOptionPane.showMessageDialog(null, "Personagem não encontrado!", "Aviso", JOptionPane.INFORMATION_MESSAGE);
         }
         contPersonagem = personagens.size();

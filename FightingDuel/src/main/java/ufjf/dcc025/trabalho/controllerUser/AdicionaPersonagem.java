@@ -32,16 +32,17 @@ public class AdicionaPersonagem implements ActionListener{
 
     @Override
     public void actionPerformed(ActionEvent ae) {
-
+        
         int control = 0;
         ClassePersonagem classeSelecionada = null;
-
-        if(jogador.getPersonagens().containsKey(personagemGUI.getTfNome().getText())){
-            JOptionPane.showMessageDialog(null, "ERRO! Já existe um personagem com esse nome!");
-            control = 1;
-        }
         
-        System.out.println("AAA" + jogador.getPersonagens());
+        for(Personagem personagem : jogador.getPersonagens()){
+            if(personagem.getNome().equals(personagemGUI.getTfNome().getText())){
+                JOptionPane.showMessageDialog(null, "ERRO! Já existe um personagem com esse nome!");
+                control = 1;
+                break;
+            }
+        }
         
         try {
             switch (personagemGUI.getTfClasse().getSelectedIndex()) {
