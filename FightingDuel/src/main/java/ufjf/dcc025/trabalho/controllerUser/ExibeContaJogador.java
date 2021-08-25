@@ -25,6 +25,7 @@ public class ExibeContaJogador implements ActionListener{
     public void actionPerformed(ActionEvent ae){
         JOptionPane.showMessageDialog(null, "Nome: " + jgd.getNome() + 
                                             "\nNascimento: " + jgd.getDataNascimento() +
-                                            "\nEmail: " + jgd.getEmail());
+                                            "\nEmail: " + jgd.getEmail() + 
+                                            "\nSenha: " + jgd.getSenha());
     }
 }

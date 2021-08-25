@@ -26,6 +26,7 @@ public class ExibeContaAdministrador implements ActionListener{
         JOptionPane.showMessageDialog(null, "Nome: " + adm.getNome() +
                                             "\nCPF/CNPJ: " + adm.getCpf() + 
                                             "\nNascimento: " + adm.getDataNascimento() +
-                                            "\nEmail: " + adm.getEmail());
+                                            "\nEmail: " + adm.getEmail() +
+                                            "\nSenha: " + adm.getSenha());
     }
 }

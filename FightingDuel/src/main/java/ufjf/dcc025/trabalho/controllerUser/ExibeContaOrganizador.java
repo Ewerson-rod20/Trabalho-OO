@@ -26,6 +26,7 @@ public class ExibeContaOrganizador implements ActionListener{
         JOptionPane.showMessageDialog(null, "Nome: " + org.getNome() +
                                             "\nCPF/CNPJ: " + org.getCpf() + 
                                             "\nNascimento: " + org.getDataNascimento() +
-                                            "\nEmail: " + org.getEmail());
+                                            "\nEmail: " + org.getEmail() +
+                                            "\nSenha: " + org.getSenha());
     }
 }

@@ -13,6 +13,8 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
+import ufjf.dcc025.trabalho.controllerScreen.Retroceder;
+import ufjf.dcc025.trabalho.controllerUser.ValidaEdicaoOrganizador;
 import ufjf.dcc025.trabalho.modelUsers.Jogador;
 import ufjf.dcc025.trabalho.modelUsers.Organizador;
 
@@ -24,6 +26,7 @@ public class EditaOrganizador {
     
     private static Organizador organizador;
     private static JFrame tela;
+    private JComboBox camposList;
     
     private JTextField jtText;
     
@@ -45,7 +48,7 @@ public class EditaOrganizador {
         painel2.setLayout(new GridLayout(0, 2));
         
         String[] campos = {"Nome", "Email", "Senha"};
-        JComboBox camposList = new JComboBox(campos);
+        this.camposList = new JComboBox(campos);
         
         painel1.add(camposList);
         painel2.add(label);
@@ -61,8 +64,10 @@ public class EditaOrganizador {
         JPanel painel = new JPanel();
         
         JButton botaoConfirmar = new JButton("Confirmar");
+        botaoConfirmar.addActionListener(new ValidaEdicaoOrganizador(this, this.organizador, tela));
         
         JButton botaoCancelar = new JButton("Cancelar");
+        botaoCancelar.addActionListener(new Retroceder(this.tela));
         
         painel.add(botaoConfirmar);
         painel.add(botaoCancelar);
@@ -87,5 +92,14 @@ public class EditaOrganizador {
         tela.setVisible(true);
         
         tela.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
+    }
+    
+    // Getteres ----------------------------------------------------------------
+    public JComboBox getCamposList() {
+        return camposList;
+    }
+    
+    public JTextField getJtText() {
+        return jtText;
     }
 }
