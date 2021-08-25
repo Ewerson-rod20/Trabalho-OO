@@ -16,6 +16,9 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import ufjf.dcc025.trabalho.controllerScreen.DesenhaCriarPersonagem;
+import ufjf.dcc025.trabalho.controllerScreen.DesenhaEditarPersonagem;
+import ufjf.dcc025.trabalho.controllerScreen.DesenhaPersonagem;
+import ufjf.dcc025.trabalho.controllerScreen.Retroceder;
 import ufjf.dcc025.trabalho.modelCharacter.Personagem;
 import ufjf.dcc025.trabalho.modelUsers.Jogador;
 
@@ -51,21 +54,35 @@ public class TelaPersonagem {
         
         JPanel painel = new JPanel();
         painel.setLayout(new GridLayout(2, 1));
+        
         JPanel painel1 = new JPanel();
         painel1.setLayout(new GridLayout(2, 1));
+        
         JPanel painel2 = new JPanel();
         painel2.setLayout(new FlowLayout());
+        
+//        JPanel painel3 = new JPanel();
+//        painel3.setLayout(new FlowLayout());
         
         JLabel nomeJogador = new JLabel("Olá, " + jogador.getNome());
         
         JButton criarPersonagem = new JButton("Criar");
         criarPersonagem.addActionListener(new DesenhaCriarPersonagem(jogador));
+        criarPersonagem.addActionListener(new Retroceder(tela));
         
         JButton editarPersonagem = new JButton("Editar");
-//        editarPersonagem.addActionListener(EditarPersonagem());
+//        editarPersonagem.addActionListener(new DesenhaEditarPersonagem(jogador));
         
         JButton excluirPersonagem = new JButton("Excluir");
 //        excluirPersonagem.addActionListener(ExcluirPersonagem());
+
+        JButton botaoVoltar = new JButton("Voltar");
+        botaoVoltar.addActionListener(new Retroceder(this.tela)); 
+        
+//        JButton atualizarPersonagens = new JButton("Atualizar Personagens");
+//        atualizarPersonagens.addActionListener(new Retroceder(tela));
+//        atualizarPersonagens.addActionListener(new DesenhaPersonagem(jogador));
+
 
         JTable boxPersonagens;
 
@@ -74,7 +91,8 @@ public class TelaPersonagem {
         
         completaTabelaPersonagens(jogador.getPersonagens(), personagensTabela);
         
-        boxPersonagens = new JTable(personagensTabela, tituloBoxPersonagens){public boolean isCellEditable(int row, int column) {return false;}};
+        boxPersonagens = new JTable(personagensTabela, tituloBoxPersonagens){@Override
+        public boolean isCellEditable(int row, int column) {return false;}};
         
         JScrollPane tabelaPersonagens = new JScrollPane(boxPersonagens);
         tela.add(tabelaPersonagens);
@@ -84,16 +102,17 @@ public class TelaPersonagem {
         painel2.add(criarPersonagem);
         painel2.add(editarPersonagem);
         painel2.add(excluirPersonagem);
+//        painel3.add(atualizarPersonagens);
         
         painel.add(painel1, BorderLayout.CENTER);
         painel.add(painel2, BorderLayout.CENTER);
+//        painel.add(painel3);
         
         return painel;
     }
     
     // Chama --------------------------------------------------------------------
         public static JFrame chama(Jogador jogador){
-        
             
         TelaPersonagem telaPersonagem = new TelaPersonagem(jogador);
         
@@ -106,6 +125,8 @@ public class TelaPersonagem {
         
         tela.setVisible(true);
         tela.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
+        
+        tela.setLocationRelativeTo(null);
         
         return tela;
     }
