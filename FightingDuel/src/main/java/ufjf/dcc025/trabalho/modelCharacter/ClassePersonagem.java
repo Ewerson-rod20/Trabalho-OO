@@ -24,6 +24,8 @@ public class ClassePersonagem {
     private String nome3;
     private int ataque3;
     
+    String nomeClasse;
+    
     // Construtor --------------------------------------------------------------
     public ClassePersonagem(int ataque1, int ataque2, int ataque3) {
         this.ataque1 = ataque1;
@@ -54,6 +56,10 @@ public class ClassePersonagem {
     }
     public int getAtaque3() {
         return ataque3;
+    }
+    
+    public String getNomeClasse(){
+        return nomeClasse;
     }
     
     // Setteres ----------------------------------------------------------------

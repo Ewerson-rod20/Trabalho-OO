@@ -13,6 +13,7 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import ufjf.dcc025.trabalho.controllerScreen.DesenhaCriarPersonagem;
 import ufjf.dcc025.trabalho.modelCharacter.Personagem;
@@ -23,11 +24,13 @@ import ufjf.dcc025.trabalho.modelUsers.Jogador;
  * @author Bonorino
  */
 public class TelaPersonagem {
-
+    
+    private static JFrame tela;
     private Jogador jogador;
     // Construtor --------------------------------------------------------------
     public TelaPersonagem(Jogador jogador){
         this.jogador = jogador;
+        this.tela = new JFrame("Personagens");
     }
     
     // Desenha -----------------------------------------------------------------
@@ -55,8 +58,6 @@ public class TelaPersonagem {
         
         JLabel nomeJogador = new JLabel("Olá, " + jogador.getNome());
         
-        JTable boxPersonagens = new JTable(3, 1);
-        
         JButton criarPersonagem = new JButton("Criar");
         criarPersonagem.addActionListener(new DesenhaCriarPersonagem(jogador));
         
@@ -65,7 +66,19 @@ public class TelaPersonagem {
         
         JButton excluirPersonagem = new JButton("Excluir");
 //        excluirPersonagem.addActionListener(ExcluirPersonagem());
+
+        JTable boxPersonagens;
+
+        String[] tituloBoxPersonagens = {"Personagem" , "Classe", "Nível", "Vida"};
+        String[][] personagensTabela = new String[4][4];
         
+        completaTabelaPersonagens(jogador.getPersonagens(), personagensTabela);
+        
+        boxPersonagens = new JTable(personagensTabela, tituloBoxPersonagens){public boolean isCellEditable(int row, int column) {return false;}};
+        
+        JScrollPane tabelaPersonagens = new JScrollPane(boxPersonagens);
+        tela.add(tabelaPersonagens);
+
         painel1.add(nomeJogador);
         painel1.add(boxPersonagens);
         painel2.add(criarPersonagem);
@@ -81,7 +94,7 @@ public class TelaPersonagem {
     // Chama --------------------------------------------------------------------
         public static JFrame chama(Jogador jogador){
         
-        JFrame tela = new JFrame("Personagens");
+            
         TelaPersonagem telaPersonagem = new TelaPersonagem(jogador);
         
         tela.setSize(800, 500);
@@ -102,19 +115,17 @@ public class TelaPersonagem {
         tela.setVisible(false);
     }
     
-    public void completaTabelaPersonagens(List<Personagem> personagens){
-        JPanel painelPersonagem1 = new JPanel();
-        painelPersonagem1.setLayout(new GridLayout(0, 2));
-        JPanel painelPersonagem2 = new JPanel();
-        painelPersonagem2.setLayout(new GridLayout(0, 2));
-        JPanel painelPersonagem3 = new JPanel();
-        painelPersonagem3.setLayout(new GridLayout(0, 2));
+    public void completaTabelaPersonagens(List<Personagem> personagens, String[][] personagensTabela){
+        personagensTabela[0][0] = "PERSONAGEM";
+        personagensTabela[0][1] = "CLASSE";
+        personagensTabela[0][2] = "NÍVEL";
+        personagensTabela[0][3] = "VIDA";
         
-        if(jogador.getcontPersonagem() == 1){
-            JLabel nomePersonagem1 = new JLabel("text");
-            JLabel classePersonagem1 = new JLabel("text");
-            JLabel nivelPersonagem1 = new JLabel("text");
+        for(int i = 1, j = 0; i <= personagens.size(); i++, j++){
+            personagensTabela[i][0] = personagens.get(j).getNome();
+            personagensTabela[i][1] = personagens.get(j).getClasse().getNomeClasse();
+            personagensTabela[i][2] = Integer.toString(personagens.get(j).getNivel());
+            personagensTabela[i][3] = Integer.toString(personagens.get(j).getVida());
         }
-        
     }
 }

@@ -40,7 +40,6 @@ public class TelaJogador {
         JButton botaoJogar = new JButton("Jogar");
         
         JButton botaoEventos = new JButton("Personagem");
-        System.out.println(jogador);
         botaoEventos.addActionListener(new DesenhaPersonagem(this.jogador));
         
         JButton botaoConta = new JButton("Conta");

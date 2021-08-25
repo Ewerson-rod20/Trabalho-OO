@@ -17,7 +17,6 @@ import ufjf.dcc025.trabalho.viewScreens.TelaPersonagem;
 public class DesenhaPersonagem implements ActionListener{
     TelaPersonagem tela;
     private Jogador jogador = null;
-    
     public DesenhaPersonagem(Jogador jogador){
         this.tela = new TelaPersonagem(jogador);
         this.jogador = jogador;
