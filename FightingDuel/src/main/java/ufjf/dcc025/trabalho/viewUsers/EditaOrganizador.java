@@ -14,6 +14,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import ufjf.dcc025.trabalho.controllerScreen.Retroceder;
+import ufjf.dcc025.trabalho.controllerUser.ExcluiOrganizador;
 import ufjf.dcc025.trabalho.controllerUser.ValidaEdicaoOrganizador;
 import ufjf.dcc025.trabalho.modelUsers.Jogador;
 import ufjf.dcc025.trabalho.modelUsers.Organizador;
@@ -25,6 +26,8 @@ import ufjf.dcc025.trabalho.modelUsers.Organizador;
 public class EditaOrganizador {
     
     private static Organizador organizador;
+    private static JFrame telaPrincipal;
+    private static JFrame telaOrganizador;
     private static JFrame tela;
     private JComboBox camposList;
     
@@ -66,19 +69,25 @@ public class EditaOrganizador {
         JButton botaoConfirmar = new JButton("Confirmar");
         botaoConfirmar.addActionListener(new ValidaEdicaoOrganizador(this, this.organizador, tela));
         
+        JButton botaoExcluir = new JButton("Excluir conta");
+        botaoExcluir.addActionListener(new ExcluiOrganizador(this.organizador, this.tela, this.telaOrganizador, this.telaPrincipal));
+        
         JButton botaoCancelar = new JButton("Cancelar");
         botaoCancelar.addActionListener(new Retroceder(this.tela));
         
         painel.add(botaoConfirmar);
+        painel.add(botaoExcluir);
         painel.add(botaoCancelar);
         
         return painel;
     }
     
     // Chama -------------------------------------------------------------------
-    public void chama(Organizador organizador){
+    public void chama(Organizador organizador, JFrame telaOrganizador, JFrame telaPrincipal){
         
         this.organizador = organizador;
+        this.telaPrincipal = telaPrincipal;
+        this.telaOrganizador = telaOrganizador;
         
         this.tela = new JFrame("Editar Dados");
         

@@ -76,4 +76,12 @@ public class Organizador {
     public void setPersonagem(Personagem personagem){
         this.personagem = personagem;
     }
+    
+    public void deletaOrganizador(){
+        this.nome = null;
+        this.cpf = null;
+        this.dataNascimento = null;
+        this.email = null;
+        this.senha = null;
+    }
 }

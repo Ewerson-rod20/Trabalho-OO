@@ -8,7 +8,7 @@ package ufjf.dcc025.trabalho.viewUsers;
 import javax.swing.JTextField;
 
 import ufjf.dcc025.trabalho.controllerUser.AdicionaOrganizador;
-import ufjf.dcc025.trabalho.controllerUser.CancelaOrganizador;
+import ufjf.dcc025.trabalho.controllerUser.ExcluiOrganizador;
 import java.awt.BorderLayout;
 import java.awt.GridLayout;
 import javax.swing.JButton;

@@ -46,7 +46,7 @@ public class TelaJogador {
         botaoConta.addActionListener(new ExibeContaJogador(this.jogador));
         
         JButton botaoEditar = new JButton("Editar Dados");
-        botaoEditar.addActionListener(new DesenhaEditaJogador(this.jogador));
+        botaoEditar.addActionListener(new DesenhaEditaJogador(this.jogador, this.tela, this.telaPrincipal));
         
         JButton botaoSair = new JButton("Sair");
         botaoSair.addActionListener(new Desconectar(this.tela, this.telaPrincipal));

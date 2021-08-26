@@ -14,6 +14,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import ufjf.dcc025.trabalho.controllerScreen.Retroceder;
+import ufjf.dcc025.trabalho.controllerUser.ExcluiJogador;
 import ufjf.dcc025.trabalho.controllerUser.ValidaEdicaoJogador;
 import ufjf.dcc025.trabalho.modelUsers.Jogador;
 
@@ -24,6 +25,8 @@ import ufjf.dcc025.trabalho.modelUsers.Jogador;
 public class EditaJogador {
     
     private static Jogador jogador;
+    private static JFrame telaPrincipal;
+    private static JFrame telaJogador;
     private static JFrame tela;
     private JComboBox camposList;
     
@@ -65,19 +68,25 @@ public class EditaJogador {
         JButton botaoConfirmar = new JButton("Confirmar");
         botaoConfirmar.addActionListener(new ValidaEdicaoJogador(this, this.jogador, tela));
         
+        JButton botaoExcluir = new JButton("Excluir conta");
+        botaoExcluir.addActionListener(new ExcluiJogador(this.jogador, this.tela, this.telaJogador, this.telaPrincipal));
+        
         JButton botaoCancelar = new JButton("Cancelar");
         botaoCancelar.addActionListener(new Retroceder(this.tela));
         
         painel.add(botaoConfirmar);
+        painel.add(botaoExcluir);
         painel.add(botaoCancelar);
         
         return painel;
     }
     
     // Chama -------------------------------------------------------------------
-    public void chama(Jogador jogador){
+    public void chama(Jogador jogador, JFrame telaJogador, JFrame telaPrincipal){
         
         this.jogador = jogador;
+        this.telaPrincipal = telaPrincipal;
+        this.telaJogador = telaJogador;
         
         this.tela = new JFrame("Editar Dados");
         

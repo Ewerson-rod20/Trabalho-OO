@@ -185,4 +185,12 @@ public class Jogador {
         }
         contPersonagem = personagens.size();
     }
+    
+    public void deletaJogador(){
+        this.nome = null;
+        this.dataNascimento = null;
+        this.email = null;
+        this.senha = null;
+        personagens.clear();
+    }
 }

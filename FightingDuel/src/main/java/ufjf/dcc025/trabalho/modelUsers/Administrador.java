@@ -75,4 +75,12 @@ public class Administrador {
     public void setSenha(String senha) {
         this.senha = senha;
     }
+    
+    public void deletaAdministrador(){
+        this.nome = null;
+        this.cpf = null;
+        this.dataNascimento = null;
+        this.email = null;
+        this.senha = null;
+    }
 }

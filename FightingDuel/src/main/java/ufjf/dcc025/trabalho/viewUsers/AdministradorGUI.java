@@ -6,7 +6,7 @@
 package ufjf.dcc025.trabalho.viewUsers;
 
 import ufjf.dcc025.trabalho.controllerUser.AdicionaAdministrador;
-import ufjf.dcc025.trabalho.controllerUser.CancelaAdministrador;
+import ufjf.dcc025.trabalho.controllerUser.ExcluiAdministrador;
 import java.awt.BorderLayout;
 import java.awt.GridLayout;
 import javax.swing.JButton;

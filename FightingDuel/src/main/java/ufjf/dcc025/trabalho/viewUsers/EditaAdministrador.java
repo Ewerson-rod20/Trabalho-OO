@@ -14,6 +14,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import ufjf.dcc025.trabalho.controllerScreen.Retroceder;
+import ufjf.dcc025.trabalho.controllerUser.ExcluiAdministrador;
 import ufjf.dcc025.trabalho.controllerUser.ValidaEdicaoAdministrador;
 import ufjf.dcc025.trabalho.modelUsers.Administrador;
 import ufjf.dcc025.trabalho.modelUsers.Jogador;
@@ -24,6 +25,8 @@ import ufjf.dcc025.trabalho.modelUsers.Jogador;
  */
 public class EditaAdministrador {
     private static Administrador administrador;
+    private static JFrame telaPrincipal;
+    private static JFrame telaAdministrador;
     private static JFrame tela;
     private JComboBox camposList;
     
@@ -65,19 +68,25 @@ public class EditaAdministrador {
         JButton botaoConfirmar = new JButton("Confirmar");
         botaoConfirmar.addActionListener(new ValidaEdicaoAdministrador(this, this.administrador, tela));
         
+        JButton botaoExcluir = new JButton("Excluir conta");
+        botaoExcluir.addActionListener(new ExcluiAdministrador(this.administrador, this.tela, this.telaAdministrador, this.telaPrincipal));
+        
         JButton botaoCancelar = new JButton("Cancelar");
         botaoCancelar.addActionListener(new Retroceder(this.tela));
         
         painel.add(botaoConfirmar);
+        painel.add(botaoExcluir);
         painel.add(botaoCancelar);
         
         return painel;
     }
     
     // Chama -------------------------------------------------------------------
-    public void chama(Administrador administrador){
+    public void chama(Administrador administrador, JFrame telaAdministrador, JFrame telaPrincipal){
         
         this.administrador = administrador;
+        this.telaPrincipal = telaPrincipal;
+        this.telaAdministrador = telaAdministrador;
         
         this.tela = new JFrame("Editar Dados");
         
