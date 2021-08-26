@@ -100,6 +100,10 @@ public class Jogador {
         return this.personagens;
     }
     
+    public Personagem getPersonagem(int i){
+        return personagens.get(i);
+    }
+    
     // Setteres ----------------------------------------------------------------
     public void setNome(String nome) {
         this.nome = nome;
@@ -176,6 +180,7 @@ public class Jogador {
                 personagens.remove(indice);
                 removeu = true;
                 JOptionPane.showMessageDialog(null, "Personagem deletado com sucesso!");
+                contPersonagem = personagens.size();
                 break;
             }
             indice++;
