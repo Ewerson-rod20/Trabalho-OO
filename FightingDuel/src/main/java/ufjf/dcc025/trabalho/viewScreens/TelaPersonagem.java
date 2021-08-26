@@ -16,8 +16,7 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import ufjf.dcc025.trabalho.controllerScreen.DesenhaCriarPersonagem;
-import ufjf.dcc025.trabalho.controllerScreen.DesenhaEditarPersonagem;
-import ufjf.dcc025.trabalho.controllerScreen.DesenhaPersonagem;
+import ufjf.dcc025.trabalho.controllerScreen.DesenhaExcluirPersonagem;
 import ufjf.dcc025.trabalho.controllerScreen.Retroceder;
 import ufjf.dcc025.trabalho.modelCharacter.Personagem;
 import ufjf.dcc025.trabalho.modelUsers.Jogador;
@@ -74,16 +73,12 @@ public class TelaPersonagem {
 //        editarPersonagem.addActionListener(new DesenhaEditarPersonagem(jogador));
         
         JButton excluirPersonagem = new JButton("Excluir");
-//        excluirPersonagem.addActionListener(ExcluirPersonagem());
+        excluirPersonagem.addActionListener(new DesenhaExcluirPersonagem(jogador));
+        excluirPersonagem.addActionListener(new Retroceder(tela));
 
         JButton botaoVoltar = new JButton("Voltar");
-        botaoVoltar.addActionListener(new Retroceder(this.tela)); 
+        botaoVoltar.addActionListener(new Retroceder(this.tela));
         
-//        JButton atualizarPersonagens = new JButton("Atualizar Personagens");
-//        atualizarPersonagens.addActionListener(new Retroceder(tela));
-//        atualizarPersonagens.addActionListener(new DesenhaPersonagem(jogador));
-
-
         JTable boxPersonagens;
 
         String[] tituloBoxPersonagens = {"Personagem" , "Classe", "Nível", "Vida"};

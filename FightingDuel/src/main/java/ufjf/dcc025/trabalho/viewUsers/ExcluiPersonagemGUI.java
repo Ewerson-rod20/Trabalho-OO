@@ -12,49 +12,43 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JList;
 import javax.swing.JPanel;
-import javax.swing.JTextField;
 import javax.swing.ListSelectionModel;
 import ufjf.dcc025.trabalho.controllerScreen.DesenhaPersonagem;
 import ufjf.dcc025.trabalho.controllerScreen.Retroceder;
-import ufjf.dcc025.trabalho.controllerUser.AdicionaPersonagem;
 import ufjf.dcc025.trabalho.controllerUser.CancelaPersonagem;
+import ufjf.dcc025.trabalho.controllerUser.ExcluiPersonagem;
 import ufjf.dcc025.trabalho.modelUsers.Jogador;
 
 /**
  *
- * @author danie
+ * @author Bonorino
  */
-public class PersonagemGUI{
-    private final JTextField tfNome;
-    private final JList tfClasse;
-    private final String classesDisponiveis[] = {"Cavaleiro", "Ladrao", "Mago"};
+public class ExcluiPersonagemGUI {
+    
     private Jogador jogador = null;
     private static JFrame tela;
+    private final JList tfPersonagem;
+    String listaPersonagens [];
+    private int indiceSelecionado;
     
     // Construtor --------------------------------------------------------------
-    public PersonagemGUI(Jogador jogador){
-        this.tfNome = new JTextField(50);
-        this.tfClasse = new JList(classesDisponiveis);
-        this.tfClasse.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+    public ExcluiPersonagemGUI(Jogador jogador){
         this.jogador = jogador;
-        tela = new JFrame("Criação de Personagem");
+        tela = new JFrame("Excluir Personagem");
+        listaPersonagens = completaListaPersonagens();
+        tfPersonagem = new JList(listaPersonagens);
+        this.tfPersonagem.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
     }
     
     // Desenha campos ----------------------------------------------------------
     public JPanel desenha(){
         JPanel painel = new JPanel();
+        painel.setLayout(new GridLayout(0,2));
         
-        JLabel jlNome = new JLabel("Nome: ");
-                
-        JLabel jlClasse = new JLabel("Classe: ");
-        
-        painel.setLayout(new GridLayout(0, 2));
+        JLabel jlNome = new JLabel("Personagem: ");
         
         painel.add(jlNome);
-        painel.add(tfNome);
-        
-        painel.add(jlClasse);
-        painel.add(tfClasse);
+        painel.add(tfPersonagem);
         
         return painel;
     }
@@ -64,17 +58,19 @@ public class PersonagemGUI{
 
         JPanel painel = new JPanel();
 
-        JButton botaoFinalizar = new JButton("Finalizar");
-        botaoFinalizar.addActionListener(new AdicionaPersonagem(this, this.jogador));
-        botaoFinalizar.addActionListener(new Retroceder(this.tela)); 
-        botaoFinalizar.addActionListener(new DesenhaPersonagem(jogador));
+        JButton botaoConfirmar = new JButton("Confirmar");
+        this.indiceSelecionado = tfPersonagem.getSelectedIndex();
+        botaoConfirmar.addActionListener(new ExcluiPersonagem(this.jogador, indiceSelecionado+1));
+        botaoConfirmar.addActionListener(new DesenhaPersonagem(jogador));
+        botaoConfirmar.addActionListener(new Retroceder(this.tela)); 
+
         
         JButton botaoCancelar = new JButton("Cancelar");
         botaoCancelar.addActionListener(new CancelaPersonagem());
         botaoCancelar.addActionListener(new DesenhaPersonagem(jogador));
         botaoCancelar.addActionListener(new Retroceder(this.tela)); 
 
-        painel.add(botaoFinalizar);
+        painel.add(botaoConfirmar);
 
         painel.add(botaoCancelar);
 
@@ -85,15 +81,15 @@ public class PersonagemGUI{
     // Main --------------------------------------------------------------------
     public static void chama(Jogador jogador) {
         
-        PersonagemGUI personagemGUI = new PersonagemGUI(jogador);
+        ExcluiPersonagemGUI excluiPersonagemGUI= new ExcluiPersonagemGUI(jogador);
         
         tela.setSize(600, 300);
 
         tela.setLayout(new BorderLayout());
 
-        tela.add(personagemGUI.desenha(), BorderLayout.CENTER);
+        tela.add(excluiPersonagemGUI.desenha(), BorderLayout.CENTER);
 
-        tela.add(personagemGUI.desenhaBotoes(), BorderLayout.SOUTH);
+        tela.add(excluiPersonagemGUI.desenhaBotoes(), BorderLayout.SOUTH);
 
         tela.setVisible(true);
         tela.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
@@ -108,17 +104,16 @@ public class PersonagemGUI{
     }
 
     // Getteres ----------------------------------------------------------------
-
-    public JTextField getTfNome() {
-        return tfNome;
-    }
-
-    public JList getTfClasse() {
-        return tfClasse;
-    }
     
     public Jogador getJogador(){
         return this.jogador;
     }
-    
+
+    private String[] completaListaPersonagens() {
+        String[] personagens = new String[jogador.getPersonagens().size()];
+        for(int i = 0; i < jogador.getPersonagens().size(); i++){
+            personagens[i] = jogador.getPersonagens().get(i).getNome();
+        }
+        return personagens;
+    }
 }

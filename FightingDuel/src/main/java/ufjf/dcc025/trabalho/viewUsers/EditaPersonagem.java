@@ -11,6 +11,7 @@ import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JList;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import ufjf.dcc025.trabalho.modelUsers.Jogador;
@@ -33,24 +34,6 @@ public class EditaPersonagem {
     // Desenha -----------------------------------------------------------------
     public JPanel desenha(){
         JPanel painel = new JPanel();
-        JPanel painel1 = new JPanel();
-        JPanel painel2 = new JPanel();
-        
-        JLabel label = new JLabel("Digite sua alteração: ");
-        
-        painel.setLayout(new GridLayout(0, 1));
-        painel1.setLayout(new GridLayout(0, 1));
-        painel2.setLayout(new GridLayout(0, 2));
-        
-        String[] campos = {"Personagem", "Campo"};
-        JComboBox camposList = new JComboBox(campos);
-        
-        painel1.add(camposList);
-        painel2.add(label);
-        painel2.add(jtText);
-        painel.add(painel1);
-        painel.add(painel2);
-        
         return painel;
     }
     
@@ -75,7 +58,7 @@ public class EditaPersonagem {
         
         this.tela = new JFrame("Editar Personagem");
         
-        EditaJogador edita = new EditaJogador();
+        EditaPersonagem edita = new EditaPersonagem();
         
         tela.setSize(600, 300);
         tela.setLayout(new BorderLayout());
