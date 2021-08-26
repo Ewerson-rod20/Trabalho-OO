@@ -43,7 +43,7 @@ public class TelaOrganizador {
         botaoConta.addActionListener(new ExibeContaOrganizador(this.organizador));
         
         JButton botaoEditar = new JButton("Editar Dados");
-        botaoEditar.addActionListener(new DesenhaEditaOrganizador(this.organizador));
+        botaoEditar.addActionListener(new DesenhaEditaOrganizador(this.organizador, this.tela, this.telaPrincipal));
         
         JButton botaoSair = new JButton("Sair");
         botaoSair.addActionListener(new Desconectar(this.tela, this.telaPrincipal));

@@ -43,7 +43,7 @@ public class TelaAdministrador {
         botaoConta.addActionListener(new ExibeContaAdministrador(this.administrador));
         
         JButton botaoEditar = new JButton("Editar Dados");
-        botaoEditar.addActionListener(new DesenhaEditaAdministrador(this.administrador));
+        botaoEditar.addActionListener(new DesenhaEditaAdministrador(this.administrador, this.tela, this.telaPrincipal));
         
         JButton botaoAdministrar = new JButton("Administrar Usuários");
         
