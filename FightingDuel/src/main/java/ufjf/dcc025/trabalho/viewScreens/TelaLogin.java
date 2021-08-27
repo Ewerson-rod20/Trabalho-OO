@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package ufjf.dcc025.trabalho.viewScreens;
 
 import java.awt.BorderLayout;
@@ -17,9 +13,10 @@ import ufjf.dcc025.trabalho.controllerUser.CancelaLogin;
 import ufjf.dcc025.trabalho.controllerUser.ValidaLogin;
 
 /**
- *
- * @author danie
+ * @author  Daniel Muller Rezende
+ * @@code   202065020A
  */
+
 public class TelaLogin {
     
     private static JFrame tela;

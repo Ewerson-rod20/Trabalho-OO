@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package ufjf.dcc025.trabalho.viewUsers;
 
 import ufjf.dcc025.trabalho.controllerUser.AdicionaJogador;
@@ -16,9 +12,10 @@ import javax.swing.JTextField;
 import ufjf.dcc025.trabalho.controllerScreen.Retroceder;
 
 /**
- *
- * @author danie
+ * @author  Daniel Muller Rezende
+ * @@code   202065020A
  */
+
 public class JogadorGUI {
     
     private static JFrame tela;

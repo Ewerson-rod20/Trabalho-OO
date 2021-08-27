@@ -4,8 +4,10 @@ import javax.swing.JOptionPane;
 import ufjf.dcc025.trabalho.modelCharacter.Personagem;
 
 /**
- * @authors Daniel and Vitor
+ * @author  Daniel Muller Rezende
+ * @@code   202065020A
  */
+
 public class Organizador {
     
     String nome;

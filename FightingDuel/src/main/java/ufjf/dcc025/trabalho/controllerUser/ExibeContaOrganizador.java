@@ -11,9 +11,10 @@ import javax.swing.JOptionPane;
 import ufjf.dcc025.trabalho.modelUsers.Organizador;
 
 /**
- *
- * @author danie
+ * @author  Daniel Muller Rezende
+ * @@code   202065020A
  */
+
 public class ExibeContaOrganizador implements ActionListener{
     Organizador org;
     

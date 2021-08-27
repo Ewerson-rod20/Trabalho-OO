@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package ufjf.dcc025.trabalho.modelGame;
 
 import ufjf.dcc025.trabalho.modelUsers.Organizador;
@@ -13,9 +9,10 @@ import java.util.List;
 import ufjf.dcc025.trabalho.modelCharacter.Personagem;
 
 /**
- *
- * @author danie
+ * @author  Daniel Muller Rezende
+ * @@code   202065020A
  */
+
 public class Dados {
     
     public static List<Administrador> administradores;
