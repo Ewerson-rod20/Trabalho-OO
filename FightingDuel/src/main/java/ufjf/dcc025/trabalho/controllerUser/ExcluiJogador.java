@@ -7,6 +7,7 @@ import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import ufjf.dcc025.trabalho.modelGame.Dados;
 import ufjf.dcc025.trabalho.modelUsers.Jogador;
+import ufjf.dcc025.trabalho.util.SalvarJogador;
 
 /**
  * @author  Daniel Muller Rezende
@@ -41,5 +42,8 @@ public class ExcluiJogador implements ActionListener{
         }
         Dados.jogadores.remove(aux);
         aux.deletaJogador();
+        
+        SalvarJogador salvar = new SalvarJogador();
+        salvar.excluirArquivo();
     }
 }

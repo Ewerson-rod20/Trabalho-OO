@@ -9,6 +9,7 @@ import ufjf.dcc025.trabalho.modelGame.Dados;
 import ufjf.dcc025.trabalho.modelUsers.Administrador;
 import ufjf.dcc025.trabalho.modelUsers.Jogador;
 import ufjf.dcc025.trabalho.modelUsers.Organizador;
+import ufjf.dcc025.trabalho.util.SalvarAdministrador;
 import ufjf.dcc025.trabalho.viewUsers.EditaAdministrador;
 import ufjf.dcc025.trabalho.viewUsers.EditaJogador;
 
@@ -22,11 +23,13 @@ public class ValidaEdicaoAdministrador implements ActionListener{
     EditaAdministrador edita;
     Administrador administrador;
     JFrame tela;
+    SalvarAdministrador salvar;
     
     public ValidaEdicaoAdministrador(EditaAdministrador edita, Administrador administrador, JFrame tela){
         this.edita = edita;
         this.administrador = administrador;
         this.tela = tela;
+        this.salvar = new SalvarAdministrador();
     }
     
     @Override
@@ -62,6 +65,7 @@ public class ValidaEdicaoAdministrador implements ActionListener{
                 if(cont == 0){
                     this.administrador.setNome(edita.getJtText().getText());
                     tela.dispose();
+                    salvar.excluirArquivo();
                     JOptionPane.showMessageDialog(null, "Nome alterado com sucesso.");
                 }
                 break;
@@ -91,6 +95,7 @@ public class ValidaEdicaoAdministrador implements ActionListener{
                 if(cont == 0){
                     this.administrador.setEmail(edita.getJtText().getText());
                     tela.dispose();
+                    salvar.excluirArquivo();
                     JOptionPane.showMessageDialog(null, "Email alterado com sucesso.");
                 }
                 break;
@@ -98,7 +103,8 @@ public class ValidaEdicaoAdministrador implements ActionListener{
             case 2:
                 this.administrador.setSenha(edita.getJtText().getText());
                 tela.dispose();
-                    JOptionPane.showMessageDialog(null, "Senha alterada com sucesso.");
+                salvar.excluirArquivo();
+                JOptionPane.showMessageDialog(null, "Senha alterada com sucesso.");
                 break;
         }
     }

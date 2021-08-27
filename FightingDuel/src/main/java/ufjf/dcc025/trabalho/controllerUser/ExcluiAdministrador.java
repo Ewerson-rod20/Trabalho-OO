@@ -8,6 +8,7 @@ import javax.swing.JOptionPane;
 import ufjf.dcc025.trabalho.modelGame.Dados;
 import ufjf.dcc025.trabalho.modelUsers.Administrador;
 import ufjf.dcc025.trabalho.modelUsers.Jogador;
+import ufjf.dcc025.trabalho.util.SalvarAdministrador;
 
 /**
  * @author  Daniel Muller Rezende
@@ -43,5 +44,8 @@ public class ExcluiAdministrador implements ActionListener{
         }
         Dados.administradores.remove(aux);
         aux.deletaAdministrador();
+        
+        SalvarAdministrador salvar = new SalvarAdministrador();
+        salvar.excluirArquivo();
     }
 }

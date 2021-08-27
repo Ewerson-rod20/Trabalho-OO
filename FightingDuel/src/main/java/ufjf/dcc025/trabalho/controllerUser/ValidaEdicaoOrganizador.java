@@ -9,6 +9,7 @@ import ufjf.dcc025.trabalho.modelGame.Dados;
 import ufjf.dcc025.trabalho.modelUsers.Administrador;
 import ufjf.dcc025.trabalho.modelUsers.Jogador;
 import ufjf.dcc025.trabalho.modelUsers.Organizador;
+import ufjf.dcc025.trabalho.util.SalvarOrganizador;
 import ufjf.dcc025.trabalho.viewUsers.EditaJogador;
 import ufjf.dcc025.trabalho.viewUsers.EditaOrganizador;
 
@@ -22,11 +23,13 @@ public class ValidaEdicaoOrganizador implements ActionListener{
     EditaOrganizador edita;
     Organizador organizador;
     JFrame tela;
+    SalvarOrganizador salvar;
     
     public ValidaEdicaoOrganizador(EditaOrganizador edita, Organizador organizador, JFrame tela){
         this.edita = edita;
         this.organizador = organizador;
         this.tela = tela;
+        this.salvar = new SalvarOrganizador();
     }
     
     @Override
@@ -62,6 +65,7 @@ public class ValidaEdicaoOrganizador implements ActionListener{
                 if(cont == 0){
                     this.organizador.setNome(edita.getJtText().getText());
                     tela.dispose();
+                    salvar.excluirArquivo();
                     JOptionPane.showMessageDialog(null, "Nome alterado com sucesso.");
                 }
                 break;
@@ -91,6 +95,7 @@ public class ValidaEdicaoOrganizador implements ActionListener{
                 if(cont == 0){
                     this.organizador.setEmail(edita.getJtText().getText());
                     tela.dispose();
+                    salvar.excluirArquivo();
                     JOptionPane.showMessageDialog(null, "Email alterado com sucesso.");
                 }
                 break;
@@ -98,7 +103,8 @@ public class ValidaEdicaoOrganizador implements ActionListener{
             case 2:
                 this.organizador.setSenha(edita.getJtText().getText());
                 tela.dispose();
-                    JOptionPane.showMessageDialog(null, "Senha alterada com sucesso.");
+                salvar.excluirArquivo();
+                JOptionPane.showMessageDialog(null, "Senha alterada com sucesso.");
                 break;
         }
     }

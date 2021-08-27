@@ -80,4 +80,30 @@ public class SalvarJogador {
             JOptionPane.showMessageDialog(null, "ERRO! Não foi possível gravar as informações no arquivo.");
         }
     }
+    
+    public void excluirArquivo(){
+        
+        File aux = new File("aux");
+        
+        try{
+            FileWriter arq1 = new FileWriter(this.arquivo);
+            FileWriter arq2 = new FileWriter(this.arquivo, true);
+            PrintWriter gravarArq = new PrintWriter(arq2);
+            
+            arq1.write("");
+            
+            for(Jogador jogador1 : Dados.jogadores){
+                        
+                gravarArq.println(jogador1.getNome()+";"+jogador1.getDataNascimento()+";"+jogador1.getEmail()+";"+jogador1.getSenha()+";");
+            
+            }
+            gravarArq.close();
+        }catch(IOException e){
+            e.getMessage();
+        }
+    }
+    
+    public void editarArquivo(String nome, String data, String email, String senha){
+        
+    }
 }

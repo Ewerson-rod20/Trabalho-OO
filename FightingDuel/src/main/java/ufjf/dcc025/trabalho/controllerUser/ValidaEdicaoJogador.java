@@ -9,6 +9,7 @@ import ufjf.dcc025.trabalho.modelGame.Dados;
 import ufjf.dcc025.trabalho.modelUsers.Administrador;
 import ufjf.dcc025.trabalho.modelUsers.Jogador;
 import ufjf.dcc025.trabalho.modelUsers.Organizador;
+import ufjf.dcc025.trabalho.util.SalvarJogador;
 import ufjf.dcc025.trabalho.viewUsers.EditaJogador;
 import ufjf.dcc025.trabalho.viewUsers.JogadorGUI;
 
@@ -22,11 +23,13 @@ public class ValidaEdicaoJogador implements ActionListener{
     EditaJogador edita;
     Jogador jogador;
     JFrame tela;
+    SalvarJogador salvar;
     
     public ValidaEdicaoJogador(EditaJogador edita, Jogador jogador, JFrame tela){
         this.edita = edita;
         this.jogador = jogador;
         this.tela = tela;
+        this.salvar = new SalvarJogador();
     }
     
     @Override
@@ -62,6 +65,7 @@ public class ValidaEdicaoJogador implements ActionListener{
                 if(cont == 0){
                     this.jogador.setNome(edita.getJtText().getText());
                     tela.dispose();
+                    this.salvar.excluirArquivo();
                     JOptionPane.showMessageDialog(null, "Nome alterado com sucesso.");
                 }
                 break;
@@ -91,6 +95,7 @@ public class ValidaEdicaoJogador implements ActionListener{
                 if(cont == 0){
                     this.jogador.setEmail(edita.getJtText().getText());
                     tela.dispose();
+                    this.salvar.excluirArquivo();
                     JOptionPane.showMessageDialog(null, "Email alterado com sucesso.");
                 }
                 break;
@@ -98,7 +103,8 @@ public class ValidaEdicaoJogador implements ActionListener{
             case 2:
                 this.jogador.setSenha(edita.getJtText().getText());
                 tela.dispose();
-                    JOptionPane.showMessageDialog(null, "Senha alterada com sucesso.");
+                this.salvar.excluirArquivo();
+                JOptionPane.showMessageDialog(null, "Senha alterada com sucesso.");
                 break;
         }
     }

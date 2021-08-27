@@ -8,6 +8,7 @@ import javax.swing.JOptionPane;
 import ufjf.dcc025.trabalho.modelGame.Dados;
 import ufjf.dcc025.trabalho.modelUsers.Jogador;
 import ufjf.dcc025.trabalho.modelUsers.Organizador;
+import ufjf.dcc025.trabalho.util.SalvarOrganizador;
 
 /**
  * @author  Daniel Muller Rezende
@@ -42,5 +43,8 @@ public class ExcluiOrganizador implements ActionListener{
         }
         Dados.organizadores.remove(aux);
         aux.deletaOrganizador();
+        
+        SalvarOrganizador salvar = new SalvarOrganizador();
+        salvar.excluirArquivo();
     }
 }

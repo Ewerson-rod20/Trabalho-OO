@@ -88,4 +88,26 @@ public class SalvarAdministrador {
             JOptionPane.showMessageDialog(null, "ERRO! Não foi possível gravar as informações no arquivo.");
         }
     }
+    
+    public void excluirArquivo(){
+        
+        File aux = new File("aux");
+        
+        try{
+            FileWriter arq1 = new FileWriter(this.arquivo);
+            FileWriter arq2 = new FileWriter(this.arquivo, true);
+            PrintWriter gravarArq = new PrintWriter(arq2);
+            
+            arq1.write("");
+            
+            for(Administrador administrador1 : Dados.administradores){
+                        
+                gravarArq.println(administrador1.getNome()+";"+administrador1.getCpf()+";"+administrador1.getDataNascimento()+";"+administrador1.getEmail()+";"+administrador1.getSenha()+";");
+            
+            }
+            gravarArq.close();
+        }catch(IOException e){
+            e.getMessage();
+        }
+    }
 }

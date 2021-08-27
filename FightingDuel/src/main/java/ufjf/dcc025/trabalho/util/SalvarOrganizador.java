@@ -88,4 +88,26 @@ public class SalvarOrganizador {
             JOptionPane.showMessageDialog(null, "ERRO! Não foi possível gravar as informações no arquivo.");
         }
     }
+    
+    public void excluirArquivo(){
+        
+        File aux = new File("aux");
+        
+        try{
+            FileWriter arq1 = new FileWriter(this.arquivo);
+            FileWriter arq2 = new FileWriter(this.arquivo, true);
+            PrintWriter gravarArq = new PrintWriter(arq2);
+            
+            arq1.write("");
+            
+            for(Organizador organizador1 : Dados.organizadores){
+                        
+                gravarArq.println(organizador1.getNome()+";"+organizador1.getCpf()+";"+organizador1.getDataNascimento()+";"+organizador1.getEmail()+";"+organizador1.getSenha()+";");
+            
+            }
+            gravarArq.close();
+        }catch(IOException e){
+            e.getMessage();
+        }
+    }
 }
