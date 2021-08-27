@@ -30,16 +30,17 @@ public class ExcluiOrganizador implements ActionListener{
 
     @Override
     public void actionPerformed(ActionEvent ae) {
-        
+        Organizador aux = new Organizador();
         for(Organizador organizador1 : Dados.organizadores){
             if(organizador.getNome().equals(organizador1.getNome())){
-                Dados.organizadores.remove(organizador1);
+                aux = organizador1;
                 JOptionPane.showMessageDialog(null, "Organizador excluído com sucesso.");
                 tela.dispose();
                 telaOrganizador.dispose();
-                organizador.deletaOrganizador();
                 telaPrincipal.setVisible(true);
             }
         }
+        Dados.organizadores.remove(aux);
+        aux.deletaOrganizador();
     }
 }

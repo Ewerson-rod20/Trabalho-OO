@@ -31,15 +31,17 @@ public class ExcluiAdministrador implements ActionListener{
 
     @Override
     public void actionPerformed(ActionEvent ae) {
+        Administrador aux = new Administrador();
         for(Administrador administrador1 : Dados.administradores){
             if(administrador.getNome().equals(administrador1.getNome())){
-                Dados.administradores.remove(administrador1);
+                aux = administrador1;
                 JOptionPane.showMessageDialog(null, "Administrador excluído com sucesso.");
                 tela.dispose();
                 telaAdministrador.dispose();
-                administrador.deletaAdministrador();
                 telaPrincipal.setVisible(true);
             }
         }
+        Dados.administradores.remove(aux);
+        aux.deletaAdministrador();
     }
 }

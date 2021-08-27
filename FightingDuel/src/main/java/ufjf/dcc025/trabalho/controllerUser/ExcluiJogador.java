@@ -29,16 +29,17 @@ public class ExcluiJogador implements ActionListener{
 
     @Override
     public void actionPerformed(ActionEvent ae) {
-        
+        Jogador aux = new Jogador();
         for(Jogador jogador1 : Dados.jogadores){
             if(jogador.getNome().equals(jogador1.getNome())){
-                Dados.jogadores.remove(jogador1);
+                aux = jogador1;
                 JOptionPane.showMessageDialog(null, "Jogador excluído com sucesso.");
                 tela.dispose();
                 telaJogador.dispose();
-                jogador.deletaJogador();
                 telaPrincipal.setVisible(true);
             }
         }
+        Dados.jogadores.remove(aux);
+        aux.deletaJogador();
     }
 }

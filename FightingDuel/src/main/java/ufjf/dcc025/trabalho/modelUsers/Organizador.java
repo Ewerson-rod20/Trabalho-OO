@@ -19,6 +19,12 @@ public class Organizador {
     
     // Construtores ------------------------------------------------------------
     public Organizador(){
+        this.nome = null;
+        this.cpf = null;
+        this.dataNascimento = null;
+        this.email = null;
+        this.senha = null;
+        this.personagem = null;
     }
     
     public Organizador(String nome, String cpf, String nascimento, String email, String senha){
@@ -85,5 +91,6 @@ public class Organizador {
         this.dataNascimento = null;
         this.email = null;
         this.senha = null;
+        this.personagem = null;
     }
 }
