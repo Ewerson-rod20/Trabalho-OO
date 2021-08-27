@@ -8,6 +8,7 @@ package ufjf.dcc025.trabalho.viewScreens;
 import java.awt.BorderLayout;
 import java.awt.FlowLayout;
 import java.awt.GridLayout;
+import java.util.List;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -16,6 +17,7 @@ import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import ufjf.dcc025.trabalho.controllerScreen.DesenhaCriaOponentes;
 import ufjf.dcc025.trabalho.controllerScreen.Retroceder;
+import ufjf.dcc025.trabalho.modelCharacter.Oponente;
 import ufjf.dcc025.trabalho.modelGame.Dados;
 import ufjf.dcc025.trabalho.modelUsers.Administrador;
 
@@ -25,7 +27,6 @@ import ufjf.dcc025.trabalho.modelUsers.Administrador;
  */
 public class TelaOponente {
     private static JFrame tela;
-    String[][] dadosTabela;
     private final Administrador adm;
     
     // Construtor --------------------------------------------------------------
@@ -73,14 +74,16 @@ public class TelaOponente {
 //        excluirPersonagem.addActionListener(new Retroceder(tela));
 
         JButton botaoVoltar = new JButton("Voltar");
-        botaoVoltar.addActionListener(new Retroceder(this.tela));
-        
-        this.dadosTabela = new String[Dados.oponentes.size()+1][4];
-        completaTabelaOponentes();
+        botaoVoltar.addActionListener(new Retroceder(this.tela));;
         
         JTable boxOponentes;
+
+        String[] tituloBoxOponentes = {"Oponente" , "Classe", "Nível", "Vida"};
+        String[][] oponentesTabela = new String[Dados.oponentes.size() + 1][4];
         
-        boxOponentes = new JTable(){@Override
+        completaTabelaOponentes(Dados.oponentes, oponentesTabela);
+        
+        boxOponentes = new JTable(oponentesTabela, tituloBoxOponentes){@Override
         public boolean isCellEditable(int row, int column) {return false;}};
         
         JScrollPane tabelaPersonagens = new JScrollPane(boxOponentes);
@@ -123,21 +126,16 @@ public class TelaOponente {
         tela.setVisible(false);
     }
 
-    private void completaTabelaOponentes() {
-        for (int i = 0; i < Dados.oponentes.size()+1; i++) {
-            for(int j = 0; j < 4; j++){
-                if(i == 0){
-                    dadosTabela[i][j] = "OPONENTES";
-                    dadosTabela[i][j] = "CLASSE";
-                    dadosTabela[i][j] = "NÍVEL";
-                    dadosTabela[i][j] = "VIDA";
-                } else {
-                    dadosTabela[i][j] = Dados.oponentes.get(i).getNome();
-                    dadosTabela[i][j] = Dados.oponentes.get(i).getClasse().toString();
-                    dadosTabela[i][j] = Integer.toString(Dados.oponentes.get(i).getNivel());
-                    dadosTabela[i][j] = Integer.toString(Dados.oponentes.get(i).getVida());
-                }
-            }
+    private void completaTabelaOponentes(List<Oponente> oponentes, String[][] oponentesTabela) {
+        oponentesTabela[0][0] = "OPONENTES";
+        oponentesTabela[0][1] = "CLASSE";
+        oponentesTabela[0][2] = "NÍVEL";
+        oponentesTabela[0][3] = "VIDA";
+        for (int i = 1, j = 0; i < oponentes.size() + 1; i++, j++){
+            oponentesTabela[i][0] = oponentes.get(j).getNome();
+            oponentesTabela[i][1] = oponentes.get(j).getClasse().getNomeClasse();
+            oponentesTabela[i][2] = Integer.toString(oponentes.get(j).getNivel());
+            oponentesTabela[i][3] = Integer.toString(oponentes.get(j).getVida());
         }
     }
 }
