@@ -10,6 +10,7 @@ import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import ufjf.dcc025.trabalho.modelUsers.Administrador;
 import ufjf.dcc025.trabalho.modelUsers.Jogador;
+import ufjf.dcc025.trabalho.util.SalvarOrganizador;
 
 /**
  * @author  Daniel Muller Rezende
@@ -62,6 +63,9 @@ public class AdicionaOrganizador implements ActionListener {
             organizador.setSenha(organizadorGUI.getTfSenha().getText());
 
             Dados.organizadores.add(organizador);
+            
+            SalvarOrganizador salvar = new SalvarOrganizador();
+            salvar.escreverArquivo(organizadorGUI.getTfNome().getText(), organizadorGUI.getTfCpf().getText(), organizadorGUI.getTfDataNascimento().getText(), organizadorGUI.getTfEmail().getText(), organizadorGUI.getTfSenha().getText());
 
             tela.dispose();
             JOptionPane.showMessageDialog(null, "Cadastro realizado.");

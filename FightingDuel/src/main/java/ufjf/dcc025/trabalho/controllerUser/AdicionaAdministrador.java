@@ -10,6 +10,7 @@ import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import ufjf.dcc025.trabalho.modelUsers.Jogador;
 import ufjf.dcc025.trabalho.modelUsers.Organizador;
+import ufjf.dcc025.trabalho.util.SalvarAdministrador;
 
 /**
  * @author  Daniel Muller Rezende
@@ -62,6 +63,9 @@ public class AdicionaAdministrador implements ActionListener {
             administrador.setSenha(administradorGUI.getTfSenha().getText());
 
             Dados.administradores.add(administrador);
+            
+            SalvarAdministrador salvar = new SalvarAdministrador();
+            salvar.escreverArquivo(administradorGUI.getTfNome().getText(), administradorGUI.getTfCpf().getText(), administradorGUI.getTfDataNascimento().getText(), administradorGUI.getTfEmail().getText(), administradorGUI.getTfSenha().getText());
             
             tela.dispose();
             JOptionPane.showMessageDialog(null, "Cadastro realizado.");
