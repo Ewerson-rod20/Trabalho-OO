@@ -2,6 +2,7 @@ package ufjf.dcc025.trabalho.modelUsers;
 
 import javax.swing.JOptionPane;
 import ufjf.dcc025.trabalho.modelCharacter.Personagem;
+import ufjf.dcc025.trabalho.modelCharacter.Oponente;
 
 /**
  * @author  Daniel Muller Rezende
@@ -92,5 +93,17 @@ public class Organizador {
         this.email = null;
         this.senha = null;
         this.personagem = null;
+    }
+    
+    public boolean validaPersonagem(Personagem pers, Oponente op){
+        
+        if ((Math.abs(pers.getNivel() - op.getNivel()) <= 2) && (Math.abs(pers.getNivel() - op.getNivel()) >= 0)){
+            op.setJogavel(true);
+            return true;
+        }
+        else{
+            op.setJogavel(false);
+            return false;
+        }      
     }
 }
