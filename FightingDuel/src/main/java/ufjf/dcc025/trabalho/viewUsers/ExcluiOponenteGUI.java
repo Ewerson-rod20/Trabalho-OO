@@ -16,31 +16,29 @@ import javax.swing.JList;
 import javax.swing.JPanel;
 import javax.swing.ListSelectionModel;
 import ufjf.dcc025.trabalho.controllerScreen.DesenhaOponente;
-import ufjf.dcc025.trabalho.controllerScreen.DesenhaPersonagem;
 import ufjf.dcc025.trabalho.controllerScreen.Retroceder;
 import ufjf.dcc025.trabalho.controllerUser.CancelaPersonagem;
 import ufjf.dcc025.trabalho.controllerUser.ExcluiOponente;
-import ufjf.dcc025.trabalho.controllerUser.ExcluiPersonagem;
-import ufjf.dcc025.trabalho.modelUsers.Jogador;
+import ufjf.dcc025.trabalho.modelGame.Dados;
+import ufjf.dcc025.trabalho.modelUsers.Administrador;
 
 /**
  *
  * @author Bonorino
  */
-public class ExcluiPersonagemGUI {
-    
-    private Jogador jogador = null;
+public class ExcluiOponenteGUI {
+    private static Administrador adm;
     private static JFrame tela;
     private final JList tfPersonagem;
-    String listaPersonagens [];
+    String listaOponentes [];
     private int indiceSelecionado;
     
     // Construtor --------------------------------------------------------------
-    public ExcluiPersonagemGUI(Jogador jogador){
-        this.jogador = jogador;
-        tela = new JFrame("Excluir Personagem");
-        listaPersonagens = completaListaPersonagens();
-        tfPersonagem = new JList(listaPersonagens);
+    public ExcluiOponenteGUI(Administrador adm){
+        this.adm = adm;
+        tela = new JFrame("Excluir Oponente");
+        listaOponentes = completaListaOponentes();
+        tfPersonagem = new JList(listaOponentes);
         this.tfPersonagem.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
     }
     
@@ -49,7 +47,7 @@ public class ExcluiPersonagemGUI {
         JPanel painel = new JPanel();
         painel.setLayout(new GridLayout(0,2));
         
-        JLabel jlNome = new JLabel("Personagem: ");
+        JLabel jlNome = new JLabel("Oponente: ");
         
         painel.add(jlNome);
         painel.add(tfPersonagem);
@@ -63,21 +61,20 @@ public class ExcluiPersonagemGUI {
         JPanel painel = new JPanel();
 
         JButton botaoConfirmar = new JButton("Confirmar");
-        
         botaoConfirmar.addActionListener(new ActionListener(){
             @Override
             public void actionPerformed(ActionEvent ae){
                 indiceSelecionado = tfPersonagem.getSelectedIndex();
-                botaoConfirmar.addActionListener(new ExcluiPersonagem(jogador, indiceSelecionado));
-                botaoConfirmar.addActionListener(new DesenhaPersonagem(jogador));
+                botaoConfirmar.addActionListener(new ExcluiOponente(adm, indiceSelecionado));
+                botaoConfirmar.addActionListener(new DesenhaOponente(adm));
                 botaoConfirmar.addActionListener(new Retroceder(tela));
             }
             
         });
-
+        
         JButton botaoCancelar = new JButton("Cancelar");
         botaoCancelar.addActionListener(new CancelaPersonagem());
-        botaoCancelar.addActionListener(new DesenhaPersonagem(jogador));
+        botaoCancelar.addActionListener(new DesenhaOponente(adm));
         botaoCancelar.addActionListener(new Retroceder(this.tela)); 
 
         painel.add(botaoConfirmar);
@@ -89,17 +86,17 @@ public class ExcluiPersonagemGUI {
     }
     
     // Main --------------------------------------------------------------------
-    public static void chama(Jogador jogador) {
+    public static void chama(Administrador adm) {
         
-        ExcluiPersonagemGUI excluiPersonagemGUI= new ExcluiPersonagemGUI(jogador);
+        ExcluiOponenteGUI excluiOponenteGUI= new ExcluiOponenteGUI(adm);
         
         tela.setSize(600, 300);
 
         tela.setLayout(new BorderLayout());
 
-        tela.add(excluiPersonagemGUI.desenha(), BorderLayout.CENTER);
+        tela.add(excluiOponenteGUI.desenha(), BorderLayout.CENTER);
 
-        tela.add(excluiPersonagemGUI.desenhaBotoes(), BorderLayout.SOUTH);
+        tela.add(excluiOponenteGUI.desenhaBotoes(), BorderLayout.SOUTH);
 
         tela.setVisible(true);
         tela.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
@@ -114,15 +111,11 @@ public class ExcluiPersonagemGUI {
     }
 
     // Getteres ----------------------------------------------------------------
-    
-    public Jogador getJogador(){
-        return this.jogador;
-    }
 
-    private String[] completaListaPersonagens() {
-        String[] personagens = new String[jogador.getPersonagens().size()];
-        for(int i = 0; i < jogador.getPersonagens().size(); i++){
-            personagens[i] = jogador.getPersonagens().get(i).getNome();
+    private String[] completaListaOponentes() {
+        String[] personagens = new String[Dados.oponentes.size()];
+        for(int i = 0; i < Dados.oponentes.size(); i++){
+            personagens[i] = Dados.oponentes.get(i).getNome();
         }
         return personagens;
     }

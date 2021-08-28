@@ -82,7 +82,7 @@ public class TelaPersonagem {
         JTable boxPersonagens;
 
         String[] tituloBoxPersonagens = {"Personagem" , "Classe", "Nível", "Vida"};
-        String[][] personagensTabela = new String[4][4];
+        String[][] personagensTabela = new String[4][tituloBoxPersonagens.length];
         
         completaTabelaPersonagens(jogador.getPersonagens(), personagensTabela);
         
@@ -97,11 +97,9 @@ public class TelaPersonagem {
         painel2.add(criarPersonagem);
         painel2.add(editarPersonagem);
         painel2.add(excluirPersonagem);
-//        painel3.add(atualizarPersonagens);
         
         painel.add(painel1, BorderLayout.CENTER);
         painel.add(painel2, BorderLayout.CENTER);
-//        painel.add(painel3);
         
         return painel;
     }
