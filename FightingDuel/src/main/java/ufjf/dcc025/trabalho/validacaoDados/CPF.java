@@ -10,7 +10,10 @@ import javax.swing.text.MaskFormatter;
 
 /**
  * @author Gilberto Toledo
+ * github  https://github.com/gilbertotoledo/curso-java
+ * youtube https://www.youtube.com/channel/UCAf9hyf52WQe1oTRhrtpCBw
  */
+
 public class CPF {
     private String cpf;
     private static final String Formato = "###.###.###-##";
