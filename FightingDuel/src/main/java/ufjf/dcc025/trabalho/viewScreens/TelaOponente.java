@@ -16,6 +16,7 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import ufjf.dcc025.trabalho.controllerScreen.DesenhaCriaOponentes;
+import ufjf.dcc025.trabalho.controllerScreen.DesenhaExcluirOponente;
 import ufjf.dcc025.trabalho.controllerScreen.Retroceder;
 import ufjf.dcc025.trabalho.modelCharacter.Oponente;
 import ufjf.dcc025.trabalho.modelGame.Dados;
@@ -70,8 +71,8 @@ public class TelaOponente {
 //        editarPersonagem.addActionListener(new DesenhaEditarPersonagem(jogador));
         
         JButton excluirPersonagem = new JButton("Excluir");
-//        excluirPersonagem.addActionListener(new DesenhaExcluirPersonagem());
-//        excluirPersonagem.addActionListener(new Retroceder(tela));
+        excluirPersonagem.addActionListener(new DesenhaExcluirOponente(adm));
+        excluirPersonagem.addActionListener(new Retroceder(tela));
 
         JButton botaoVoltar = new JButton("Voltar");
         botaoVoltar.addActionListener(new Retroceder(this.tela));;
@@ -79,7 +80,7 @@ public class TelaOponente {
         JTable boxOponentes;
 
         String[] tituloBoxOponentes = {"Oponente" , "Classe", "Nível", "Vida"};
-        String[][] oponentesTabela = new String[Dados.oponentes.size() + 1][4];
+        String[][] oponentesTabela = new String[Dados.oponentes.size() + 1][tituloBoxOponentes.length];
         
         completaTabelaOponentes(Dados.oponentes, oponentesTabela);
         
