@@ -43,7 +43,7 @@ public class OrganizadorGUI {
         JPanel painel = new JPanel();
         
         JLabel jlNome = new JLabel("Nome: ");
-        JLabel jlCpf = new JLabel("CPF/CNPJ: ");
+        JLabel jlCpf = new JLabel("CPF: ");
         JLabel jlDataNascimento = new JLabel("Data de Nascimento (dd/mm/aa): ");
         JLabel jlEmail = new JLabel("Email: ");
         JLabel jlSenha = new JLabel("Senha: ");

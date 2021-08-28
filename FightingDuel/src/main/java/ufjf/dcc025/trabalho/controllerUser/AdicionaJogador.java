@@ -1,4 +1,3 @@
-
 package ufjf.dcc025.trabalho.controllerUser;
 
 import ufjf.dcc025.trabalho.viewUsers.JogadorGUI;
@@ -11,12 +10,13 @@ import javax.swing.JOptionPane;
 import ufjf.dcc025.trabalho.modelUsers.Administrador;
 import ufjf.dcc025.trabalho.modelUsers.Organizador;
 import ufjf.dcc025.trabalho.util.SalvarJogador;
+import ufjf.dcc025.trabalho.validacaoDados.CPF;
+import ufjf.dcc025.trabalho.validacaoDados.Data;
 
 /**
- * @author  Daniel Muller Rezende
- * @@code   202065020A
+ * @author Daniel Muller Rezende
+ * @@code 202065020A
  */
-
 public class AdicionaJogador implements ActionListener {
 
     JogadorGUI jogadorGUI;
@@ -40,7 +40,7 @@ public class AdicionaJogador implements ActionListener {
         }
 
         for (Administrador administrador1 : Dados.administradores) {
-            if (jogadorGUI.getTfNome().getText().equals(administrador1.getNome()) || jogadorGUI.getTfEmail().getText().equals(administrador1.getEmail())){
+            if (jogadorGUI.getTfNome().getText().equals(administrador1.getNome()) || jogadorGUI.getTfEmail().getText().equals(administrador1.getEmail())) {
                 control = 1;
                 JOptionPane.showMessageDialog(null, "ERRO! Já existe um administrador com essas informações!\n Email ou nome já cadastrados.");
             }
@@ -54,24 +54,38 @@ public class AdicionaJogador implements ActionListener {
         }
 
         if (control == 0) {
-            Jogador jogador = new Jogador();
 
-            jogador.setEmail(jogadorGUI.getTfEmail().getText());
-            jogador.setDataNascimento(jogadorGUI.getTfDataNascimento().getText());
-            jogador.setNome(jogadorGUI.getTfNome().getText());
-            jogador.setSenha(jogadorGUI.getTfSenha().getText());
+            Data dataHoje = new Data();
+            Data dataDigitada = new Data(jogadorGUI.getTfDataNascimento().getText(), Data.BarraSemHora);
 
-            Dados.jogadores.add(jogador);
-            
-            SalvarJogador salvar = new SalvarJogador();
-            
-            salvar.escreverArquivo(jogadorGUI.getTfNome().getText(), jogadorGUI.getTfDataNascimento().getText(), jogadorGUI.getTfEmail().getText(), jogadorGUI.getTfSenha().getText());
+            if (dataHoje.getTimestamp().getTime() > dataDigitada.getTimestamp().getTime()) {
+                if (dataHoje.getAno()-dataDigitada.getAno()>=13) {
+                    Jogador jogador = new Jogador();
 
-            tela.dispose();
-            JOptionPane.showMessageDialog(null, "Cadastro realizado.");
-            
-            for (Jogador jogador1 : Dados.jogadores) {
-                System.out.println(jogador1);
+                    jogador.setEmail(jogadorGUI.getTfEmail().getText());
+                    jogador.setDataNascimento(jogadorGUI.getTfDataNascimento().getText());
+                    jogador.setNome(jogadorGUI.getTfNome().getText());
+                    jogador.setSenha(jogadorGUI.getTfSenha().getText());
+
+                    Dados.jogadores.add(jogador);
+
+                    SalvarJogador salvar = new SalvarJogador();
+
+                    salvar.escreverArquivo(jogadorGUI.getTfNome().getText(), jogadorGUI.getTfDataNascimento().getText(), jogadorGUI.getTfEmail().getText(), jogadorGUI.getTfSenha().getText());
+
+                    tela.dispose();
+                    JOptionPane.showMessageDialog(null, "Cadastro realizado.");
+
+                    for (Jogador jogador1 : Dados.jogadores) {
+                        System.out.println(jogador1);
+                    }
+                }
+                else{
+                    JOptionPane.showMessageDialog(null, "ERRO! O jogador precisa ser maior de 13 anos");
+                }
+            }
+            else{
+                JOptionPane.showMessageDialog(null, "ERRO! A data digitada é posterior à data de hoje.");
             }
         }
     }

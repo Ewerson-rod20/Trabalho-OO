@@ -1,4 +1,3 @@
-
 package ufjf.dcc025.trabalho.controllerUser;
 
 import ufjf.dcc025.trabalho.viewUsers.OrganizadorGUI;
@@ -11,12 +10,13 @@ import javax.swing.JOptionPane;
 import ufjf.dcc025.trabalho.modelUsers.Administrador;
 import ufjf.dcc025.trabalho.modelUsers.Jogador;
 import ufjf.dcc025.trabalho.util.SalvarOrganizador;
+import ufjf.dcc025.trabalho.validacaoDados.CPF;
+import ufjf.dcc025.trabalho.validacaoDados.Data;
 
 /**
- * @author  Daniel Muller Rezende
- * @@code   202065020A
+ * @author Daniel Muller Rezende
+ * @@code 202065020A
  */
-
 public class AdicionaOrganizador implements ActionListener {
 
     OrganizadorGUI organizadorGUI;
@@ -54,24 +54,42 @@ public class AdicionaOrganizador implements ActionListener {
         }
 
         if (control == 0) {
-            Organizador organizador = new Organizador();
 
-            organizador.setCpf(organizadorGUI.getTfCpf().getText());
-            organizador.setEmail(organizadorGUI.getTfEmail().getText());
-            organizador.setDataNascimento(organizadorGUI.getTfDataNascimento().getText());
-            organizador.setNome(organizadorGUI.getTfNome().getText());
-            organizador.setSenha(organizadorGUI.getTfSenha().getText());
+            CPF cpf = new CPF(organizadorGUI.getTfCpf().getText());
 
-            Dados.organizadores.add(organizador);
-            
-            SalvarOrganizador salvar = new SalvarOrganizador();
-            salvar.escreverArquivo(organizadorGUI.getTfNome().getText(), organizadorGUI.getTfCpf().getText(), organizadorGUI.getTfDataNascimento().getText(), organizadorGUI.getTfEmail().getText(), organizadorGUI.getTfSenha().getText());
+            Data dataHoje = new Data();
+            Data dataDigitada = new Data(organizadorGUI.getTfDataNascimento().getText(), Data.BarraSemHora);
 
-            tela.dispose();
-            JOptionPane.showMessageDialog(null, "Cadastro realizado.");
-            
-            for (Organizador organizador1 : Dados.organizadores) {
-                System.out.println(organizador1);
+            if (cpf.isCPF()) {
+                if (dataHoje.getTimestamp().getTime() > dataDigitada.getTimestamp().getTime()) {
+                    if (dataHoje.getAno() - dataDigitada.getAno() >= 18) {
+                        Organizador organizador = new Organizador();
+
+                        organizador.setCpf(organizadorGUI.getTfCpf().getText());
+                        organizador.setEmail(organizadorGUI.getTfEmail().getText());
+                        organizador.setDataNascimento(organizadorGUI.getTfDataNascimento().getText());
+                        organizador.setNome(organizadorGUI.getTfNome().getText());
+                        organizador.setSenha(organizadorGUI.getTfSenha().getText());
+
+                        Dados.organizadores.add(organizador);
+
+                        SalvarOrganizador salvar = new SalvarOrganizador();
+                        salvar.escreverArquivo(organizadorGUI.getTfNome().getText(), organizadorGUI.getTfCpf().getText(), organizadorGUI.getTfDataNascimento().getText(), organizadorGUI.getTfEmail().getText(), organizadorGUI.getTfSenha().getText());
+
+                        tela.dispose();
+                        JOptionPane.showMessageDialog(null, "Cadastro realizado.");
+
+                        for (Organizador organizador1 : Dados.organizadores) {
+                            System.out.println(organizador1);
+                        }
+                    } else {
+                        JOptionPane.showMessageDialog(null, "ERRO! O organizador precisa ser maior de 18 anos");
+                    }
+                } else {
+                    JOptionPane.showMessageDialog(null, "ERRO! A data digitada é posterior à data de hoje.");
+                }
+            } else {
+                JOptionPane.showMessageDialog(null, "ERRO! CPF inválido.");
             }
         }
     }

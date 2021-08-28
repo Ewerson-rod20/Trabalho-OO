@@ -1,4 +1,3 @@
-
 package ufjf.dcc025.trabalho.controllerUser;
 
 import ufjf.dcc025.trabalho.viewUsers.AdministradorGUI;
@@ -11,12 +10,13 @@ import javax.swing.JOptionPane;
 import ufjf.dcc025.trabalho.modelUsers.Jogador;
 import ufjf.dcc025.trabalho.modelUsers.Organizador;
 import ufjf.dcc025.trabalho.util.SalvarAdministrador;
+import ufjf.dcc025.trabalho.validacaoDados.CPF;
+import ufjf.dcc025.trabalho.validacaoDados.Data;
 
 /**
- * @author  Daniel Muller Rezende
- * @@code   202065020A
+ * @author Daniel Muller Rezende
+ * @@code 202065020A
  */
-
 public class AdicionaAdministrador implements ActionListener {
 
     AdministradorGUI administradorGUI;
@@ -54,24 +54,42 @@ public class AdicionaAdministrador implements ActionListener {
         }
 
         if (control == 0) {
-            Administrador administrador = new Administrador();
 
-            administrador.setCpf(administradorGUI.getTfCpf().getText());
-            administrador.setEmail(administradorGUI.getTfEmail().getText());
-            administrador.setDataNascimento(administradorGUI.getTfDataNascimento().getText());
-            administrador.setNome(administradorGUI.getTfNome().getText());
-            administrador.setSenha(administradorGUI.getTfSenha().getText());
+            CPF cpf = new CPF(administradorGUI.getTfCpf().getText());
 
-            Dados.administradores.add(administrador);
-            
-            SalvarAdministrador salvar = new SalvarAdministrador();
-            salvar.escreverArquivo(administradorGUI.getTfNome().getText(), administradorGUI.getTfCpf().getText(), administradorGUI.getTfDataNascimento().getText(), administradorGUI.getTfEmail().getText(), administradorGUI.getTfSenha().getText());
-            
-            tela.dispose();
-            JOptionPane.showMessageDialog(null, "Cadastro realizado.");
+            Data dataHoje = new Data();
+            Data dataDigitada = new Data(administradorGUI.getTfDataNascimento().getText(), Data.BarraSemHora);
 
-            for (Administrador administrador1 : Dados.administradores) {
-                System.out.println(administrador1);
+            if (cpf.isCPF()) {
+                if (dataHoje.getTimestamp().getTime() > dataDigitada.getTimestamp().getTime()) {
+                    if (dataHoje.getAno() - dataDigitada.getAno() >= 18) {
+                        Administrador administrador = new Administrador();
+
+                        administrador.setCpf(administradorGUI.getTfCpf().getText());
+                        administrador.setEmail(administradorGUI.getTfEmail().getText());
+                        administrador.setDataNascimento(administradorGUI.getTfDataNascimento().getText());
+                        administrador.setNome(administradorGUI.getTfNome().getText());
+                        administrador.setSenha(administradorGUI.getTfSenha().getText());
+
+                        Dados.administradores.add(administrador);
+
+                        SalvarAdministrador salvar = new SalvarAdministrador();
+                        salvar.escreverArquivo(administradorGUI.getTfNome().getText(), administradorGUI.getTfCpf().getText(), administradorGUI.getTfDataNascimento().getText(), administradorGUI.getTfEmail().getText(), administradorGUI.getTfSenha().getText());
+
+                        tela.dispose();
+                        JOptionPane.showMessageDialog(null, "Cadastro realizado.");
+
+                        for (Administrador administrador1 : Dados.administradores) {
+                            System.out.println(administrador1);
+                        }
+                    } else {
+                        JOptionPane.showMessageDialog(null, "ERRO! O administrador precisa ser maior de 18 anos");
+                    }
+                } else {
+                    JOptionPane.showMessageDialog(null, "ERRO! A data digitada é posterior à data de hoje.");
+                }
+            } else {
+                JOptionPane.showMessageDialog(null, "ERRO! CPF inválido.");
             }
         }
 
