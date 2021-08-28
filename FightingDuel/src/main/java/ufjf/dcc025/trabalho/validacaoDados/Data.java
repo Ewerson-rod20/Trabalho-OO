@@ -12,9 +12,11 @@ import java.util.GregorianCalendar;
 import javax.swing.JOptionPane;
 
 /**
- *
  * @author Gilberto Toledo
+ * github  https://github.com/gilbertotoledo/curso-java
+ * youtube https://www.youtube.com/channel/UCAf9hyf52WQe1oTRhrtpCBw
  */
+
 public class Data {
     private Timestamp data;
     public static final String BarraSemHora="dd/MM/yyyy";
@@ -54,7 +56,7 @@ public class Data {
             c.setTime(formatoData.parse(Data));  
             timestamp = new Timestamp(c.getTimeInMillis());  
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "ERRO! Digite apenas números e barras.");
+            JOptionPane.showMessageDialog(null, "ERRO! Digite apenas números.");
             System.err.println(e.getMessage());
         }  
         this.data = timestamp;
