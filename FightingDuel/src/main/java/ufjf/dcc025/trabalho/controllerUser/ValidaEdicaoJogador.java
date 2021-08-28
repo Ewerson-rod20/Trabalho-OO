@@ -11,7 +11,6 @@ import ufjf.dcc025.trabalho.modelUsers.Jogador;
 import ufjf.dcc025.trabalho.modelUsers.Organizador;
 import ufjf.dcc025.trabalho.util.SalvarJogador;
 import ufjf.dcc025.trabalho.viewUsers.EditaJogador;
-import ufjf.dcc025.trabalho.viewUsers.JogadorGUI;
 
 /**
  * @author  Daniel Muller Rezende

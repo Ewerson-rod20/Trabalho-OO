@@ -16,6 +16,7 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import ufjf.dcc025.trabalho.controllerScreen.DesenhaCriarPersonagem;
+import ufjf.dcc025.trabalho.controllerScreen.DesenhaEditarPersonagem;
 import ufjf.dcc025.trabalho.controllerScreen.DesenhaExcluirPersonagem;
 import ufjf.dcc025.trabalho.controllerScreen.Retroceder;
 import ufjf.dcc025.trabalho.modelCharacter.Personagem;
@@ -70,7 +71,8 @@ public class TelaPersonagem {
         criarPersonagem.addActionListener(new Retroceder(tela));
         
         JButton editarPersonagem = new JButton("Editar");
-//        editarPersonagem.addActionListener(new DesenhaEditarPersonagem(jogador));
+        editarPersonagem.addActionListener(new DesenhaEditarPersonagem(jogador));
+        editarPersonagem.addActionListener(new Retroceder(tela));
         
         JButton excluirPersonagem = new JButton("Excluir");
         excluirPersonagem.addActionListener(new DesenhaExcluirPersonagem(jogador));
