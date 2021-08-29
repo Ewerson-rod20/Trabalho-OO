@@ -7,6 +7,8 @@ package ufjf.dcc025.trabalho.controllerScreen;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import javax.swing.JOptionPane;
+import ufjf.dcc025.trabalho.modelGame.Dados;
 import ufjf.dcc025.trabalho.modelUsers.Administrador;
 import ufjf.dcc025.trabalho.viewUsers.EditaOponente;
 
@@ -25,6 +27,10 @@ public class DesenhaEditarOponente implements ActionListener{
     
     @Override
     public void actionPerformed(ActionEvent ae){
-        edita.chama(adm);
+        if(Dados.oponentes.isEmpty()){
+            JOptionPane.showMessageDialog(null, "Não tem nenhum oponente criado!");
+        } else {
+            edita.chama(adm);
+        }
     }
 }

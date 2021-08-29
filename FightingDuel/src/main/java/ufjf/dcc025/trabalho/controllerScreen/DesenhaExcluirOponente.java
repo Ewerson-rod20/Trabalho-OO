@@ -7,6 +7,8 @@ package ufjf.dcc025.trabalho.controllerScreen;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import javax.swing.JOptionPane;
+import ufjf.dcc025.trabalho.modelGame.Dados;
 import ufjf.dcc025.trabalho.modelUsers.Administrador;
 import ufjf.dcc025.trabalho.viewUsers.ExcluiOponenteGUI;
 
@@ -25,6 +27,10 @@ public class DesenhaExcluirOponente implements ActionListener{
     
     @Override
     public void actionPerformed(ActionEvent ae){
-        telaExcluir.chama(adm);
+        if(Dados.oponentes.isEmpty()){
+            JOptionPane.showMessageDialog(null, "Não tem nenhum oponente criado!");
+        } else {
+            telaExcluir.chama(adm);
+        }
     }
 }

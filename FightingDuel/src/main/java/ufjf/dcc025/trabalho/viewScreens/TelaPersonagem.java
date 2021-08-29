@@ -74,6 +74,7 @@ public class TelaPersonagem {
         editarPersonagem.addActionListener(new DesenhaEditarPersonagem(jogador));
         editarPersonagem.addActionListener(new Retroceder(tela));
         
+        
         JButton excluirPersonagem = new JButton("Excluir");
         excluirPersonagem.addActionListener(new DesenhaExcluirPersonagem(jogador));
         excluirPersonagem.addActionListener(new Retroceder(tela));

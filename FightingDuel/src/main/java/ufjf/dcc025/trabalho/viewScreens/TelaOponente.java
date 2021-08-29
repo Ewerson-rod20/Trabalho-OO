@@ -12,6 +12,7 @@ import java.util.List;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
@@ -73,7 +74,8 @@ public class TelaOponente {
         
         JButton excluirPersonagem = new JButton("Excluir");
         excluirPersonagem.addActionListener(new DesenhaExcluirOponente(adm));
-        excluirPersonagem.addActionListener(new Retroceder(tela));
+        excluirPersonagem.addActionListener(new Retroceder(tela)); 
+        
 
         JButton botaoVoltar = new JButton("Voltar");
         botaoVoltar.addActionListener(new Retroceder(this.tela));;

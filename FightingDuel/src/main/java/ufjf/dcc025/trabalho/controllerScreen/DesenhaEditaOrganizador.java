@@ -4,9 +4,7 @@ package ufjf.dcc025.trabalho.controllerScreen;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JFrame;
-import ufjf.dcc025.trabalho.modelUsers.Jogador;
 import ufjf.dcc025.trabalho.modelUsers.Organizador;
-import ufjf.dcc025.trabalho.viewUsers.EditaJogador;
 import ufjf.dcc025.trabalho.viewUsers.EditaOrganizador;
 
 /**
