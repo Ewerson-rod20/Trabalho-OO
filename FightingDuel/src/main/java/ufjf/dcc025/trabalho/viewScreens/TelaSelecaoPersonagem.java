@@ -10,7 +10,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import ufjf.dcc025.trabalho.controllerScreen.Retroceder;
 import ufjf.dcc025.trabalho.modelCharacter.Personagem;
-import ufjf.dcc025.trabalho.modelUsers.Administrador;
+import ufjf.dcc025.trabalho.modelGame.Dados;
 import ufjf.dcc025.trabalho.modelUsers.Jogador;
 
 /**
@@ -22,12 +22,13 @@ public class TelaSelecaoPersonagem {
     
     private static JFrame tela;
     private static Jogador jogador;
-    private static Administrador administrador;
+    private static Dados oponente;
     private JComboBox listPersonagem;
     private JComboBox listInimigo;
     
-    public TelaSelecaoPersonagem(Jogador jogador){
+    public TelaSelecaoPersonagem(Jogador jogador, Dados oponente){
         this.jogador = jogador;
+        this.oponente = oponente;
     }
     
     public JPanel desenha(){
@@ -39,11 +40,18 @@ public class TelaSelecaoPersonagem {
         JLabel label2 = new JLabel("Selecione o inimigo: ");
         
         String[] personagens = new String[jogador.getcontPersonagem()];
+        String[] oponentes = new String[Dados.oponentes.size()];
         
         for(int i=0; i<jogador.getcontPersonagem(); i++){
             personagens[i] = jogador.getPersonagem(i).getNome();
         }
+        
+        for (int i = 0; i < Dados.oponentes.size(); i++){
+            oponentes[i] = Dados.oponentes.get(i).getNome();
+        }
+        
         listPersonagem = new JComboBox(personagens);
+        listInimigo = new JComboBox(oponentes);
         
         // Adicionar listInimigos -----------------------------
         
@@ -51,7 +59,7 @@ public class TelaSelecaoPersonagem {
         painel.add(label1);
         painel.add(label2);
         painel.add(listPersonagem);
-        //painel.add(listInimigo);
+        painel.add(listInimigo);
         
         return painel;
     }
@@ -75,7 +83,7 @@ public class TelaSelecaoPersonagem {
     public void chama(){
         this.tela = new JFrame("Seleção de Personagem");
         
-        TelaSelecaoPersonagem seleciona = new TelaSelecaoPersonagem(this.jogador);
+        TelaSelecaoPersonagem seleciona = new TelaSelecaoPersonagem(this.jogador, this.oponente);
     
         tela.setSize(600, 300);
         tela.setLayout(new BorderLayout());
