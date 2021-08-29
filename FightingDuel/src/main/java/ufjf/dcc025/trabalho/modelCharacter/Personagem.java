@@ -50,8 +50,5 @@ public class Personagem {
 
     public void setNivel(int nivel) {
         this.nivel = nivel;
-    }
-    
-    
-    
+    }   
 }

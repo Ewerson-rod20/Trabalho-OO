@@ -69,7 +69,6 @@ public class ExcluiOponenteGUI {
                 botaoConfirmar.addActionListener(new DesenhaOponente(adm));
                 botaoConfirmar.addActionListener(new Retroceder(tela));
             }
-            
         });
         
         JButton botaoCancelar = new JButton("Cancelar");

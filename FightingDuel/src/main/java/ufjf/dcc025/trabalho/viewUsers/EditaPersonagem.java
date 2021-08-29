@@ -30,8 +30,9 @@ public class EditaPersonagem {
     private JComboBox camposList;
     
     // Construtor --------------------------------------------------------------
-    public EditaPersonagem(){
+    public EditaPersonagem(Jogador jogador){
         this.jtText = new JTextField(50);
+        this.jogador = jogador;
     }
     
     // Desenha -----------------------------------------------------------------
@@ -82,7 +83,7 @@ public class EditaPersonagem {
         
         this.tela = new JFrame("Editar Personagem");
         
-        EditaPersonagem edita = new EditaPersonagem();
+        EditaPersonagem edita = new EditaPersonagem(jogador);
         
         tela.setSize(600, 300);
         tela.setLayout(new BorderLayout());

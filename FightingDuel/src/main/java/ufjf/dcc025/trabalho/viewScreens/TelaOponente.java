@@ -16,6 +16,7 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import ufjf.dcc025.trabalho.controllerScreen.DesenhaCriaOponentes;
+import ufjf.dcc025.trabalho.controllerScreen.DesenhaEditarOponente;
 import ufjf.dcc025.trabalho.controllerScreen.DesenhaExcluirOponente;
 import ufjf.dcc025.trabalho.controllerScreen.Retroceder;
 import ufjf.dcc025.trabalho.modelCharacter.Oponente;
@@ -68,7 +69,7 @@ public class TelaOponente {
         criarPersonagem.addActionListener(new Retroceder(tela));
         
         JButton editarPersonagem = new JButton("Editar");
-//        editarPersonagem.addActionListener(new DesenhaEditarPersonagem(jogador));
+        editarPersonagem.addActionListener(new DesenhaEditarOponente(adm));
         
         JButton excluirPersonagem = new JButton("Excluir");
         excluirPersonagem.addActionListener(new DesenhaExcluirOponente(adm));

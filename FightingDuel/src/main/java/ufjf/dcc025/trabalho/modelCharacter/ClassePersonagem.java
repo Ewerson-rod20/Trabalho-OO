@@ -26,6 +26,10 @@ public class ClassePersonagem {
     
     String nomeClasse;
     
+    float vidaMax;  // Vida máxima que um Personagem
+    float forcaAtk; // Força de ataque de um Personagem
+    float forcaDef; // Força de defesa de um Personagem
+    
     // Construtor --------------------------------------------------------------
     public ClassePersonagem(int ataque1, int ataque2, int ataque3) {
         this.ataque1 = ataque1;
@@ -61,6 +65,18 @@ public class ClassePersonagem {
     public String getNomeClasse(){
         return nomeClasse;
     }
+
+    public float getVidaMax() {
+        return vidaMax;
+    }
+
+    public float getForcaAtk() {
+        return forcaAtk;
+    }
+
+    public float getForcaDef() {
+        return forcaDef;
+    }
     
     // Setteres ----------------------------------------------------------------
     // Ataque 1:
@@ -85,6 +101,18 @@ public class ClassePersonagem {
     }
     public void setAtaque3(int ataque3) {
         this.ataque3 = ataque3;
+    }
+
+    public void setVidaMax(float vidaMax) {
+        this.vidaMax = vidaMax;
+    }
+
+    public void setForcaAtk(float forcaAtk) {
+        this.forcaAtk = forcaAtk;
+    }
+
+    public void setForcaDef(float forcaDef) {
+        this.forcaDef = forcaDef;
     }
     
 }

@@ -21,14 +21,11 @@ public class ExcluiOponente implements ActionListener{
     
     public ExcluiOponente(Administrador adm, int indice) {
         this.adm = adm;
-        this.indice = indice;
-        System.out.println("indice passado - " + indice);
     }
 
     @Override
     public void actionPerformed(ActionEvent ae) {
         String nomePersonagemDeletado = Dados.oponentes.get(indice).getNome();
-        System.out.println("Vai deletar o indice " + indice);
         Dados.oponentes.remove(indice);
         JOptionPane.showMessageDialog(null, "Oponente '" + nomePersonagemDeletado + "' deletado com sucesso!");
     }
