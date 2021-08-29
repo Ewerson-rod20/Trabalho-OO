@@ -9,8 +9,8 @@ import javax.swing.JPanel;
 import ufjf.dcc025.trabalho.controllerScreen.DesenhaEditaOrganizador;
 import ufjf.dcc025.trabalho.controllerUser.Desconectar;
 import ufjf.dcc025.trabalho.controllerUser.ExibeContaOrganizador;
-import ufjf.dcc025.trabalho.modelGame.Dados;
 import ufjf.dcc025.trabalho.modelUsers.Organizador;
+import ufjf.dcc025.trabalho.controllerScreen.DesenhaValidaOponentes;
 
 /**
  * @author  Daniel Muller Rezende
@@ -34,7 +34,8 @@ public class TelaOrganizador {
         
         painel.setLayout(new GridLayout(0, 2));
         
-        JButton botaoEventos = new JButton("Eventos");
+        JButton botaoValidar = new JButton("Validar Oponentes");
+        botaoValidar.addActionListener(new DesenhaValidaOponentes(this.organizador));
         
         JButton botaoConta = new JButton("Conta");
         botaoConta.addActionListener(new ExibeContaOrganizador(this.organizador));
@@ -45,7 +46,7 @@ public class TelaOrganizador {
         JButton botaoSair = new JButton("Sair");
         botaoSair.addActionListener(new Desconectar(this.tela, this.telaPrincipal));
         
-        painel.add(botaoEventos);
+        painel.add(botaoValidar);
         painel.add(botaoConta);
         painel.add(botaoEditar);
         painel.add(botaoSair);

@@ -7,14 +7,11 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import ufjf.dcc025.trabalho.controllerScreen.DesenhaAdministraUsuarios;
-import ufjf.dcc025.trabalho.controllerScreen.DesenhaCriaOponentes;
 import ufjf.dcc025.trabalho.controllerScreen.DesenhaEditaAdministrador;
 import ufjf.dcc025.trabalho.controllerScreen.DesenhaOponente;
 import ufjf.dcc025.trabalho.controllerUser.Desconectar;
 import ufjf.dcc025.trabalho.controllerUser.ExibeContaAdministrador;
-import ufjf.dcc025.trabalho.modelGame.Dados;
 import ufjf.dcc025.trabalho.modelUsers.Administrador;
-import ufjf.dcc025.trabalho.viewUsers.AdministraUsuarios;
 
 /**
  * @author  Daniel Muller Rezende
