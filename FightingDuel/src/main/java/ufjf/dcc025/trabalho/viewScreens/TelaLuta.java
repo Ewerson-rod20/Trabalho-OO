@@ -56,7 +56,7 @@ public class TelaLuta extends JFrame {
         return painel;
     }
 
-    public static void main(String[] args) {
+    public void chama() {
         TelaLuta luta = new TelaLuta();
 
         tela.setLayout(new BorderLayout());
