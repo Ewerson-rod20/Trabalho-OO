@@ -1,4 +1,3 @@
-
 package ufjf.dcc025.trabalho.controllerUser;
 
 import java.awt.event.ActionEvent;
@@ -10,12 +9,11 @@ import ufjf.dcc025.trabalho.modelUsers.Jogador;
 import ufjf.dcc025.trabalho.util.SalvarJogador;
 
 /**
- * @author  Daniel Muller Rezende
- * @@code   202065020A
+ * @author Daniel Muller Rezende
+ * @@code 202065020A
  */
+public class ExcluiJogador implements ActionListener {
 
-public class ExcluiJogador implements ActionListener{
-    
     private static JFrame telaPrincipal;
     private static JFrame telaJogador;
     private static JFrame tela;
@@ -31,18 +29,27 @@ public class ExcluiJogador implements ActionListener{
     @Override
     public void actionPerformed(ActionEvent ae) {
         Jogador aux = new Jogador();
-        for(Jogador jogador1 : Dados.jogadores){
-            if(jogador.getNome().equals(jogador1.getNome())){
+        for (Jogador jogador1 : Dados.jogadores) {
+            if (jogador.getNome().equals(jogador1.getNome())) {
                 aux = jogador1;
                 JOptionPane.showMessageDialog(null, "Jogador excluído com sucesso.");
-                tela.dispose();
-                telaJogador.dispose();
-                telaPrincipal.setVisible(true);
+                if (tela != null) {
+                    tela.dispose();
+                }
+                if (telaJogador != null) {
+                    telaJogador.dispose();
+                }
+                if (telaPrincipal != null) {
+                    telaPrincipal.setVisible(true);
+                }
             }
         }
         Dados.jogadores.remove(aux);
-        aux.deletaJogador();
         
+        
+        
+        aux.deletaJogador();
+
         SalvarJogador salvar = new SalvarJogador();
         salvar.excluirArquivo();
     }

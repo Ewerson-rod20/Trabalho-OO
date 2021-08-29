@@ -1,1 +1,1 @@
-Jogador;02/11/1995;testeemail@gmail.com;jogador;
+Jogador;20/10/2002;jogador@gmail.com;jogador;
