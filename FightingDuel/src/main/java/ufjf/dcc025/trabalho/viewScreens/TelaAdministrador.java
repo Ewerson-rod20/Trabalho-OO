@@ -9,6 +9,7 @@ import javax.swing.JPanel;
 import ufjf.dcc025.trabalho.controllerScreen.DesenhaAdministraUsuarios;
 import ufjf.dcc025.trabalho.controllerScreen.DesenhaEditaAdministrador;
 import ufjf.dcc025.trabalho.controllerScreen.DesenhaOponente;
+import ufjf.dcc025.trabalho.controllerScreen.DesenhaTelaInstrucoes;
 import ufjf.dcc025.trabalho.controllerUser.Desconectar;
 import ufjf.dcc025.trabalho.controllerUser.ExibeContaAdministrador;
 import ufjf.dcc025.trabalho.modelUsers.Administrador;
@@ -47,6 +48,9 @@ public class TelaAdministrador {
         JButton botaoAdministrar = new JButton("Administrar Jogadores");
         botaoAdministrar.addActionListener(new DesenhaAdministraUsuarios());
         
+        JButton botaoInstrucoes = new JButton("Instruções");
+        botaoInstrucoes.addActionListener(new DesenhaTelaInstrucoes());
+        
         JButton botaoSair = new JButton("Sair");
         botaoSair.addActionListener(new Desconectar(this.tela, this.telaPrincipal));
         
@@ -54,6 +58,7 @@ public class TelaAdministrador {
         painel.add(botaoPersonagem);
         painel.add(botaoConta);
         painel.add(botaoEditar);
+        painel.add(botaoInstrucoes);
         painel.add(botaoSair);
         
         return painel;
