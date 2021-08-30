@@ -8,12 +8,9 @@ package ufjf.dcc025.trabalho.controllerScreen;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import javax.swing.JFrame;
 import ufjf.dcc025.trabalho.modelCharacter.Oponente;
 import ufjf.dcc025.trabalho.modelCharacter.Personagem;
 import ufjf.dcc025.trabalho.viewScreens.TelaLuta;
-import ufjf.dcc025.trabalho.viewUsers.OponenteGUI;
-import ufjf.dcc025.trabalho.viewUsers.PersonagemGUI;
         
 
 

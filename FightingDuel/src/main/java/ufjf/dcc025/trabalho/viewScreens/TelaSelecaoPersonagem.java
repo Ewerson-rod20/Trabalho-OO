@@ -3,7 +3,6 @@ package ufjf.dcc025.trabalho.viewScreens;
 
 import java.awt.BorderLayout;
 import java.awt.GridLayout;
-import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import javax.swing.JButton;
@@ -15,8 +14,6 @@ import ufjf.dcc025.trabalho.controllerScreen.DesenhaTelaLuta;
 import ufjf.dcc025.trabalho.controllerScreen.Retroceder;
 import ufjf.dcc025.trabalho.modelGame.Dados;
 import ufjf.dcc025.trabalho.modelUsers.Jogador;
-import ufjf.dcc025.trabalho.modelCharacter.Personagem;
-import ufjf.dcc025.trabalho.modelCharacter.Oponente;
 
 /**
  * @author  Daniel Muller Rezende
