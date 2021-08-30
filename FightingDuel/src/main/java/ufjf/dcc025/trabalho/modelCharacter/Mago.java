@@ -12,5 +12,6 @@ public class Mago extends ClassePersonagem{
         //Ajeitar valores
         forcaAtk = 5;
         forcaDef = 19;
+        vidaBase = 185;
     }
 }

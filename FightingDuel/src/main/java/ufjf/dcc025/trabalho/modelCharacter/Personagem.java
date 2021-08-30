@@ -181,4 +181,8 @@ public class Personagem {
         }
         return 0;
     }
+
+    public void resetaStatus() {
+        this.setVida((int) this.getClasse().getVidaBase());
+    }
 }

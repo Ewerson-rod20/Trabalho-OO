@@ -12,5 +12,6 @@ public class Ladrao extends ClassePersonagem{
         //Ajeitar valores
         forcaAtk = 6;
         forcaDef = 17;
+        vidaBase = 150;
     }
 }
