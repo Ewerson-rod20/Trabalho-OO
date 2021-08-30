@@ -22,6 +22,6 @@ public class Derrota {
    
     public void chama(){
         JOptionPane.showMessageDialog(null, "Você perdeu! :(");
-        //Chamar menu!
+        tela.dispose();
     }
 }
