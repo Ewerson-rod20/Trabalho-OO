@@ -11,8 +11,7 @@ public class Cavaleiro extends ClassePersonagem{
         super(ataque1, ataque2, ataque3);
         nomeClasse = "Cavaleiro";
         //Ajeitar valores
-        vidaMax = 300;
-        forcaAtk = 300;
-        forcaDef = 100;
+        forcaAtk = 30;
+        forcaDef = 10;
     }
 }

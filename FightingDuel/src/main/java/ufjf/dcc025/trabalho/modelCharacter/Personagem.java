@@ -16,6 +16,7 @@ public class Personagem {
         this.nome = nome;
         this.classe = classe;
         this.nivel = nivel;
+        iniciaVida();
     }
     
     // Métodos geteres ---------------------------------------------------------
@@ -51,4 +52,14 @@ public class Personagem {
     public void setNivel(int nivel) {
         this.nivel = nivel;
     }   
+
+    private void iniciaVida() {
+        if("Cavaleiro".equals(classe.getNomeClasse())){
+            vida = 120;
+        } else if("Ladrão".equals(classe.getNomeClasse())){
+            vida = 150;
+        } else {
+            vida = 185;
+        }
+    }
 }
