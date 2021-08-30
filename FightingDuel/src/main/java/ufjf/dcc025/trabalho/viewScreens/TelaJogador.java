@@ -12,7 +12,6 @@ import ufjf.dcc025.trabalho.controllerScreen.DesenhaSelecaoPersonagem;
 import ufjf.dcc025.trabalho.controllerUser.Desconectar;
 import ufjf.dcc025.trabalho.controllerUser.ExibeContaJogador;
 import ufjf.dcc025.trabalho.modelUsers.Jogador;
-import ufjf.dcc025.trabalho.modelGame.Dados;
 
 /**
  * @author  Daniel Muller Rezende
@@ -22,7 +21,6 @@ import ufjf.dcc025.trabalho.modelGame.Dados;
 public class TelaJogador {
 
     private static Jogador jogador;
-    private static Dados oponente;
     private static JFrame telaPrincipal;
     private static JFrame tela;
     
@@ -38,7 +36,7 @@ public class TelaJogador {
         painel.setLayout(new GridLayout(0, 2));
         
         JButton botaoJogar = new JButton("Jogar");
-        botaoJogar.addActionListener(new DesenhaSelecaoPersonagem(this.jogador, this.oponente));
+        botaoJogar.addActionListener(new DesenhaSelecaoPersonagem(this.jogador));
         
         JButton botaoEventos = new JButton("Personagem");
         botaoEventos.addActionListener(new DesenhaPersonagem(this.jogador));

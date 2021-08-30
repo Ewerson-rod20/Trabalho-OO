@@ -6,14 +6,11 @@ import java.awt.GridLayout;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import javax.swing.JButton;
-import javax.swing.JComboBox;
 import javax.swing.JList;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import ufjf.dcc025.trabalho.controllerScreen.Retroceder;
-import ufjf.dcc025.trabalho.modelCharacter.Oponente;
-import ufjf.dcc025.trabalho.modelCharacter.Personagem;
 import ufjf.dcc025.trabalho.modelGame.Dados;
 import ufjf.dcc025.trabalho.modelUsers.Jogador;
 
@@ -26,13 +23,15 @@ public class TelaSelecaoPersonagem {
     
     private static JFrame tela;
     private static Jogador jogador;
-    private static Dados oponente;
-    private JComboBox listPersonagem;
-    private JComboBox listInimigo;
+    private JList listPersonagem;
+    private JList listInimigo;
+    String[] personagens;
+    String[] oponentes;
     
-    public TelaSelecaoPersonagem(Jogador jogador, Dados oponente){
+    public TelaSelecaoPersonagem(Jogador jogador){
         this.jogador = jogador;
-        this.oponente = oponente;
+        personagens = new String[jogador.getcontPersonagem()];
+        oponentes = new String[Dados.oponentes.size()];
     }
     
     public JPanel desenha(){
@@ -44,51 +43,32 @@ public class TelaSelecaoPersonagem {
         JLabel label1 = new JLabel("Selecione o personagem: ");
         JLabel label2 = new JLabel("Selecione o inimigo: ");
         
-        String[] personagens = new String[jogador.getcontPersonagem()];
-        String[] oponentes = new String[Dados.oponentes.size()];
+        completaPersonagens();
+        listPersonagem = new JList(personagens);
+        System.out.println("Quantidade: " + personagens.length);
+        listPersonagem.setSelectedIndex(0);
         
-        for(int i=0; i<jogador.getcontPersonagem(); i++){
-            personagens[i] = jogador.getPersonagem(i).getNome();
-        }
+        completaOponentes(listPersonagem);
+        listInimigo = new JList (oponentes);
         
-        for (int i = 0; i < Dados.oponentes.size(); i++){
-            oponentes[i] = Dados.oponentes.get(i).getNome();
-        }
-        
-        listPersonagem = new JComboBox(personagens);
-        listInimigo = new JComboBox (oponentes);
-    
-        /*
-        
-        OBS: Tinha transformado 'listPersonagem' e 'listInimigo' em Jlist
-         
         listPersonagem.addMouseListener(new MouseAdapter() {
         
             @Override
             public void mouseClicked(MouseEvent evt) {
-                //listPersonagem = (JList)evt.getSource();
-                if(evt.getClickCount() == 1) {
-                    int index = listPersonagem.locationToIndex(evt.getPoint());
-                    listPersonagem = null;
+                listPersonagem = (JList)evt.getSource();
+                if(evt.getClickCount() == 2) {
+                    listInimigo = null;
+                    painel.remove(listInimigo);
                     
-                    for (int i = 0; i < Dados.oponentes.size(); i++){
-                        if ((Math.abs(jogador.getPersonagem(listPersonagem.getSelectedIndex()).getNivel() - Dados.oponentes.get(i).getNivel()) <= 2) && (Math.abs(jogador.getPersonagem(listPersonagem.getSelectedIndex()).getNivel() - Dados.oponentes.get(i).getNivel()) == 0)){
-                            oponentes[i] = Dados.oponentes.get(i).getNome();
-                        }
-                    }
+                    completaOponentes(listPersonagem);
                     
                     listInimigo = new JList(oponentes);
-                    listInimigo.setEnabled(false);
                     painel.add(listInimigo);
                     painel.updateUI();
                 }
-        
             }
-        });*/    
-        
-        // Adicionar listInimigos -----------------------------
-        
-        
+        });
+   
         painel.add(label1);
         painel.add(label2);
         painel.add(listPersonagem);
@@ -120,7 +100,7 @@ public class TelaSelecaoPersonagem {
         
         this.tela = new JFrame("Seleção de Personagem");
         
-        TelaSelecaoPersonagem seleciona = new TelaSelecaoPersonagem(this.jogador, this.oponente);
+        TelaSelecaoPersonagem seleciona = new TelaSelecaoPersonagem(this.jogador);
     
         tela.setSize(600, 300);
         tela.setLayout(new BorderLayout());
@@ -130,6 +110,22 @@ public class TelaSelecaoPersonagem {
         tela.setVisible(true);
         
         tela.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
+    }
+
+    private void completaPersonagens() {
+        for(int i=0; i<jogador.getcontPersonagem(); i++){
+            personagens[i] = jogador.getPersonagem(i).getNome();
+        }
+    }
+
+    private void completaOponentes(JList listaPersonagem) {
+        for (int i = 0; i < Dados.oponentes.size(); i++){
+            if((Dados.oponentes.get(i).getNivel() >= jogador.getPersonagem(listaPersonagem.getSelectedIndex()).getNivel() - 2) && (Dados.oponentes.get(i).getNivel() <= jogador.getPersonagem(listaPersonagem.getSelectedIndex()).getNivel() + 2)){
+                if(Dados.oponentes.get(i).isJogavel()){
+                    oponentes[i] = Dados.oponentes.get(i).getNome();
+                }   
+            }
+        }
     }
 
     
