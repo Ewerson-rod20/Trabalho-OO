@@ -7,6 +7,7 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import ufjf.dcc025.trabalho.controllerScreen.DesenhaEditaOrganizador;
+import ufjf.dcc025.trabalho.controllerScreen.DesenhaTelaInstrucoes;
 import ufjf.dcc025.trabalho.controllerUser.Desconectar;
 import ufjf.dcc025.trabalho.controllerUser.ExibeContaOrganizador;
 import ufjf.dcc025.trabalho.modelUsers.Organizador;
@@ -40,6 +41,9 @@ public class TelaOrganizador {
         JButton botaoConta = new JButton("Conta");
         botaoConta.addActionListener(new ExibeContaOrganizador(this.organizador));
         
+        JButton botaoInstrucoes = new JButton("Instruções");
+        botaoInstrucoes.addActionListener(new DesenhaTelaInstrucoes());
+        
         JButton botaoEditar = new JButton("Editar Dados");
         botaoEditar.addActionListener(new DesenhaEditaOrganizador(this.organizador, this.tela, this.telaPrincipal));
         
@@ -49,6 +53,7 @@ public class TelaOrganizador {
         painel.add(botaoValidar);
         painel.add(botaoConta);
         painel.add(botaoEditar);
+        painel.add(botaoInstrucoes);
         painel.add(botaoSair);
         
         return painel;

@@ -35,13 +35,16 @@ public class ClassePersonagem {
         this.ataque1 = ataque1;
         this.ataque2 = ataque2;
         this.ataque3 = ataque3;
-    }
-    
+        this.vidaMax = 400;
+        ajustaNomes();
+    }  
     // Getteres ----------------------------------------------------------------
+    
     // Ataque 1:
     public String getNome1(){
         return nome1;
     }
+    
     public int getAtaque1() {
         return ataque1;
     }
@@ -80,25 +83,16 @@ public class ClassePersonagem {
     
     // Setteres ----------------------------------------------------------------
     // Ataque 1:
-    public void setNome1(String nome1){
-        this.nome1 = nome1;
-    }
     public void setAtaque1(int ataque1) {
         this.ataque1 = ataque1;
     }
 
     // Ataque 2:
-    public void setNome2(String nome2){
-        this.nome2 = nome2;
-    }
     public void setAtaque2(int ataque2) {
         this.ataque2 = ataque2;
     }
 
     // Ataque 3:
-    public void setNome3(String nome3){
-        this.nome1 = nome3;
-    }
     public void setAtaque3(int ataque3) {
         this.ataque3 = ataque3;
     }
@@ -113,6 +107,22 @@ public class ClassePersonagem {
 
     public void setForcaDef(float forcaDef) {
         this.forcaDef = forcaDef;
+    }
+    
+    private void ajustaNomes(){
+        if("Cavaleiro".equals(getNomeClasse())){
+            nome1 = "Balanço de Espada";
+            nome2 = "Escudada Carregada";
+            nome3 = "Arremesso de Veneno";
+        } else if("Ladrão".equals(getNomeClasse())){
+            nome1 = "Flanco Estratégico";
+            nome2 = "Encontro Frontal";
+            nome3 = "Bomba de Fumaça";
+        } else {
+            nome1 = "Batida de Cajado";
+            nome2 = "Furacão de Cristal";
+            nome3 = "Lança de Cristal";
+        }
     }
     
 }

@@ -47,13 +47,13 @@ public class AdicionaPersonagem implements ActionListener{
         try {
             switch (personagemGUI.getTfClasse().getSelectedIndex()) {
             case 0:
-                classeSelecionada = new Cavaleiro(1, 2, 3); //VERIFICAR VALORES
+                classeSelecionada = new Cavaleiro(5, 9, 2); 
                 break;
             case 1:
-                classeSelecionada = new Ladrao(1, 2, 3);
+                classeSelecionada = new Ladrao(4, 7, 6);
                 break;
             case 2:
-                classeSelecionada = new Mago(1, 2, 3);
+                classeSelecionada = new Mago(3, 5, 8);
                 break;
             default:
                 JOptionPane.showMessageDialog(null, "Algo de errado aconteceu na criação...");

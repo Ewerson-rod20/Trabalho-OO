@@ -3,6 +3,7 @@ package ufjf.dcc025.trabalho.viewScreens;
 
 import java.awt.BorderLayout;
 import java.awt.GridLayout;
+import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import javax.swing.JButton;
@@ -13,6 +14,8 @@ import javax.swing.JPanel;
 import ufjf.dcc025.trabalho.controllerScreen.Retroceder;
 import ufjf.dcc025.trabalho.modelGame.Dados;
 import ufjf.dcc025.trabalho.modelUsers.Jogador;
+import ufjf.dcc025.trabalho.modelCharacter.Personagem;
+import ufjf.dcc025.trabalho.modelCharacter.Oponente;
 
 /**
  * @author  Daniel Muller Rezende
@@ -85,6 +88,7 @@ public class TelaSelecaoPersonagem {
         painel.setLayout(new BorderLayout());
         
         JButton botaoJogar = new JButton("Jogar");
+        botaoJogar.addActionListener((jogador.getPersonagem(listPersonagem.getSelectedIndex()), Dados.oponentes.get(listInimigo.getSelectedIndex())));
         
         JButton botaoCancelar = new JButton("Cancelar");
         botaoCancelar.addActionListener(new Retroceder(this.tela));
@@ -128,5 +132,4 @@ public class TelaSelecaoPersonagem {
         }
     }
 
-    
 }
