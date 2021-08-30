@@ -57,8 +57,8 @@ public class TelaSelecaoPersonagem {
             public void mouseClicked(MouseEvent evt) {
                 listPersonagem = (JList) evt.getSource();
                 if (evt.getClickCount() == 2) {
-                    listInimigo = null;
                     painel.remove(listInimigo);
+                    listInimigo = null;
 
                     completaOponentes(listPersonagem);
 

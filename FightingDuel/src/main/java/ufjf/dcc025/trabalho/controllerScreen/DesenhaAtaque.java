@@ -27,10 +27,11 @@ public class DesenhaAtaque implements ActionListener{
     JFrame tela;
     
     public DesenhaAtaque(Personagem personagem, Oponente oponente, int ataque, JFrame tela) {
-        ataque = pegaAtaque(ataque);
+       
         this.personagem = personagem;
         this.oponente = oponente;
         this.tela = tela;
+        ataque = pegaAtaque(ataque);
     }
 
     @Override
