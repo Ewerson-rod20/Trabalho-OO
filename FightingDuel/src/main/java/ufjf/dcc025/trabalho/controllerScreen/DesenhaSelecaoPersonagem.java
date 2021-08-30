@@ -3,6 +3,7 @@ package ufjf.dcc025.trabalho.controllerScreen;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import javax.swing.JOptionPane;
 import ufjf.dcc025.trabalho.modelUsers.Jogador;
 import ufjf.dcc025.trabalho.viewScreens.TelaSelecaoPersonagem;
 
@@ -25,7 +26,11 @@ public class DesenhaSelecaoPersonagem implements ActionListener{
     
     @Override
     public void actionPerformed(ActionEvent ae){
-        seleciona.chama();
+        if(jogador.getPersonagens().isEmpty()){
+            JOptionPane.showMessageDialog(null, "Não tem nenhum personagem criado...");
+        } else {
+            seleciona.chama();
+        }
     }
     
 }

@@ -45,12 +45,11 @@ public class TelaSelecaoPersonagem {
 
         completaPersonagens();
         listPersonagem = new JList(personagens);
-        System.out.println("Quantidade: " + personagens.length);
         listPersonagem.setSelectedIndex(0);
-        listInimigo.setSelectedIndex(0);
         
         completaOponentes(listPersonagem);
         listInimigo = new JList(oponentes);
+        listInimigo.setSelectedIndex(0);
         
         listPersonagem.addMouseListener(new MouseAdapter() {
 
@@ -66,6 +65,7 @@ public class TelaSelecaoPersonagem {
                     listInimigo = new JList(oponentes);
                     painel.add(listInimigo);
                     painel.updateUI();
+                    listInimigo.setSelectedIndex(0);
                 }
             }
         });
@@ -85,12 +85,8 @@ public class TelaSelecaoPersonagem {
         painel.setLayout(new BorderLayout());
 
         JButton botaoJogar = new JButton("Jogar");
-        if(listPersonagem == null || listInimigo == null){
-            JOptionPane.showMessageDialog(null, "ERRO! Não há personagens ou inimigos o suficiente.");
-        }
-        else{
-           botaoJogar.addActionListener(new DesenhaTelaLuta(jogador.getPersonagem(listPersonagem.getSelectedIndex()), Dados.oponentes.get(listInimigo.getSelectedIndex())));
-        }
+        botaoJogar.addActionListener(new DesenhaTelaLuta(jogador.getPersonagem(listPersonagem.getSelectedIndex()), Dados.oponentes.get(listInimigo.getSelectedIndex())));
+        
         JButton botaoCancelar = new JButton("Cancelar");
         botaoCancelar.addActionListener(new Retroceder(this.tela));
 
@@ -125,7 +121,7 @@ public class TelaSelecaoPersonagem {
     }
 
     private void completaOponentes(JList listaPersonagem) {
-        if (Dados.oponentes.size() != 0) {
+        if (!Dados.oponentes.isEmpty()) {
             for (int i = 0; i < Dados.oponentes.size(); i++) {
                 if ((Dados.oponentes.get(i).getNivel() >= jogador.getPersonagem(listaPersonagem.getSelectedIndex()).getNivel() - 2) && (Dados.oponentes.get(i).getNivel() <= jogador.getPersonagem(listaPersonagem.getSelectedIndex()).getNivel() + 2)) {
                     if (Dados.oponentes.get(i).isJogavel()) {
