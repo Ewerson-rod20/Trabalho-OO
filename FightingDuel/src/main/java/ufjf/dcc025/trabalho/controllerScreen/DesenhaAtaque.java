@@ -7,11 +7,13 @@ package ufjf.dcc025.trabalho.controllerScreen;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import ufjf.dcc025.trabalho.controllerUser.Derrota;
 import ufjf.dcc025.trabalho.controllerUser.Vitoria;
 import ufjf.dcc025.trabalho.modelCharacter.Oponente;
 import ufjf.dcc025.trabalho.modelCharacter.Personagem;
+import ufjf.dcc025.trabalho.viewScreens.TelaLuta;
 
 /**
  *
@@ -22,11 +24,13 @@ public class DesenhaAtaque implements ActionListener{
     int ataque;
     Personagem personagem;
     Oponente oponente;
+    JFrame tela;
     
-    public DesenhaAtaque(Personagem personagem, Oponente oponente, int ataque) {
+    public DesenhaAtaque(Personagem personagem, Oponente oponente, int ataque, JFrame tela) {
         ataque = pegaAtaque(ataque);
         this.personagem = personagem;
         this.oponente = oponente;
+        this.tela = tela;
     }
 
     @Override
@@ -73,12 +77,12 @@ public class DesenhaAtaque implements ActionListener{
             personagem.getClasse().setForcaDef(personagem.getClasse().getForcaDef()+ 4);
             personagem.getClasse().setVidaBase(personagem.getClasse().getVidaBase() + 12);
             JOptionPane.showMessageDialog(null, "Parabéns, você venceu!");
-            Vitoria vitoria = new Vitoria();
+            Vitoria vitoria = new Vitoria(this.tela);
             vitoria.chama();
         }
         
         if(vencedor == 2){
-            Derrota derrota = new Derrota();
+            Derrota derrota = new Derrota(this.tela);
             derrota.chama();
         }
     }

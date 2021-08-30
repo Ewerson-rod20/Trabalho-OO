@@ -5,6 +5,7 @@
  */
 package ufjf.dcc025.trabalho.controllerUser;
 
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
 /**
@@ -13,7 +14,10 @@ import javax.swing.JOptionPane;
  */
 public class Derrota {
 
-    public Derrota() {
+    JFrame tela;
+    
+    public Derrota(JFrame tela) {
+        this.tela =tela;
     }
    
     public void chama(){

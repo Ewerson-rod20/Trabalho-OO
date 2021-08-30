@@ -41,16 +41,16 @@ public class TelaLuta extends JFrame {
         JPanel painel = new JPanel();
 
         JButton ataque1 = new JButton(personagem.getClasse().getNome1());
-        ataque1.addActionListener(new DesenhaAtaque(personagem, oponente, 1));
+        ataque1.addActionListener(new DesenhaAtaque(personagem, oponente, 1, this.tela));
         
         JButton ataque2 = new JButton(personagem.getClasse().getNome2());
-        ataque2.addActionListener(new DesenhaAtaque(personagem, oponente, 2));
+        ataque2.addActionListener(new DesenhaAtaque(personagem, oponente, 2, this.tela));
         
         JButton ataque3 = new JButton(personagem.getClasse().getNome3());
-        ataque3.addActionListener(new DesenhaAtaque(personagem, oponente, 3));
+        ataque3.addActionListener(new DesenhaAtaque(personagem, oponente, 3, this.tela));
         
         JButton desistir = new JButton("Desistir");
-        desistir.addActionListener(new Desistir());
+        desistir.addActionListener(new Desistir(this.tela));
 
         painel.add(ataque1);
         painel.add(ataque2);

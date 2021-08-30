@@ -5,6 +5,7 @@
  */
 package ufjf.dcc025.trabalho.controllerUser;
 
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
 /**
@@ -13,10 +14,15 @@ import javax.swing.JOptionPane;
  */
 public class Vitoria {
 
-    public Vitoria() {
+    JFrame tela;
+    
+    public Vitoria(JFrame tela) {
+        this.tela = tela;
     }
     
     public void chama(){
-        JOptionPane.showMessageDialog(null, "tem q chamar o menu dnv!");
+        JOptionPane.showMessageDialog(null, "Parabéns!! Você venceu!!");
+        tela.dispose();
+        
     }
 }

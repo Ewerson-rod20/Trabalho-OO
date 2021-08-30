@@ -7,6 +7,7 @@ package ufjf.dcc025.trabalho.controllerUser;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import static javax.swing.JOptionPane.YES_NO_OPTION;
 
@@ -16,7 +17,10 @@ import static javax.swing.JOptionPane.YES_NO_OPTION;
  */
 public class Desistir implements ActionListener{
 
-    public Desistir() {
+    JFrame tela;
+    
+    public Desistir(JFrame tela) {
+        this.tela = tela;
     }
 
     @Override
@@ -24,7 +28,7 @@ public class Desistir implements ActionListener{
         //sim = 0, nao = 1
         int escolha = JOptionPane.showConfirmDialog(null, "Deseja realmente desistir?", "Desistir", YES_NO_OPTION);
         if(escolha == 0){
-            Derrota derrota = new Derrota();
+            Derrota derrota = new Derrota(this.tela);
             derrota.chama();
         }
     }
