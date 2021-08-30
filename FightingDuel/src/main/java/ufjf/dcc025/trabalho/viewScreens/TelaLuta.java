@@ -36,9 +36,25 @@ public class TelaLuta extends JFrame {
     public TelaLuta() {
         this.tela = new JFrame("Luta");
     }
+    
+    public JPanel desenha(){
+        JPanel painel = new JPanel();
+        
+        JLabel vidaJ = new JLabel("Vida Jogador: " + personagem.getVida());
+        JLabel vidaO = new JLabel("Vida Oponente: " + oponente.getVida());
+        
+        painel.setLayout(new GridLayout(0,2));
+        
+        painel.add(vidaJ);
+        painel.add(vidaO);
+        
+        return painel;
+    }
 
     public JPanel desenhaBotoes() {
         JPanel painel = new JPanel();
+        JPanel painel1 = new JPanel();
+        JPanel painel2 = new JPanel();
 
         JButton ataque1 = new JButton(personagem.getClasse().getNome1());
         ataque1.addActionListener(new DesenhaAtaque(personagem, oponente, 1, this.tela));
@@ -51,11 +67,18 @@ public class TelaLuta extends JFrame {
         
         JButton desistir = new JButton("Desistir");
         desistir.addActionListener(new Desistir(this.tela));
+        
+        JLabel vidaJ = new JLabel("Vida Jogador: " + personagem.getVida());
+        JLabel vidaO = new JLabel("Vida Oponente: " + oponente.getVida());
 
-        painel.add(ataque1);
-        painel.add(ataque2);
-        painel.add(ataque3);
-        painel.add(desistir);
+        painel1.add(vidaJ);
+        painel1.add(vidaO);
+        painel2.add(ataque1);
+        painel2.add(ataque2);
+        painel2.add(ataque3);
+        painel2.add(desistir);
+        painel.add(painel1);
+        painel.add(painel2);
 
         return painel;
     }
@@ -72,7 +95,6 @@ public class TelaLuta extends JFrame {
         tela.setSize(1280, 720);
         
         tela.add(new Cenario(this.personagem), BorderLayout.CENTER);
-        
         tela.add(luta.desenhaBotoes(), BorderLayout.SOUTH);
 
         tela.setLocationRelativeTo(null);

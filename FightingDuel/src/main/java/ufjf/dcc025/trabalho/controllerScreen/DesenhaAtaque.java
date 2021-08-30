@@ -62,11 +62,11 @@ public class DesenhaAtaque implements ActionListener{
     } 
 
     private void ataqueJogador() {
-        oponente.setVida((int) (oponente.getVida() - personagem.calculaDano(ataque) + oponente.getClasse().getForcaDef() * 2 * oponente.getNivel()));
+        oponente.setVida((int) (oponente.getVida() - personagem.calculaDano(ataque)));
     }
 
     private void ataqueOponente() {
-        personagem.setVida((int) (personagem.getVida() - oponente.calculaDano(ataque) + oponente.getClasse().getForcaDef() * 2 * oponente.getNivel()));
+        personagem.setVida((int) (personagem.getVida() - oponente.calculaDano(ataque)));
     }
 
     private void encerraLuta(int vencedor) {
