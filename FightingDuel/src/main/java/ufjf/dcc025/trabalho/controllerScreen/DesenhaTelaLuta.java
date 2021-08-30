@@ -30,7 +30,7 @@ public class DesenhaTelaLuta implements ActionListener{
     public DesenhaTelaLuta (Personagem personagem, Oponente oponente){
         this.personagem = personagem;
         this.oponente = oponente;
-        tela = new TelaLuta(personagem, oponente);
+        tela = new TelaLuta();
     }
     
     

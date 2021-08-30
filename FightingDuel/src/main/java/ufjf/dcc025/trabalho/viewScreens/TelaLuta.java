@@ -31,10 +31,7 @@ public class TelaLuta extends JFrame {
     static Personagem personagem;
     static Oponente oponente;
 
-    public TelaLuta(Personagem personagem, Oponente oponente) {
-
-        this.personagem = personagem;
-        this.oponente = oponente;
+    public TelaLuta() {
         this.tela = new JFrame("Luta");
     }
 
@@ -54,12 +51,15 @@ public class TelaLuta extends JFrame {
         return painel;
     }
 
-    public void chama() {
-        TelaLuta luta = new TelaLuta(this.personagem, this.oponente);
+    public void chama(Personagem personagem, Oponente oponente) {
+        this.personagem = personagem;
+        this.oponente = oponente;
+        
+        TelaLuta luta = new TelaLuta();
 
         tela.setSize(1280, 720);
         
-        tela.add(new Cenario(), BorderLayout.CENTER);
+        tela.add(new Cenario(this.personagem), BorderLayout.CENTER);
         
         tela.add(luta.desenhaBotoes(), BorderLayout.SOUTH);
 

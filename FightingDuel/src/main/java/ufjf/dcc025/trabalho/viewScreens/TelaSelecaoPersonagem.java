@@ -11,6 +11,7 @@ import javax.swing.JList;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import ufjf.dcc025.trabalho.controllerScreen.DesenhaTelaLuta;
 import ufjf.dcc025.trabalho.controllerScreen.Retroceder;
 import ufjf.dcc025.trabalho.modelGame.Dados;
 import ufjf.dcc025.trabalho.modelUsers.Jogador;
@@ -88,7 +89,7 @@ public class TelaSelecaoPersonagem {
         painel.setLayout(new BorderLayout());
         
         JButton botaoJogar = new JButton("Jogar");
-        botaoJogar.addActionListener((jogador.getPersonagem(listPersonagem.getSelectedIndex()), Dados.oponentes.get(listInimigo.getSelectedIndex())));
+        botaoJogar.addActionListener(new DesenhaTelaLuta(jogador.getPersonagem(listPersonagem.getSelectedIndex()), Dados.oponentes.get(listInimigo.getSelectedIndex())));
         
         JButton botaoCancelar = new JButton("Cancelar");
         botaoCancelar.addActionListener(new Retroceder(this.tela));
