@@ -26,7 +26,7 @@ public class ClassePersonagem {
     
     String nomeClasse;
     
-    float vidaMax;  // Vida máxima que um Personagem
+    float vidaBase;  // Vida máxima que um Personagem
     float forcaAtk; // Força de ataque de um Personagem
     float forcaDef; // Força de defesa de um Personagem
     
@@ -35,7 +35,6 @@ public class ClassePersonagem {
         this.ataque1 = ataque1;
         this.ataque2 = ataque2;
         this.ataque3 = ataque3;
-        this.vidaMax = 400;
         ajustaNomes();
     }  
     // Getteres ----------------------------------------------------------------
@@ -69,8 +68,8 @@ public class ClassePersonagem {
         return nomeClasse;
     }
 
-    public float getVidaMax() {
-        return vidaMax;
+    public float getVidaBase() {
+        return vidaBase;
     }
 
     public float getForcaAtk() {
@@ -97,8 +96,8 @@ public class ClassePersonagem {
         this.ataque3 = ataque3;
     }
 
-    public void setVidaMax(float vidaMax) {
-        this.vidaMax = vidaMax;
+    public void setVidaBase(float vidaBase) {
+        this.vidaBase = vidaBase;
     }
 
     public void setForcaAtk(float forcaAtk) {

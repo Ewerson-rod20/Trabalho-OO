@@ -15,6 +15,8 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import ufjf.dcc025.trabalho.controllerScreen.DesenhaAtaque;
+import ufjf.dcc025.trabalho.controllerUser.Desistir;
 import ufjf.dcc025.trabalho.modelGame.Dados;
 import ufjf.dcc025.trabalho.modelUsers.Jogador;
 import ufjf.dcc025.trabalho.modelCharacter.Personagem;
@@ -38,10 +40,17 @@ public class TelaLuta extends JFrame {
     public JPanel desenhaBotoes() {
         JPanel painel = new JPanel();
 
-        JButton ataque1 = new JButton("Ataque1");
-        JButton ataque2 = new JButton("Ataque2");
-        JButton ataque3 = new JButton("Ataque3");
+        JButton ataque1 = new JButton(personagem.getClasse().getNome1());
+        ataque1.addActionListener(new DesenhaAtaque(personagem, oponente, 1));
+        
+        JButton ataque2 = new JButton(personagem.getClasse().getNome2());
+        ataque2.addActionListener(new DesenhaAtaque(personagem, oponente, 2));
+        
+        JButton ataque3 = new JButton(personagem.getClasse().getNome3());
+        ataque3.addActionListener(new DesenhaAtaque(personagem, oponente, 3));
+        
         JButton desistir = new JButton("Desistir");
+        desistir.addActionListener(new Desistir());
 
         painel.add(ataque1);
         painel.add(ataque2);
@@ -54,6 +63,9 @@ public class TelaLuta extends JFrame {
     public void chama(Personagem personagem, Oponente oponente) {
         this.personagem = personagem;
         this.oponente = oponente;
+        
+        personagem.resetaStatus();
+        oponente.resetaStatus();
         
         TelaLuta luta = new TelaLuta();
 
