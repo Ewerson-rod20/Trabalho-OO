@@ -10,7 +10,7 @@ public class Mago extends ClassePersonagem{
         super(ataque1, ataque2, ataque3);
         nomeClasse = "Mago";
         //Ajeitar valores
-        forcaAtk = 17;
-        forcaDef = 27;
+        forcaAtk = 5;
+        forcaDef = 19;
     }
 }

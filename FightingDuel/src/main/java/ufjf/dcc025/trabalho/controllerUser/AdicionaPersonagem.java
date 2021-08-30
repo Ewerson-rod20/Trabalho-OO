@@ -50,7 +50,7 @@ public class AdicionaPersonagem implements ActionListener{
                 classeSelecionada = new Cavaleiro(5, 9, 2); 
                 break;
             case 1:
-                classeSelecionada = new Ladrao(4, 7, 4);
+                classeSelecionada = new Ladrao(4, 7, 6);
                 break;
             case 2:
                 classeSelecionada = new Mago(3, 5, 8);

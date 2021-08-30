@@ -10,7 +10,7 @@ public class Ladrao extends ClassePersonagem{
         super(ataque1, ataque2, ataque3);
         nomeClasse = "Ladrão";
         //Ajeitar valores
-        forcaAtk = 22;
+        forcaAtk = 6;
         forcaDef = 17;
     }
 }
