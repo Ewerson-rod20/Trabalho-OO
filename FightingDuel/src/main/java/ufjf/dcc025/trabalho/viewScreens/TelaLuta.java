@@ -6,6 +6,10 @@
 package ufjf.dcc025.trabalho.viewScreens;
 
 import java.awt.BorderLayout;
+import java.awt.Graphics;
+import java.awt.Graphics2D;
+import java.awt.GridLayout;
+import java.awt.Image;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -22,22 +26,9 @@ public class TelaLuta extends JFrame {
 
     static JFrame tela;
     static Jogador jogador;
-    ImageIcon cenario;
 
     public TelaLuta() {
-        //this.jogador = jogador;
-        this.cenario = new ImageIcon(getClass().getResource("cenario1.png"));
         this.tela = new JFrame("Luta");
-    }
-
-    public JPanel desenha() {
-        JPanel painel = new JPanel();
-
-        JLabel fundo = new JLabel(this.cenario);
-
-        painel.add(fundo, BorderLayout.CENTER);
-
-        return painel;
     }
 
     public JPanel desenhaBotoes() {
@@ -56,18 +47,18 @@ public class TelaLuta extends JFrame {
         return painel;
     }
 
-    public void chama() {
+    public static void main(String[] args) {
         TelaLuta luta = new TelaLuta();
 
-        tela.setLayout(new BorderLayout());
         tela.setSize(1280, 720);
-
-        tela.add(luta.desenha(), BorderLayout.CENTER);
+        
+        tela.add(new Cenario(), BorderLayout.CENTER);
+        
         tela.add(luta.desenhaBotoes(), BorderLayout.SOUTH);
 
         tela.setLocationRelativeTo(null);
 
         tela.setVisible(true);
-        tela.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
+        tela.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
 }
