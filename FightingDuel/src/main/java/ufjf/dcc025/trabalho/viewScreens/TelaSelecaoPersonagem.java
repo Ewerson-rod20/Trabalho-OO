@@ -3,12 +3,16 @@ package ufjf.dcc025.trabalho.viewScreens;
 
 import java.awt.BorderLayout;
 import java.awt.GridLayout;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
+import javax.swing.JList;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import ufjf.dcc025.trabalho.controllerScreen.Retroceder;
+import ufjf.dcc025.trabalho.modelCharacter.Oponente;
 import ufjf.dcc025.trabalho.modelCharacter.Personagem;
 import ufjf.dcc025.trabalho.modelGame.Dados;
 import ufjf.dcc025.trabalho.modelUsers.Jogador;
@@ -32,6 +36,7 @@ public class TelaSelecaoPersonagem {
     }
     
     public JPanel desenha(){
+        
         JPanel painel = new JPanel();
         
         painel.setLayout(new GridLayout(2,2));
@@ -51,7 +56,35 @@ public class TelaSelecaoPersonagem {
         }
         
         listPersonagem = new JComboBox(personagens);
-        listInimigo = new JComboBox(oponentes);
+        listInimigo = new JComboBox (oponentes);
+    
+        /*
+        
+        OBS: Tinha transformado 'listPersonagem' e 'listInimigo' em Jlist
+         
+        listPersonagem.addMouseListener(new MouseAdapter() {
+        
+            @Override
+            public void mouseClicked(MouseEvent evt) {
+                //listPersonagem = (JList)evt.getSource();
+                if(evt.getClickCount() == 1) {
+                    int index = listPersonagem.locationToIndex(evt.getPoint());
+                    listPersonagem = null;
+                    
+                    for (int i = 0; i < Dados.oponentes.size(); i++){
+                        if ((Math.abs(jogador.getPersonagem(listPersonagem.getSelectedIndex()).getNivel() - Dados.oponentes.get(i).getNivel()) <= 2) && (Math.abs(jogador.getPersonagem(listPersonagem.getSelectedIndex()).getNivel() - Dados.oponentes.get(i).getNivel()) == 0)){
+                            oponentes[i] = Dados.oponentes.get(i).getNome();
+                        }
+                    }
+                    
+                    listInimigo = new JList(oponentes);
+                    listInimigo.setEnabled(false);
+                    painel.add(listInimigo);
+                    painel.updateUI();
+                }
+        
+            }
+        });*/    
         
         // Adicionar listInimigos -----------------------------
         
@@ -64,7 +97,9 @@ public class TelaSelecaoPersonagem {
         return painel;
     }
     
+    
     public JPanel desenhaBotoes(){
+        
         JPanel painel = new JPanel();
         
         painel.setLayout(new BorderLayout());
@@ -80,7 +115,9 @@ public class TelaSelecaoPersonagem {
         return painel;
     }
     
+    
     public void chama(){
+        
         this.tela = new JFrame("Seleção de Personagem");
         
         TelaSelecaoPersonagem seleciona = new TelaSelecaoPersonagem(this.jogador, this.oponente);
@@ -94,5 +131,6 @@ public class TelaSelecaoPersonagem {
         
         tela.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
     }
+
     
 }
