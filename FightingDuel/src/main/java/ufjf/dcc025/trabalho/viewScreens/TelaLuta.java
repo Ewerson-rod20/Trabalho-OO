@@ -13,6 +13,8 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import ufjf.dcc025.trabalho.modelGame.Dados;
 import ufjf.dcc025.trabalho.modelUsers.Jogador;
+import ufjf.dcc025.trabalho.modelCharacter.Personagem;
+import ufjf.dcc025.trabalho.modelCharacter.Oponente;
 
 /**
  *
@@ -21,11 +23,15 @@ import ufjf.dcc025.trabalho.modelUsers.Jogador;
 public class TelaLuta extends JFrame {
 
     static JFrame tela;
-    static Jogador jogador;
+    static Personagem personagem;
+    static Oponente oponente;
     ImageIcon cenario;
 
-    public TelaLuta() {
+    public TelaLuta(Personagem personagem, Oponente oponente) {
+        //jogador.getPersonagem(listPersonagem.getSelectedIndex()
         //this.jogador = jogador;
+        this.personagem = personagem;
+        this.oponente = oponente;
         this.cenario = new ImageIcon(getClass().getResource("cenario1.png"));
         this.tela = new JFrame("Luta");
     }
@@ -57,7 +63,7 @@ public class TelaLuta extends JFrame {
     }
 
     public void chama() {
-        TelaLuta luta = new TelaLuta();
+        TelaLuta luta = new TelaLuta(this.personagem, this.oponente);
 
         tela.setLayout(new BorderLayout());
         tela.setSize(1280, 720);
