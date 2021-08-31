@@ -62,16 +62,16 @@ public class DesenhaAtaque implements ActionListener{
     } 
 
     private void ataqueJogador() {
-        int dano = (int) personagem.calculaDano(ataque);
-        oponente.setVida((int) (oponente.getVida() - dano));
+        int dano = this.ataque;
+        oponente.setVida(oponente.getVida() - dano);
         JOptionPane.showMessageDialog(null, "Dano causado: " + dano);
     }
 
     private void ataqueOponente() {
         Random aleatorio = new Random();
         int sorte = aleatorio.nextInt(3) + 1;
-        int dano = (int) oponente.calculaDano(sorte);
-        personagem.setVida((int) (personagem.getVida() - dano));
+        int dano = oponente.getClasse().getAtaque2();
+        personagem.setVida((personagem.getVida() - dano));
         JOptionPane.showMessageDialog(null, "Dano sofrido: " + dano);
     }
 
