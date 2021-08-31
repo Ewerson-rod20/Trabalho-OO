@@ -32,7 +32,7 @@ public class Cenario extends JPanel {
         }
         
         if (personagem.getClasse().getNomeClasse().equals("Mago")) {
-            ImageIcon referencia = new ImageIcon("C:\\Users\\danie\\Documents\\NetBeansProjects\\DCC025\\Trabalho-OO\\FightingDuel\\src\\main\\java\\ufjf\\dcc025\\trabalho\\viewScreens\\cenarioMago.png");
+            ImageIcon referencia = new ImageIcon("C:\\Users\\danie\\Documents\\NetBeansProjects\\DCC025\\Trabalho-OO\\FightingDuel\\src\\main\\java\\ufjf\\dcc025\\trabalho\\viewScreens\\cenarioMago2.png");
             this.fundo = referencia.getImage();
         }
     }
