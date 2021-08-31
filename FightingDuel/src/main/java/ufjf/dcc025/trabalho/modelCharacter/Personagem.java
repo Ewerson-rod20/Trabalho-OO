@@ -124,61 +124,88 @@ public class Personagem {
         switch(ataque){
             case 1:
                 if(valor < 92){
+                    System.out.println("Sorteou -" + valor);
                     return (sorte.nextInt(20) + 81)/100;
                 } else {
+                    System.out.println("Sorteou -" + valor);
                     return (sorte.nextInt(20) + 61)/100;
                 }
             case 2:
                 if(valor < 65){
+                    System.out.println("Sorteou -" + valor);
                     return (sorte.nextInt(20) + 81)/100;
                 } else {
+                    System.out.println("Sorteou -" + valor);
                     return (sorte.nextInt(20) + 61)/100;
                 }
             case 3:
                 if(valor < 25){
+                    System.out.println("Sorteou -" + valor);
                     return (sorte.nextInt(20) + 81)/100;
                 } else {
+                    System.out.println("Sorteou -" + valor);
                     return (sorte.nextInt(20) + 61)/100;
                 }
         }
+        System.out.println("Vai dar M**** na sorte aqui");
         return 0;
     }
     
     public float calculaDano(int ataque){
+        float dano;
         switch(classe.getNomeClasse()){
             case "Cavaleiro":
                 switch(ataque){
                     case 1:
-                        return nivel*getClasse().getAtaque1()*getClasse().getForcaAtk()*sorteCavaleiro(1);
+                        dano = nivel*getClasse().getAtaque1()*getClasse().getForcaAtk()*sorteCavaleiro(1);
+                        System.out.println("Dano -" + dano);
+                        return dano;
                     case 2:
-                        return nivel*getClasse().getAtaque2()*getClasse().getForcaAtk()*sorteCavaleiro(2);
+                        dano = nivel*getClasse().getAtaque1()*getClasse().getForcaAtk()*sorteCavaleiro(2);
+                        System.out.println("Dano -" + dano);
+                        return dano;
                     case 3:
-                        return nivel*getClasse().getAtaque1()*getClasse().getForcaAtk()*sorteCavaleiro(3);
+                        dano = nivel*getClasse().getAtaque1()*getClasse().getForcaAtk()*sorteCavaleiro(3);
+                        System.out.println("Dano -" + dano);
+                        return dano;
                 }
                 break;
                 
             case "Ladrão":
                 switch(ataque){
                     case 1:
-                        return nivel*getClasse().getAtaque1()*getClasse().getForcaAtk()*sorteLadrao(1);
+                        dano = nivel*getClasse().getAtaque1()*getClasse().getForcaAtk()*sorteLadrao(1);
+                        System.out.println("Dano -" + dano);
+                        return dano;
                     case 2:
-                        return nivel*getClasse().getAtaque2()*getClasse().getForcaAtk()*sorteLadrao(2);
+                        dano = nivel*getClasse().getAtaque1()*getClasse().getForcaAtk()*sorteLadrao(2);
+                        System.out.println("Dano -" + dano);
+                        return dano;
                     case 3:
-                        return nivel*getClasse().getAtaque1()*getClasse().getForcaAtk()*sorteLadrao(3);
+                        dano = nivel*getClasse().getAtaque1()*getClasse().getForcaAtk()*sorteLadrao(3);
+                        System.out.println("Dano -" + dano);
+                        return dano;
                 }
                 break;
                 
             case "Mago":
                 switch(ataque){
                     case 1:
-                        return nivel*getClasse().getAtaque1()*getClasse().getForcaAtk()*sorteMago(1);
+                        dano = nivel*getClasse().getAtaque1()*getClasse().getForcaAtk()*sorteMago(1);
+                        System.out.println("Dano -" + dano);
+                        return dano;
                     case 2:
-                        return nivel*getClasse().getAtaque2()*getClasse().getForcaAtk()*sorteMago(2);
+                        dano = nivel*getClasse().getAtaque1()*getClasse().getForcaAtk()*sorteMago(2);
+                        System.out.println("Dano -" + dano);
+                        return dano;
                     case 3:
-                        return nivel*getClasse().getAtaque1()*getClasse().getForcaAtk()*sorteMago(3);
+                        dano = nivel*getClasse().getAtaque1()*getClasse().getForcaAtk()*sorteMago(3);
+                        System.out.println("Dano -" + dano);
+                        return dano;
                 }
                 break;
         }
+        System.out.println("Não vai dar danopq?");
         return 0;
     }
 
