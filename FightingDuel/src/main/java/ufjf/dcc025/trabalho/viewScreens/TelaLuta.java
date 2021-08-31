@@ -6,13 +6,8 @@
 package ufjf.dcc025.trabalho.viewScreens;
 
 import java.awt.BorderLayout;
-import java.awt.GridLayout;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
 import javax.swing.JButton;
 import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JList;
 import javax.swing.JPanel;
 import ufjf.dcc025.trabalho.controllerScreen.DesenhaAtaque;
 import ufjf.dcc025.trabalho.controllerUser.Desistir;
@@ -34,20 +29,6 @@ public class TelaLuta extends JFrame {
     public TelaLuta() {
         this.tela = new JFrame("Luta");
     }
-    
-    public JPanel desenha(){
-        JPanel painel = new JPanel();
-        
-        JLabel vidaJ = new JLabel("Vida Jogador: " + personagem.getVida());
-        JLabel vidaO = new JLabel("Vida Oponente: " + oponente.getVida());
-        
-        painel.setLayout(new GridLayout(0,2));
-        
-        painel.add(vidaJ);
-        painel.add(vidaO);
-        
-        return painel;
-    }
 
     public JPanel desenhaBotoes() {
         JPanel painel = new JPanel();
@@ -66,11 +47,6 @@ public class TelaLuta extends JFrame {
         JButton desistir = new JButton("Desistir");
         desistir.addActionListener(new Desistir(this.tela));
         
-        JLabel vidaJ = new JLabel("Vida Jogador: " + personagem.getVida());
-        JLabel vidaO = new JLabel("Vida Oponente: " + oponente.getVida());
-
-        painel1.add(vidaJ);
-        painel1.add(vidaO);
         painel2.add(ataque1);
         painel2.add(ataque2);
         painel2.add(ataque3);
