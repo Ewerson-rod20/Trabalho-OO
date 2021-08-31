@@ -23,6 +23,5 @@ public class Vitoria {
     public void chama(){
         JOptionPane.showMessageDialog(null, "Parabéns!! Você venceu!!");
         tela.dispose();
-        
     }
 }

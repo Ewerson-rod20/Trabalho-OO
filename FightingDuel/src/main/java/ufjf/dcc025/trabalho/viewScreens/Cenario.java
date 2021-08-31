@@ -6,7 +6,6 @@
 package ufjf.dcc025.trabalho.viewScreens;
 
 import java.awt.Graphics;
-import java.awt.Graphics2D;
 import java.awt.Image;
 import javax.swing.ImageIcon;
 import javax.swing.JPanel;
@@ -22,17 +21,17 @@ public class Cenario extends JPanel {
 
     public Cenario(Personagem personagem) {
         if (personagem.getClasse().getNomeClasse().equals("Cavaleiro")) {
-            ImageIcon referencia = new ImageIcon("C:\\Users\\danie\\Documents\\NetBeansProjects\\DCC025\\Trabalho-OO\\FightingDuel\\src\\main\\java\\ufjf\\dcc025\\trabalho\\viewScreens\\cenarioCavaleiro.png");
+            ImageIcon referencia = new ImageIcon("cenarioCavaleiro.png");
             this.fundo = referencia.getImage();
         }
         
         if (personagem.getClasse().getNomeClasse().equals("Ladrão")) {
-            ImageIcon referencia = new ImageIcon("C:\\Users\\danie\\Documents\\NetBeansProjects\\DCC025\\Trabalho-OO\\FightingDuel\\src\\main\\java\\ufjf\\dcc025\\trabalho\\viewScreens\\cenarioLadrão.png");
+            ImageIcon referencia = new ImageIcon("cenarioLadrao.png");
             this.fundo = referencia.getImage();
         }
         
         if (personagem.getClasse().getNomeClasse().equals("Mago")) {
-            ImageIcon referencia = new ImageIcon("C:\\Users\\danie\\Documents\\NetBeansProjects\\DCC025\\Trabalho-OO\\FightingDuel\\src\\main\\java\\ufjf\\dcc025\\trabalho\\viewScreens\\cenarioMago.png");
+            ImageIcon referencia = new ImageIcon("cenarioMago.png");
             this.fundo = referencia.getImage();
         }
     }

@@ -7,13 +7,13 @@ package ufjf.dcc025.trabalho.controllerScreen;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.Random;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import ufjf.dcc025.trabalho.controllerUser.Derrota;
 import ufjf.dcc025.trabalho.controllerUser.Vitoria;
 import ufjf.dcc025.trabalho.modelCharacter.Oponente;
 import ufjf.dcc025.trabalho.modelCharacter.Personagem;
-import ufjf.dcc025.trabalho.viewScreens.TelaLuta;
 
 /**
  *
@@ -31,7 +31,7 @@ public class DesenhaAtaque implements ActionListener{
         this.personagem = personagem;
         this.oponente = oponente;
         this.tela = tela;
-        ataque = pegaAtaque(ataque);
+        this.ataque = pegaAtaque(ataque);
     }
 
     @Override
@@ -62,11 +62,17 @@ public class DesenhaAtaque implements ActionListener{
     } 
 
     private void ataqueJogador() {
-        oponente.setVida((int) (oponente.getVida() - personagem.calculaDano(ataque)));
+        int dano = (int) personagem.calculaDano(ataque);
+        oponente.setVida((int) (oponente.getVida() - dano));
+        JOptionPane.showMessageDialog(null, "Dano causado: " + dano);
     }
 
     private void ataqueOponente() {
-        personagem.setVida((int) (personagem.getVida() - oponente.calculaDano(ataque)));
+        Random aleatorio = new Random();
+        int sorte = aleatorio.nextInt(3) + 1;
+        int dano = (int) oponente.calculaDano(sorte);
+        personagem.setVida((int) (personagem.getVida() - dano));
+        JOptionPane.showMessageDialog(null, "Dano sofrido: " + dano);
     }
 
     private void encerraLuta(int vencedor) {

@@ -10,7 +10,6 @@ import javax.swing.JOptionPane;
 import ufjf.dcc025.trabalho.modelUsers.Administrador;
 import ufjf.dcc025.trabalho.modelUsers.Organizador;
 import ufjf.dcc025.trabalho.util.SalvarJogador;
-import ufjf.dcc025.trabalho.validacaoDados.CPF;
 import ufjf.dcc025.trabalho.validacaoDados.Data;
 
 /**
